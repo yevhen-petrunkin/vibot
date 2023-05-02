@@ -1,0 +1,31 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Okay, let's begin our work."
+    },
+    {
+      "type": "TextBlock",
+      "text": "Do you have a plan?",
+      "size": "large"
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Yes",
+      "verb": "satisfied",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "No",
+      "verb": "notSatisfied",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "minHeight": "200px",
+  "verticalContentAlignment": "center",
+  "keyword": "registerDivide"
+}

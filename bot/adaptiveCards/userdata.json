@@ -1,0 +1,49 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Please check the information before we proceed!",
+      "size": "large"
+    },
+    {
+      "type": "FactSet",
+      "facts": [
+        {
+          "title": "Name",
+          "value": "${userName}"
+        },
+        {
+          "title": "Email",
+          "value": "${userEmail}"
+        },
+        {
+          "title": "Date",
+          "value": "${userDate}"
+        },
+        {
+          "title": "Role",
+          "value": "${userRole}"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Ok",
+      "verb": "registerDivide",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Change Info",
+      "verb": "registerUpdate",
+      "fallback": "Action.Submit"
+    }
+  ],
+
+  "minHeight": "200px",
+  "verticalContentAlignment": "center",
+  "keyword": "userData"
+}
