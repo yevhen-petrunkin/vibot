@@ -1,0 +1,11 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Ок! Нагадую, що  Performance Review буде 25.05.2023 😉"
+    }
+  ],
+  "verticalContentAlignment": "center",
+  "keyword": "perfReviewNote"
+}

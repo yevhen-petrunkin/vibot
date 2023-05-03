@@ -1,0 +1,31 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Бажаєте отримати карʼєрний план?",
+      "weight": "bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": " 💡 Спеціалісти компанії, які ефективно виконують свою роботу, мають реальні шанси на карʼерний ріст у Viseven.",
+      "wrap": true
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Так",
+      "verb": "startCareerPlan",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Ні",
+      "verb": "askReasonDecline",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "verticalContentAlignment": "center",
+  "keyword": "askAboutPlan"
+}

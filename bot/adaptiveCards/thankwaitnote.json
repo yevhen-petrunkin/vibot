@@ -1,0 +1,29 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Дякую за відповідь",
+      "size": "large",
+      "weight": "bolder"
+    },
+    {
+      "type": "Image",
+      "url": "https://adaptivecards.io/content/cats/1.png",
+      "altText": "VBot",
+      "height": "200px"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Менеджер вже поспішає на помічь.",
+      "weight": "bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Очикуй на повідомдення 😉"
+    }
+  ],
+
+  "verticalContentAlignment": "center",
+  "keyword": "thankWaitNote"
+}
