@@ -1,0 +1,24 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Ок, записав!",
+      "size": "large",
+      "weight": "bolder"
+    },
+    {
+      "type": "Image",
+      "url": "https://adaptivecards.io/content/cats/1.png",
+      "altText": "VBot",
+      "height": "200px"
+    },
+    {
+      "type": "TextBlock",
+      "text": "До зустрічі 😉"
+    }
+  ],
+
+  "verticalContentAlignment": "center",
+  "keyword": "confirmRecord"
+}
