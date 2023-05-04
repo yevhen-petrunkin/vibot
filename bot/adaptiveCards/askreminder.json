@@ -1,0 +1,32 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Коли тобі нагадати?",
+      "weight": "bolder"
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Завтра",
+      "verb": "confirmRecord",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Через тиждень",
+      "verb": "confirmRecord",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Відкрити календар",
+      "verb": "confirmRecord",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "verticalContentAlignment": "center",
+  "keyword": "askReminder"
+}

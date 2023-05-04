@@ -15,36 +15,24 @@
     },
     {
       "type": "TextBlock",
-      "text": "Давай розпочнемо роботу.",
+      "text": "Я допоможу тобі з вибором плану після 6 місяців роботи.",
       "size": "medium",
       "weight": "bolder"
     },
     {
       "type": "TextBlock",
-      "text": "Чи є в тебе кар'єрний план?😉"
+      "text": "Чекай на повідомлення від мене 😉"
     }
   ],
   "actions": [
     {
       "type": "Action.Execute",
-      "title": "Так",
-      "verb": "checkPlanJoy",
-      "fallback": "Action.Submit"
-    },
-    {
-      "type": "Action.Execute",
-      "title": "Ні",
-      "verb": "askAboutPlan",
-      "fallback": "Action.Submit"
-    },
-    {
-      "type": "Action.Execute",
-      "title": "Нагадати пізніше",
-      "verb": "askReminder",
+      "title": "Ок",
+      "verb": "",
       "fallback": "Action.Submit"
     }
   ],
   "minHeight": "200px",
   "verticalContentAlignment": "center",
-  "keyword": "startPlan"
+  "keyword": "helpPlan"
 }

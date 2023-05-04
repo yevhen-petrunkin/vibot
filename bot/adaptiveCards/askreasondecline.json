@@ -1,0 +1,52 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Вкажи будь-ласка причину, чому ти не хочеш карʼєрний план",
+      "weight": "bolder",
+      "wrap": true
+    },
+    {
+      "type": "Input.ChoiceSet",
+      "id": "whyNoPlan",
+      "isMultiSelect": true,
+      "style": "expanded",
+      "choices": [
+        {
+          "title": "Не планую залишатись в компанії Viseven",
+          "value": "1"
+        },
+        {
+          "title": "Маю власну систему постановки та досягання цілей",
+          "value": "2"
+        },
+        {
+          "title": "Мені не потрібен карʼрний план",
+          "value": "3"
+        },
+        {
+          "title": "Свій варіант",
+          "value": "4"
+        }
+      ]
+    },
+    {
+      "type": "Input.Text",
+      "id": "multilineInputId",
+      "maxLength": 1000,
+      "isMultiline": true
+    }
+  ],
+
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Готово",
+      "verb": "thankCardDef",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "verticalContentAlignment": "center",
+  "keyword": "askReasonDecline"
+}

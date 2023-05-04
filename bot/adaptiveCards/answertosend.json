@@ -1,0 +1,12 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Повідомлення відправлено. Очікуй на відповідь."
+      
+    }
+  ],   
+  "verticalContentAlignment": "center",
+  "keyword": "answerToSend"
+}
