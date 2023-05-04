@@ -1,0 +1,23 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "Input.Text",
+      "id": "userEmail",
+      "isMultiline": false,
+      "label": "Введіть email менеджера",
+      "style": "email",
+      "isRequired": true,
+      "errorMessage": "This email is not allowed."
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Готово",
+      "verb": "determineSpecPath",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "keyword": "managerEmail"
+}

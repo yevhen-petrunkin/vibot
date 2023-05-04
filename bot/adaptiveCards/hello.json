@@ -1,0 +1,80 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Привіт, Я V7Pro - твій карʼєрний помічник!",
+      "size": "large",
+      "weight": "bolder",
+      "color": "dark",
+      "wrap": true,
+      "separator": true
+    },
+    {
+      "type": "Image",
+      "url": "https://i.ibb.co/mCCqLGt/27.jpg",
+      "altText": "",
+      "backgroundColor": "#EEEEEE",
+      "width": "434px",
+      "height": "200px"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Ось деякі з речей, які я можу зробити:",
+      "size": "medium",
+      "weight": "default",
+      "color": "dark"
+    },
+    {
+      "type": "TextBlock",
+      "text": "• Допоможу розробити карʼєрний план",
+      "size": "medium",
+      "weight": "default",
+      "color": "dark"
+    },
+    {
+      "type": "TextBlock",
+      "text": "• Періодично нагадуватиму переглядати карʼєрний план",
+      "size": "medium",
+      "weight": "default",
+      "color": "dark"
+    },
+    {
+      "type": "TextBlock",
+      "text": "• Спонукатиму досягати поставлених цілей",
+      "size": "medium",
+      "weight": "default",
+      "color": "dark"
+    },
+    {
+      "type": "TextBlock",
+      "text": "• Нагадуватиму про зустрічі менеджерів і спеціалістів",
+      "size": "medium",
+      "weight": "default",
+      "color": "dark"
+    },
+    {
+      "type": "TextBlock",
+      "text": "• Відкриватиму робоче меню на команду “Hello”",
+      "size": "medium",
+      "weight": "default",
+      "color": "dark"
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Давай почнемо",
+      "verb": "register",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.OpenUrl",
+      "title": "Подивитись промо-відео",
+      "url": "https://www.youtube.com/watch?v=6klJxntyth0",
+      "id": "video"
+    }
+  ],
+
+  "keyword": "hello"
+}

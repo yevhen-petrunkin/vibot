@@ -1,5 +1,6 @@
 const createAdaptiveCardArray = require("../helpers/createAdaptiveCardArray");
 const findAdaptiveCard = require("../helpers/findAdaptiveCard");
+const changeCommand = require("../helpers/changeCommand");
 const updateUserCareerStage = require("../db-functions/updateUserCareerStage");
 const showAdaptiveCardByData = require("../actions/showAdaptiveCardByData");
 const handleInvokeAdditionalStepsByVerb = require("../handlers/handleInvokeAdditionalStepsByVerb");
@@ -9,12 +10,16 @@ async function handleInvokeByVerb(verb, config) {
   const { context } = config;
   const userId = context.activity.from.id;
   const activityData = context.activity;
-  const adaptiveCardData = await findAdaptiveCard(verb, adaptiveCardArray);
+
+  let command = changeCommand(verb);
+
+  const adaptiveCardData = await findAdaptiveCard(command, adaptiveCardArray);
 
   if (adaptiveCardData) {
-    await updateUserCareerStage(verb, userId);
-    await handleInvokeAdditionalStepsByVerb(verb, activityData);
+    await updateUserCareerStage(command, userId);
+    await handleInvokeAdditionalStepsByVerb(command, activityData);
   }
+
   await showAdaptiveCardByData(adaptiveCardData, context);
 }
 

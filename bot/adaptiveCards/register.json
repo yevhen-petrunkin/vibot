@@ -3,62 +3,61 @@
   "body": [
     {
       "type": "TextBlock",
-      "text": "Registration",
-      "size": "large"
+      "text": "Познайомимось ближче",
+      "size": "large",
+      "weight": "bolder",
+      "color": "dark",
+      "wrap": true,
+      "separator": true
+    },
+    {
+      "type": "Image",
+      "url": "https://i.ibb.co/mCCqLGt/27.jpg",
+      "altText": "",
+      "backgroundColor": "#EEEEEE",
+      "width": "434px",
+      "height": "200px"
     },
     {
       "type": "TextBlock",
-      "text": "First of all, tell me something about yourself."
+      "text": "Заповни коротеньку анкету:",
+      "size": "medium",
+      "weight": "default",
+      "color": "dark"
     },
     {
       "type": "Input.Text",
       "id": "userEmail",
       "isMultiline": false,
-      "placeholder": "Enter your email",
+      "label": "Email",
       "style": "email",
       "isRequired": true,
-      "errorMessage": "Email is not allowed."
+      "errorMessage": "This email is not allowed."
     },
     {
       "type": "Input.Date",
       "id": "userStartDate",
       "isMultiline": false,
       "style": "email",
-      "placeholder": "Enter date",
-      "label": "Enter date when you started working in the company.",
+      "placeholder": "дд/мм/рр",
+      "label": "Початок роботи в компанії.",
       "isRequired": true,
       "errorMessage": "Something wrong with the date."
-    },
-    {
-      "type": "Input.ChoiceSet",
-      "id": "userRole",
-      "style": "compact",
-      "label": "What is your role in the company?",
-      "placeholder": "Choose your role",
-      "isMultiSelect": false,
-      "isRequired": true,
-      "errorMessage": "Something wrong with the date.",
-      "choices": [
-        {
-          "title": "Specialist",
-          "value": "specialist"
-        },
-        {
-          "title": "Manager",
-          "value": "manager"
-        }
-      ]
     }
   ],
   "actions": [
     {
       "type": "Action.Execute",
-      "title": "Submit",
-      "verb": "userData",
+      "title": "Спеціаліст",
+      "verb": "userDataSpecialist",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Менеджер",
+      "verb": "userDataManager",
       "fallback": "Action.Submit"
     }
   ],
-  "minHeight": "200px",
-  "verticalContentAlignment": "center",
   "keyword": "register"
 }
