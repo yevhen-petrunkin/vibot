@@ -36,6 +36,10 @@
             {
               "title": "hello",
               "description": "Initiate conversation"
+            },
+            {
+              "title": "dev",
+              "description": "Developer use only"
             }
           ]
         }

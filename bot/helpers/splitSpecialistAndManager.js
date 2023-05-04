@@ -1,8 +1,8 @@
 function splitSpecialistAndManager(verb) {
-  switch (verb) {
-    case "userDataSpecialist":
+  switch (verb.toLowerCase()) {
+    case "userdataspecialist":
       return "managerEmail";
-    case "userDataManager":
+    case "userdatamanager":
       return "managerFileSending";
   }
 }
