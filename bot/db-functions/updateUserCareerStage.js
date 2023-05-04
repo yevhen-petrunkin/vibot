@@ -4,7 +4,7 @@ const { db } = require("../firebase.js");
 async function updateUserCareerStage(stage, userId) {
   try {
     await updateDoc(doc(db, "users", userId), {
-      stage,
+      stage: stage.toLowerCase(),
       timeStamp: serverTimestamp(),
     });
   } catch (error) {
