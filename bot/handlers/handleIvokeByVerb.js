@@ -11,7 +11,7 @@ async function handleInvokeByVerb(verb, config) {
   const userId = context.activity.from.id;
   const activityData = context.activity;
 
-  let command = changeCommand(verb, activityData);
+  let command = await changeCommand(verb, activityData);
 
   let adaptiveCardData = null;
   adaptiveCardData = await findAdaptiveCard(command, adaptiveCards);
@@ -29,7 +29,8 @@ async function handleInvokeByVerb(verb, config) {
   if (adaptiveCardData.dynamic) {
     adaptiveCardData = await changeDataInAdaptiveCard(
       adaptiveCardData,
-      activityData
+      activityData,
+      userId
     );
   }
 

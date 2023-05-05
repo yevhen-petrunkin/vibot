@@ -30,7 +30,7 @@ async function handleMessageByText(text, config) {
     const command = await fetchMessageAdaptiveCardCommandById(userId);
 
     if (command.toLowerCase() === "hello") {
-      await postPrimaryUserData(context);
+      await postPrimaryUserData(activityData);
     }
 
     let adaptiveCardData = null;
@@ -44,7 +44,8 @@ async function handleMessageByText(text, config) {
     if (adaptiveCardData.dynamic) {
       adaptiveCardData = await changeDataInAdaptiveCard(
         adaptiveCardData,
-        activityData
+        activityData,
+        userId
       );
     }
 

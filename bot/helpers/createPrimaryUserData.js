@@ -1,5 +1,5 @@
-function createPrimaryUserData(context) {
-  const { id, name } = context.activity.from;
+function createPrimaryUserData(data) {
+  const { id, name } = data.from;
   const userData = { name, id, stage: "hello" };
   return userData;
 }

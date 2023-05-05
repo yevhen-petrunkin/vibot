@@ -1,10 +1,10 @@
 const { doc, updateDoc, serverTimestamp } = require("firebase/firestore");
 const { db } = require("../firebase.js");
 
-async function updateUserCareerStage(stage, userId) {
+async function postCustomUserData(customData, userId) {
   try {
     await updateDoc(doc(db, "users", userId), {
-      stage: stage,
+      ...customData,
       timeStamp: serverTimestamp(),
     });
   } catch (error) {
@@ -12,4 +12,4 @@ async function updateUserCareerStage(stage, userId) {
   }
 }
 
-module.exports = updateUserCareerStage;
+module.exports = postCustomUserData;

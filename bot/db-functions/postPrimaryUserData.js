@@ -2,9 +2,9 @@ const { doc, setDoc, serverTimestamp } = require("firebase/firestore");
 const { db } = require("../firebase.js");
 const createPrimaryUserData = require("../helpers/createPrimaryUserData");
 
-async function postPrimaryUserData(context) {
-  const userData = createPrimaryUserData(context);
-  const userId = context.activity.from.id;
+async function postPrimaryUserData(data) {
+  const userData = createPrimaryUserData(data);
+  const userId = data.from.id;
 
   try {
     await setDoc(doc(db, "users", userId), {
