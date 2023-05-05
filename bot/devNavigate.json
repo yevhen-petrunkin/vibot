@@ -6,7 +6,6 @@
       "id": "neededCard",
       "isMultiline": false,
       "label": "Enter keyword",
-      "isRequired": true,
       "errorMessage": "Something wrong."
     }
   ],
@@ -15,6 +14,12 @@
       "type": "Action.Execute",
       "title": "Ok",
       "verb": "goToCard",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Reset user",
+      "verb": "deleteUser",
       "fallback": "Action.Submit"
     }
   ]

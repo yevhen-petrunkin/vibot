@@ -3,7 +3,7 @@
   "body": [
     {
       "type": "Input.Text",
-      "id": "userEmail",
+      "id": "managerEmail",
       "isMultiline": false,
       "label": "Введіть email менеджера",
       "style": "email",
