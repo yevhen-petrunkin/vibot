@@ -4,9 +4,9 @@
     {
       "type": "TextBlock",
       "text": "Повідомлення відправлено. Очікуй на відповідь."
-      
     }
-  ],   
+  ],
   "verticalContentAlignment": "center",
-  "keyword": "answerToSend"
+  "keyword": "answerToSend",
+  "dynamic": false
 }

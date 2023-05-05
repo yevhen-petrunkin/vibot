@@ -34,5 +34,6 @@
   ],
   "minHeight": "200px",
   "verticalContentAlignment": "center",
-  "keyword": "helpPlan"
+  "keyword": "helpPlan",
+  "dynamic": false
 }

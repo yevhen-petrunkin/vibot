@@ -41,5 +41,6 @@
     }
   ],
   "verticalContentAlignment": "center",
-  "keyword": "startCareerPlan"
+  "keyword": "startCareerPlan",
+  "dynamic": false
 }

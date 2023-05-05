@@ -20,5 +20,6 @@
   ],
 
   "verticalContentAlignment": "center",
-  "keyword": "confirmRecord"
+  "keyword": "confirmRecord",
+  "dynamic": false
 }

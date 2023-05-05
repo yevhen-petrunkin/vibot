@@ -48,5 +48,6 @@
     }
   ],
   "verticalContentAlignment": "center",
-  "keyword": "askReasonDecline"
+  "keyword": "askReasonDecline",
+  "dynamic": false
 }
