@@ -76,5 +76,6 @@
     }
   ],
 
-  "keyword": "hello"
+  "keyword": "hello",
+  "dynamic": false
 }

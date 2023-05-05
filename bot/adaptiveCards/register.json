@@ -59,5 +59,6 @@
       "fallback": "Action.Submit"
     }
   ],
-  "keyword": "register"
+  "keyword": "register",
+  "dynamic": false
 }

@@ -1,18 +1,22 @@
-const { devNavigateCard } = require("../createNavigateCard");
+const { rawNavigateCard } = require("../adaptiveCards/cardIndex");
 
-const { adaptiveCardArray } = require("../helpers/createAdaptiveCardArray");
+const createAdaptiveCardFromObject = require("../helpers/createAdaptiveCardFromObject");
+const { adaptiveCards } = require("../adaptiveCards/cardIndex");
 const findAdaptiveCard = require("../helpers/findAdaptiveCard");
 const fetchMessageAdaptiveCardCommandById = require("../db-functions/fetchMessageAdaptiveCardCommandById.js");
 const postPrimaryUserData = require("../db-functions/postPrimaryUserData");
+const changeDataInAdaptiveCard = require("../helpers/changeDataInAdaptiveCard");
 const showAdaptiveCardByData = require("../actions/showAdaptiveCardByData");
 
 async function handleMessageByText(text, config) {
   const { context } = config;
   const userId = context.activity.from.id;
+  const activityData = context.activity;
 
   if (text.toLowerCase() === "dev") {
+    const navigateCard = createAdaptiveCardFromObject(rawNavigateCard);
     await context.sendActivity({
-      attachments: [devNavigateCard],
+      attachments: [navigateCard],
     });
     return;
   }
@@ -29,7 +33,21 @@ async function handleMessageByText(text, config) {
       await postPrimaryUserData(context);
     }
 
-    const adaptiveCardData = await findAdaptiveCard(command, adaptiveCardArray);
+    let adaptiveCardData = null;
+    adaptiveCardData = await findAdaptiveCard(command, adaptiveCards);
+
+    if (!adaptiveCardData) {
+      await context.sendActivity("Sorry. Did not find the necessary answer.");
+      return;
+    }
+
+    if (adaptiveCardData.dynamic) {
+      adaptiveCardData = await changeDataInAdaptiveCard(
+        adaptiveCardData,
+        activityData
+      );
+    }
+
     await showAdaptiveCardByData(adaptiveCardData, context);
   }
 }

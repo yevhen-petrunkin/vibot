@@ -19,5 +19,6 @@
       "fallback": "Action.Submit"
     }
   ],
-  "keyword": "managerEmail"
+  "keyword": "managerEmail",
+  "dynamic": false
 }

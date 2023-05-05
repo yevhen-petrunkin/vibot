@@ -27,5 +27,6 @@
     }
   ],
   "verticalContentAlignment": "center",
-  "keyword": "askAboutPlan"
+  "keyword": "askAboutPlan",
+  "dynamic": false
 }
