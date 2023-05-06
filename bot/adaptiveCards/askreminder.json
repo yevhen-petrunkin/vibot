@@ -28,5 +28,6 @@
     }
   ],
   "verticalContentAlignment": "center",
-  "keyword": "askReminder"
+  "keyword": "askReminder",
+  "dynamic": false
 }

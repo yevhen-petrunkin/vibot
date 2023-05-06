@@ -1,14 +1,16 @@
-const cardTools = require("@microsoft/adaptivecards-tools");
+const rawNavigateCard = require("../devNavigate.json");
+
 const fs = require("fs");
 const path = require("path");
 
 const adaptiveCardsPath = "./adaptiveCards/";
 const adaptiveCardsRequirePath = "../adaptiveCards/";
 
-const cards = createRawCardArray();
+const adaptiveCards = createRawCardArray();
 
 module.exports = {
-  cards,
+  adaptiveCards,
+  rawNavigateCard,
 };
 
 function createRawCardArray() {
@@ -17,6 +19,6 @@ function createRawCardArray() {
     .filter((file) => path.extname(file) === ".json")
     .map((file) => {
       const rawCard = require(path.join(adaptiveCardsRequirePath, file));
-      return cardTools.AdaptiveCards.declareWithoutData(rawCard);
+      return rawCard;
     });
 }

@@ -140,6 +140,42 @@
       "problemMatcher": [],
       "label": "npm: dev - bot",
       "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
+    },
+    {
+      "type": "npm",
+      "script": "dev",
+      "path": "bot",
+      "group": "rebuild",
+      "problemMatcher": [],
+      "label": "npm: dev - bot",
+      "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
+    },
+    {
+      "type": "npm",
+      "script": "dev",
+      "path": "bot",
+      "group": "rebuild",
+      "problemMatcher": [],
+      "label": "npm: dev - bot",
+      "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
+    },
+    {
+      "type": "npm",
+      "script": "dev",
+      "path": "bot",
+      "group": "rebuild",
+      "problemMatcher": [],
+      "label": "npm: dev - bot",
+      "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
+    },
+    {
+      "type": "npm",
+      "script": "dev",
+      "path": "bot",
+      "group": "rebuild",
+      "problemMatcher": [],
+      "label": "npm: dev - bot",
+      "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
     }
   ]
 }

@@ -46,5 +46,6 @@
   ],
   "minHeight": "200px",
   "verticalContentAlignment": "center",
-  "keyword": "startPlan"
+  "keyword": "startPlan",
+  "dynamic": false
 }

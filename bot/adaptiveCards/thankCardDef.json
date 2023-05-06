@@ -15,5 +15,6 @@
     }
   ],
   "verticalContentAlignment": "center",
-  "keyword": "thankCardDef"
+  "keyword": "thankCardDef",
+  "dynamic": false
 }

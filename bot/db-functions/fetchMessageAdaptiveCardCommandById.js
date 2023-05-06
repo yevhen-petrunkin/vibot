@@ -13,7 +13,7 @@ async function fetchMessageAdaptiveCardCommandById(userId) {
       });
       if (usersArr.length) {
         const command = findCommandStageByUserId(userId, usersArr);
-        return command;
+        return command.toLowerCase();
       }
     }
     if (!users || !usersArr.length) {
