@@ -1,0 +1,34 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Важливі файли",
+      "weight": "bolder"
+    },
+    {
+      "type": "Input.Text",
+      "id": "fileName",
+      "isMultiline": false,
+      "placeholder": "Назва файлу",
+      "isRequired": true
+    },
+    {
+      "type": "Input.Text",
+      "id": "fileLink",
+      "isMultiline": false,
+      "placeholder": "Посилання",
+      "isRequired": true
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Готово",
+      "verb": "addFile",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "verticalContentAlignment": "center",
+  "keyword": "askPastMeetings"
+}
