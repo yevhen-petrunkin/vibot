@@ -12,7 +12,7 @@
       "id": "whyNoPlan",
       "isMultiSelect": true,
       "style": "expanded",
-      "choices": [
+      "choices": [   
         {
           "title": "Не планую залишатись в компанії Viseven",
           "value": "1"
