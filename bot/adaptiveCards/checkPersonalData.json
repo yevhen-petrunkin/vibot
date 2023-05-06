@@ -1,0 +1,97 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "RichTextBox",
+      "inlines": [
+        {
+          "type": "TextRun",
+          "text": "Інформація про тебе",
+          "weight": "bolder",
+          "size": "large"
+        }
+      ]
+    },
+    {
+      "type": "RichTextBox",
+      "inlines": [
+        {
+          "type": "TextRun",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "type": "RichTextBox",
+      "inlines": [
+        {
+          "type": "TextRun",
+          "text": "Прізвище:  ",
+          "weight": "bolder"
+        },
+        {
+          "type": "TextRun",
+          "dynamicText": "LINK"
+        }
+      ]
+    },
+    {
+      "type": "RichTextBox",
+      "inlines": [
+        {
+          "type": "TextRun",
+          "text": "Ім'я:  ",
+          "weight": "bolder"
+        },
+        {
+          "type": "TextRun",
+          "dynamicText": "LINK"
+        }
+      ]
+    },
+    {
+      "type": "RichTextBox",
+      "inlines": [
+        {
+          "type": "TextRun",
+          "text": "Email:  ",
+          "weight": "bolder"
+        },
+        {
+          "type": "TextRun",
+          "dynamicText": "LINK"
+        }
+      ]
+    },
+    {
+      "type": "RichTextBox",
+      "inlines": [
+        {
+          "type": "TextRun",
+          "text": "В компаніі з:  ",
+          "weight": "bolder"
+        },
+        {
+          "type": "TextRun",
+          "dynamicText": "LINK"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Ок",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Змінити",
+      "verb": "editPersonalData",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "minHeight": "200px",
+  "verticalContentAlignment": "center",
+  "keyword": "checkPersonalData"
+}

@@ -1,0 +1,29 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Важливі файли",
+      "weight": "bolder"
+    },
+    {
+      "type": "List",
+      "dynamicListText": "<b>LINK НАЗВА</b><div>LINK ФАЙЛ</div>"
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Ок",
+      "verb": "addFile",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Додати файл",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "verticalContentAlignment": "center",
+  "keyword": "askPastMeetings"
+}
