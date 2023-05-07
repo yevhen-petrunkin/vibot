@@ -9,21 +9,24 @@
     },
     {
       "type": "Input.ChoiceSet",
-      "id": "whyNoPlan",
+      "id": "reasonDecline",
       "isMultiSelect": true,
       "style": "expanded",
+      "label": "Why no plan",
+      "isRequired": true,
+      "errorMessage": "This is a required input",
       "choices": [
         {
           "title": "Не планую залишатись в компанії Viseven",
-          "value": "1"
+          "value": "Не планую залишатись в компанії Viseven"
         },
         {
           "title": "Маю власну систему постановки та досягання цілей",
-          "value": "2"
+          "value": "Маю власну систему постановки та досягання цілей"
         },
         {
           "title": "Мені не потрібен карʼрний план",
-          "value": "3"
+          "value": "Мені не потрібен карʼрний план"
         },
         {
           "title": "Свій варіант",
@@ -33,7 +36,7 @@
     },
     {
       "type": "Input.Text",
-      "id": "multilineInputId",
+      "id": "yourOptionReasonDecline",
       "maxLength": 1000,
       "isMultiline": true
     }
@@ -47,7 +50,7 @@
       "fallback": "Action.Submit"
     }
   ],
-  "verticalContentAlignment": "center",
   "keyword": "askReasonDecline",
+  "shouldCareerUpdate": true,
   "dynamic": false
 }
