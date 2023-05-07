@@ -1,0 +1,29 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Спеціалісти з якими треба поговорити з приводу карʼєрного плану",
+      "weight": "bolder"
+    },
+    {
+      "type": "List",
+      "dynamicListText": "<b>Призвище та ім'я: LINK</b><div>LINK EMAIL</div><div>В компанії з LINK DATA</div>"
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Ок",
+      "verb": "addFile",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Додати файл",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "verticalContentAlignment": "center",
+  "keyword": "askPastMeetings"
+}

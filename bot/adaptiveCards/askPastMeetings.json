@@ -1,0 +1,32 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "За який термін ти хочеш переглянути зустрічі?",
+      "weight": "bolder"
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Сьогодні",
+      "verb": "confirmRecordToday",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Тиждень",
+      "verb": "confirmRecordWeek",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Місяць",
+      "verb": "confirmRecordMonth",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "verticalContentAlignment": "center",
+  "keyword": "askPastMeetings"
+}
