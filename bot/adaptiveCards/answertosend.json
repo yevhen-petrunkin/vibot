@@ -6,7 +6,7 @@
       "text": "Повідомлення відправлено. Очікуй на відповідь."
     }
   ],
-  "verticalContentAlignment": "center",
   "keyword": "answerToSend",
+  "shouldCareerUpdate": true,
   "dynamic": false
 }

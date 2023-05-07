@@ -27,7 +27,7 @@
       "fallback": "Action.Submit"
     }
   ],
-  "verticalContentAlignment": "center",
   "keyword": "askReminder",
+  "shouldCareerUpdate": true,
   "dynamic": false
 }
