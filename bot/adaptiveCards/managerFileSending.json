@@ -1,0 +1,27 @@
+{
+  "type": "AdaptiveCard",
+  "version": "1.0",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Скидаю тобі інструкцію “Як створити ефективний кар’єрний план”  ",
+      "weight": "bolder"
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.OpenUrl",
+      "title": "Скачать файл",
+      "url": "https://example.com/file.pdf"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "До меню",
+      "verb": "managerMenu",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "keyword": "managerFileSending",
+  "dynamic": false,
+  "shouldCareerUpdate": true
+}

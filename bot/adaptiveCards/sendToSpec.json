@@ -32,7 +32,7 @@
     {
       "type": "Action.Execute",
       "title": "Готово",
-      "verb": "answerToSend",
+      "verb": "managerMenu",
       "fallback": "Action.Submit"
     }
   ],

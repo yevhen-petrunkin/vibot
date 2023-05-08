@@ -25,12 +25,12 @@
     {
       "type": "Action.Execute",
       "title": "Готово",
-      "verb": "addFile",
+      "verb": "managerMenu",
       "fallback": "Action.Submit"
     }
   ],
   "verticalContentAlignment": "center",
-  "keyword": "askPastMeetings",
+  "keyword": "addFile",
   "dynamic": false,
   "shouldCareerUpdate": false
 }
