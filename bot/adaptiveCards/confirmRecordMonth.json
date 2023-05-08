@@ -3,7 +3,7 @@
   "body": [
     {
       "type": "TextBlock",
-      "text": "Переліки твоїх зустрічей за останні 24 години",
+      "text": "Переліки твоїх зустрічей за місяць",
       "weight": "bolder"
     },
     {
@@ -25,7 +25,7 @@
     }
   ],
   "verticalContentAlignment": "center",
-  "keyword": "confirmRecordToday",
+  "keyword": "confirmRecordMonth",
   "dynamic": true,
   "shouldCareerUpdate": false
 }

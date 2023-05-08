@@ -15,15 +15,12 @@
     {
       "type": "Action.Execute",
       "title": "Ок",
-      "verb": "addFile",
-      "fallback": "Action.Submit"
-    },
-    {
-      "type": "Action.Execute",
-      "title": "Додати файл",
+      "verb": "managerMenu",
       "fallback": "Action.Submit"
     }
   ],
   "verticalContentAlignment": "center",
-  "keyword": "askPastMeetings"
+  "keyword": "noPlanList",
+  "dynamic": true,
+  "shouldCareerUpdate": false
 }

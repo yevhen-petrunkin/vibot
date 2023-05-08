@@ -25,5 +25,7 @@
     }
   ],
   "verticalContentAlignment": "center",
-  "keyword": "askPastMeetings"
+  "keyword": "importantFilesList",
+  "dynamic": true,
+  "shouldCareerUpdate": false
 }
