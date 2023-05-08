@@ -93,5 +93,7 @@
   ],
   "minHeight": "200px",
   "verticalContentAlignment": "center",
-  "keyword": "checkPersonalData"
+  "keyword": "checkPersonalData",
+  "dynamic": true,
+  "shouldCareerUpdate": false
 }
