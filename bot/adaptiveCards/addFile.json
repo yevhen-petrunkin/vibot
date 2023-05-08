@@ -29,7 +29,6 @@
       "fallback": "Action.Submit"
     }
   ],
-  "verticalContentAlignment": "center",
   "keyword": "addFile",
   "dynamic": false,
   "shouldCareerUpdate": false

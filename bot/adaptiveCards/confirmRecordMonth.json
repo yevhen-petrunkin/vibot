@@ -3,12 +3,22 @@
   "body": [
     {
       "type": "TextBlock",
-      "text": "Переліки твоїх зустрічей за місяць",
-      "weight": "bolder"
+      "text": "Переліки твоїх зустрічей за останній місяць",
+      "weight": "bolder",
+      "size": "large",
+      "wrap": true
+    }
+    ,
+    {
+      "type": "TextBlock",
+      "text": "Не цікава зустріч 1",
+      "weight": "bolder",
+      "wrap": true
     },
     {
-      "type": "List",
-      "dynamicListText": "<b>Назва зустрічі</b><div>Коли: LINK o LINK</div><div>Нотатки(LINK?)</div>"
+      "type": "TextBlock",
+      "text": "06.05.2020",
+      "wrap": true
     }
   ],
   "actions": [
@@ -26,6 +36,6 @@
   ],
   "verticalContentAlignment": "center",
   "keyword": "confirmRecordMonth",
-  "dynamic": true,
+  "dynamic": false,
   "shouldCareerUpdate": false
 }

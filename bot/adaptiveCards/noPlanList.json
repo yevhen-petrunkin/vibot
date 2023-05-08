@@ -4,11 +4,24 @@
     {
       "type": "TextBlock",
       "text": "Спеціалісти з якими треба поговорити з приводу карʼєрного плану",
-      "weight": "bolder"
+      "weight": "bolder",
+      "wrap": true
     },
     {
-      "type": "List",
-      "dynamicListText": "<b>Призвище та ім'я: LINK</b><div>LINK EMAIL</div><div>В компанії з LINK DATA</div>"
+      "type": "TextBlock",
+      "text": "Хтосімус Хточенко",
+      "weight": "bolder",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "whoamiqmark@gmail.com",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "В команії з 05.04.2021",
+      "wrap": true
     }
   ],
   "actions": [
@@ -21,6 +34,6 @@
   ],
   "verticalContentAlignment": "center",
   "keyword": "noPlanList",
-  "dynamic": true,
+  "dynamic": false,
   "shouldCareerUpdate": false
 }

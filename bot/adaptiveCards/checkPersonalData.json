@@ -2,7 +2,7 @@
   "type": "AdaptiveCard",
   "body": [
     {
-      "type": "RichTextBox",
+      "type": "RichTextBlock",
       "inlines": [
         {
           "type": "TextRun",
@@ -12,21 +12,21 @@
       ]
     },
     {
-      "type": "RichTextBox",
+      "type": "RichTextBlock",
       "inlines": [
         {
           "type": "TextRun",
-          "text": "Прізвище:  ",
+          "text": "Прізвище:  Тимощенко",
           "weight": "bolder"
         },
         {
           "type": "TextRun",
-          "text": "LINK"
+          "text": "Тимощенко"
         }
       ]
     },
     {
-      "type": "RichTextBox",
+      "type": "RichTextBlock",
       "inlines": [
         {
           "type": "TextRun",
@@ -35,12 +35,12 @@
         },
         {
           "type": "TextRun",
-          "text": "LINK"
+          "text": "Тимофій"
         }
       ]
     },
     {
-      "type": "RichTextBox",
+      "type": "RichTextBlock",
       "inlines": [
         {
           "type": "TextRun",
@@ -49,12 +49,12 @@
         },
         {
           "type": "TextRun",
-          "text": "LINK"
+          "text": "kafa@gmail.com"
         }
       ]
     },
     {
-      "type": "RichTextBox",
+      "type": "RichTextBlock",
       "inlines": [
         {
           "type": "TextRun",
@@ -63,7 +63,7 @@
         },
         {
           "type": "TextRun",
-          "text": "LINK"
+          "text": "07.06.2020"
         }
       ]
     }
@@ -78,6 +78,6 @@
   ],
   "minHeight": "200px",
   "keyword": "checkPersonalData",
-  "dynamic": true,
+  "dynamic": false,
   "shouldCareerUpdate": false
 }

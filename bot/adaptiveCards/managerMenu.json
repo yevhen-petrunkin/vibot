@@ -70,7 +70,7 @@
     {
       "type": "Action.Execute",
       "title": "Спеціалисти без плану",
-      "verb": "answerToSend"
+      "verb": "noPlanList"
     },
     {
       "type": "Action.Execute",

@@ -4,11 +4,19 @@
     {
       "type": "TextBlock",
       "text": "Переліки твоїх зустрічей за останні 24 години",
-      "weight": "bolder"
+      "weight": "bolder",
+      "wrap": true
     },
     {
-      "type": "List",
-      "dynamicListText": "<b>Назва зустрічі</b><div>Коли: LINK o LINK</div><div>Нотатки(LINK?)</div>"
+      "type": "TextBlock",
+      "text": "Не цікава зустріч 1",
+      "weight": "bolder",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "06.05.2020",
+      "wrap": true
     }
   ],
   "actions": [
@@ -26,6 +34,6 @@
   ],
   "verticalContentAlignment": "center",
   "keyword": "confirmRecordToday",
-  "dynamic": true,
+  "dynamic": false,
   "shouldCareerUpdate": false
 }

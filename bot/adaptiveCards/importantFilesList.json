@@ -4,28 +4,38 @@
     {
       "type": "TextBlock",
       "text": "Важливі файли",
-      "weight": "bolder"
+      "weight": "bolder",
+      "size": "large",
+      "wrap": true
     },
     {
-      "type": "List",
-      "dynamicListText": "<b>LINK НАЗВА</b><div>LINK ФАЙЛ</div>"
+      "type": "TextBlock",
+      "text": "Історія як я купив собі ліжко",
+      "weight": "bolder",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "docx.fsfs/ssss",
+      "wrap": true
     }
   ],
   "actions": [
     {
       "type": "Action.Execute",
       "title": "Ок",
-      "verb": "addFile",
+      "verb": "managerMenu",
       "fallback": "Action.Submit"
     },
     {
       "type": "Action.Execute",
       "title": "Додати файл",
+      "verb": "addFile",
       "fallback": "Action.Submit"
     }
   ],
   "verticalContentAlignment": "center",
   "keyword": "importantFilesList",
-  "dynamic": true,
+  "dynamic": false,
   "shouldCareerUpdate": false
 }
