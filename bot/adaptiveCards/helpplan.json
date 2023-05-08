@@ -32,8 +32,7 @@
       "fallback": "Action.Submit"
     }
   ],
-  "minHeight": "200px",
-  "verticalContentAlignment": "center",
   "keyword": "helpPlan",
+  "shouldCareerUpdate": true,
   "dynamic": false
 }

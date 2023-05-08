@@ -14,7 +14,7 @@
       "height": "200px"
     }
   ],
-  "verticalContentAlignment": "center",
   "keyword": "thankCardDef",
+  "shouldCareerUpdate": true,
   "dynamic": false
 }
