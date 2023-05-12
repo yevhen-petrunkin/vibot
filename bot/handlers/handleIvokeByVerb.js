@@ -1,40 +1,63 @@
-const { adaptiveCards } = require("../adaptiveCards/cardIndex");
+const {
+  adaptiveCards,
+  rawSuggestAuthCard,
+} = require("../adaptiveCards/cardIndex");
+
 const findAdaptiveCard = require("../helpers/findAdaptiveCard");
 const changeCommand = require("../helpers/changeCommand");
-const updateUserCareerStage = require("../db-functions/updateUserCareerStage");
 const changeDataInAdaptiveCard = require("../helpers/changeDataInAdaptiveCard");
 const showAdaptiveCardByData = require("../actions/showAdaptiveCardByData");
+const handleUserReplyMessages = require("../handlers/handleUserReplyMessages");
 const handleInvokeAdditionalStepsByVerb = require("../handlers/handleInvokeAdditionalStepsByVerb");
+const updateUserCareerStageByEmail = require("../db-functions/updateUserCareerStageByEmail");
 
 async function handleInvokeByVerb(verb, config) {
-  const { context } = config;
-  const userId = context.activity.from.id;
-  const activityData = context.activity;
+  const { context, credentials } = config;
+  const contextData = context.activity;
+  const { userEmail, companyName } = credentials;
 
-  let command = await changeCommand(verb, activityData);
+  let command = await changeCommand(verb, config);
 
   let adaptiveCardData = null;
   adaptiveCardData = await findAdaptiveCard(command, adaptiveCards);
 
   if (!adaptiveCardData) {
-    await context.sendActivity("Sorry. Did not find the necessary answer.");
+    const isReplyMessage = handleUserReplyMessages(verb, context, credentials);
+    if (!isReplyMessage) {
+      await context.sendActivity("Sorry. Did not find the necessary answer.");
+      return;
+    }
+    await handleInvokeAdditionalStepsByVerb(command, contextData);
     return;
   }
 
-  if (adaptiveCardData) {
-    await updateUserCareerStage(command, userId);
-    await handleInvokeAdditionalStepsByVerb(command, activityData);
-  }
+  await handleInvokeAdditionalStepsByVerb(command, contextData);
 
   if (adaptiveCardData.dynamic) {
-    adaptiveCardData = await changeDataInAdaptiveCard(
-      adaptiveCardData,
-      activityData,
-      userId
-    );
+    const user = await handleCredentials(contextData, credentials);
+    if (user) {
+      adaptiveCardData = await changeDataInAdaptiveCard(
+        adaptiveCardData,
+        config
+      );
+    } else {
+      const noConnectionWithDatabaseMsg =
+        "Cannot reach the necessary data right now. Try again later.";
+      await handleUserReplyMessages(
+        noConnectionWithDatabaseMsg,
+        context,
+        credentials
+      );
+      await showAdaptiveCardByData(rawSuggestAuthCard, context);
+      return;
+    }
+  }
+
+  if (adaptiveCardData.shouldCareerUpdate) {
+    await updateUserCareerStageByEmail(userEmail, command, companyName);
   }
 
   await showAdaptiveCardByData(adaptiveCardData, context);
 }
 
-module.exports = { handleInvokeByVerb };
+module.exports = handleInvokeByVerb;

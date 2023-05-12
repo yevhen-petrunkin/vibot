@@ -1,0 +1,38 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Do you want to sign up or log in!",
+      "size": "large",
+      "weight": "bolder",
+      "color": "dark",
+      "wrap": true,
+      "separator": true
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Log In",
+      "verb": "logIn",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Sign Up (if First Time)",
+      "verb": "signUp",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Create New Company",
+      "verb": "createCompany",
+      "fallback": "Action.Submit"
+    }
+  ],
+
+  "keyword": "suggestAuth",
+  "dynamic": false,
+  "shouldCareerUpdate": false
+}

@@ -1,0 +1,47 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Sign Up for the First Time",
+      "size": "large",
+      "weight": "bolder",
+      "color": "dark",
+      "wrap": true,
+      "separator": true
+    },
+
+    {
+      "type": "Input.Text",
+      "id": "signUpEmail",
+      "isMultiline": false,
+      "label": "Enter Your Email",
+      "style": "email",
+      "placeholder": "user@mail.com",
+      "isRequired": true,
+      "errorMessage": "This email is not allowed."
+    },
+    {
+      "type": "Input.Text",
+      "id": "signUpKeyword",
+      "isMultiline": false,
+      "label": "Enter Your Keyword",
+      "placeholder": "mykeyword",
+      "style": "text",
+      "isRequired": true,
+      "errorMessage": "This word is not allowed."
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Sign Up",
+      "verb": "submitSignUp",
+      "fallback": "Action.Submit"
+    }
+  ],
+
+  "keyword": "signUp",
+  "dynamic": false,
+  "shouldCareerUpdate": false
+}

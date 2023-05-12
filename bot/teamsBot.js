@@ -6,22 +6,51 @@ const {
   // CardFactory,
   TurnContext,
 } = require("botbuilder");
-const { handleMessageByText } = require("./handlers/handleMessageByText");
-const { handleInvokeByVerb } = require("./handlers/handleIvokeByVerb");
+
 const { normalizeMessageText } = require("./helpers/normalize");
+const handleMessageByText = require("./handlers/handleMessageByText");
+const handleNoCredentials = require("./handlers/handleNoCredentials");
+const handlePreRegisterActions = require("./handlers/handlePreRegisterActions");
+const handleInvokeByVerb = require("./handlers/handleIvokeByVerb");
+const handleAdminFunctions = require("./handlers/handleAdminFunctions");
+const showAdaptiveCardByData = require("./actions/showAdaptiveCardByData");
+
+const { rawAdminMenuCard } = require("./adaptiveCards/cardIndex");
 
 class TeamsBot extends TeamsActivityHandler {
   constructor() {
     super();
 
+    this.credentials = null;
+
     this.onMessage(async (context, next) => {
-      let txt = context.activity.text;
+      if (!this.credentials) {
+        this.credentials = await handleNoCredentials(context);
+        console.log("Message Credentials: ", this.credentials);
+        return;
+      }
+
+      const config = { context, credentials: this.credentials };
+
+      let message = context.activity.text;
       const removedMentionText = TurnContext.removeRecipientMention(
         context.activity
       );
-      txt = normalizeMessageText(removedMentionText);
-      const config = { context };
-      await handleMessageByText(txt, config);
+      message = normalizeMessageText(removedMentionText);
+
+      if (this.credentials.userRole === "admin") {
+        ("Admin is still logged on message with credentials");
+        await showAdaptiveCardByData(rawAdminMenuCard, context);
+      }
+
+      if (
+        this.credentials.userRole === "manager" ||
+        this.credentials.userRole === "specialist"
+      ) {
+        ("User (manager/specialist) is still logged on message with credentials");
+        await handleMessageByText(message, config);
+      }
+
       await next();
     });
 
@@ -33,9 +62,42 @@ class TeamsBot extends TeamsActivityHandler {
   }
 
   async onAdaptiveCardInvoke(context, invokeValue) {
+    console.log("Invoke Credentials: ", this.credentials);
     const verb = invokeValue.action.verb;
-    const config = { context };
-    await handleInvokeByVerb(verb, config);
+
+    if (!this.credentials) {
+      const { isTriggered, credentials } = await handlePreRegisterActions(
+        verb,
+        context,
+        this.credentials
+      );
+
+      if (!isTriggered) {
+        this.credentials = await handleNoCredentials(context);
+        return { statusCode: 200 };
+      }
+      this.credentials = credentials;
+      return { statusCode: 200 };
+    }
+
+    const config = { context, credentials: this.credentials };
+
+    if (this.credentials.userRole === "admin") {
+      console.log("Admin is still logged on invoke with credentials");
+      await handleAdminFunctions(verb, config);
+    }
+
+    if (
+      this.credentials.userRole === "manager" ||
+      this.credentials.userRole === "specialist"
+    ) {
+      console.log(
+        "User (manager/specialist) is still logged on invoke with credentials"
+      );
+      this.credentials.stage = verb;
+      await handleInvokeByVerb(verb, config);
+    }
+
     return { statusCode: 200 };
   }
 }

@@ -2,7 +2,7 @@
   "type": "AdaptiveCard",
   "body": [
     {
-      "type": "RichTextBox",
+      "type": "RichTextBlock",
       "inlines": [
         {
           "type": "TextRun",
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "type": "RichTextBox",
+      "type": "RichTextBlock",
       "inlines": [
         {
           "type": "TextRun",
@@ -22,7 +22,7 @@
       ]
     },
     {
-      "type": "RichTextBox",
+      "type": "RichTextBlock",
       "inlines": [
         {
           "type": "TextRun",
@@ -36,7 +36,7 @@
       ]
     },
     {
-      "type": "RichTextBox",
+      "type": "RichTextBlock",
       "inlines": [
         {
           "type": "TextRun",
@@ -50,7 +50,7 @@
       ]
     },
     {
-      "type": "RichTextBox",
+      "type": "RichTextBlock",
       "inlines": [
         {
           "type": "TextRun",
@@ -64,7 +64,7 @@
       ]
     },
     {
-      "type": "RichTextBox",
+      "type": "RichTextBlock",
       "inlines": [
         {
           "type": "TextRun",

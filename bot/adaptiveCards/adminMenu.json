@@ -1,0 +1,37 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Admin Menu",
+      "weight": "bolder",
+      "size": "medium"
+    }
+  ],
+
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Create User",
+      "verb": "createUser",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Set Performance Dates",
+      "verb": "setPerfDates",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Add Files",
+      "verb": "addFiles",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "minHeight": "100px",
+  "verticalContentAlignment": "center",
+  "keyword": "adminMenu",
+  "dynamic": false,
+  "shouldCareerUpdate": false
+}

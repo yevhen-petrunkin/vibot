@@ -1,0 +1,77 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Create New User",
+      "size": "large",
+      "weight": "bolder",
+      "color": "dark",
+      "wrap": true,
+      "separator": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "Fill In the Information:",
+      "size": "medium",
+      "weight": "default",
+      "color": "dark"
+    },
+    {
+      "type": "Input.Text",
+      "id": "userEmail",
+      "isMultiline": false,
+      "label": "User Email",
+      "style": "email",
+      "isRequired": true,
+      "errorMessage": "This email is not allowed."
+    },
+    {
+      "type": "Input.Date",
+      "id": "startingDate",
+      "isMultiline": false,
+      "placeholder": "дд/мм/рр",
+      "label": "Початок роботи в компанії.",
+      "isRequired": true,
+      "errorMessage": "Something wrong with the date."
+    },
+    {
+      "type": "Input.Text",
+      "id": "managerEmail",
+      "isMultiline": false,
+      "label": "Manager Email",
+      "style": "email",
+      "isRequired": true,
+      "errorMessage": "This email is not allowed."
+    },
+    {
+      "type": "Input.Text",
+      "id": "userRole",
+      "isMultiline": false,
+      "style": "text",
+      "label": "Role",
+      "isRequired": true,
+      "errorMessage": "This email is not allowed."
+    },
+    {
+      "type": "Input.Text",
+      "id": "userKeyword",
+      "isMultiline": false,
+      "style": "text",
+      "label": "Sign Up Keyword",
+      "isRequired": true,
+      "errorMessage": "This email is not allowed."
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Create User",
+      "verb": "userCreated",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "keyword": "createUser",
+  "dynamic": false,
+  "shouldCareerUpdate": false
+}
