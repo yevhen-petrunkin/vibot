@@ -26,5 +26,6 @@
 
   "verticalContentAlignment": "center",
   "keyword": "thankWaitNote",
+  "shouldCareerUpdate": true,
   "dynamic": false
 }

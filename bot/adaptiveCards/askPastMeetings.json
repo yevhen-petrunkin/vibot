@@ -28,5 +28,7 @@
     }
   ],
   "verticalContentAlignment": "center",
-  "keyword": "askPastMeetings"
+  "keyword": "askPastMeetings",
+  "dynamic": false,
+  "shouldCareerUpdate": false
 }

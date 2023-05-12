@@ -28,10 +28,9 @@
   ],
   "actions": [
     {
-      "type": "Action.Execute",
+      "type": "Action.OpenUrl",
       "title": "Завантажити",
-      "verb": "",
-      "fallback": "Action.Submit"
+      "url": "https://www.google.com.ua"
     },
     {
       "type": "Action.Execute",
@@ -40,7 +39,7 @@
       "fallback": "Action.Submit"
     }
   ],
-  "verticalContentAlignment": "center",
   "keyword": "startCareerPlan",
+  "shouldCareerUpdate": true,
   "dynamic": false
 }

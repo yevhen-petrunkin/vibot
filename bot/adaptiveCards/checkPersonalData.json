@@ -31,7 +31,7 @@
         },
         {
           "type": "TextRun",
-          "dynamicText": "LINK"
+          "text": "LINK"
         }
       ]
     },
@@ -45,7 +45,7 @@
         },
         {
           "type": "TextRun",
-          "dynamicText": "LINK"
+          "text": "LINK"
         }
       ]
     },
@@ -59,7 +59,7 @@
         },
         {
           "type": "TextRun",
-          "dynamicText": "LINK"
+          "text": "LINK"
         }
       ]
     },
@@ -73,7 +73,7 @@
         },
         {
           "type": "TextRun",
-          "dynamicText": "LINK"
+          "text": "LINK"
         }
       ]
     }
@@ -82,16 +82,12 @@
     {
       "type": "Action.Execute",
       "title": "Ок",
-      "fallback": "Action.Submit"
-    },
-    {
-      "type": "Action.Execute",
-      "title": "Змінити",
-      "verb": "editPersonalData",
+      "verb": "managerMenu",
       "fallback": "Action.Submit"
     }
   ],
   "minHeight": "200px",
-  "verticalContentAlignment": "center",
-  "keyword": "checkPersonalData"
+  "keyword": "checkPersonalData",
+  "dynamic": true,
+  "shouldCareerUpdate": false
 }

@@ -65,35 +65,31 @@
     {
       "type": "Action.Execute",
       "title": "Переглянути зустрічі",
-      "verb": "askPastMeetings",
-      "fallback": "Action.Submit"
+      "verb": "askPastMeetings"
     },
     {
       "type": "Action.Execute",
       "title": "Спеціалисти без плану",
-      "verb": "answerToSend",
-      "fallback": "Action.Submit"
+      "verb": "answerToSend"
     },
     {
       "type": "Action.Execute",
       "title": "Написати спеціалісту",
-      "verb": "sendToSpec",
-      "fallback": "Action.Submit"
+      "verb": "sendToSpec"
     },
     {
       "type": "Action.Execute",
-      "title": "Редагувати інформацію",
-      "verb": "checkPersonalData",
-      "fallback": "Action.Submit"
+      "title": "Перевірити інформацію",
+      "verb": "checkPersonalData"
     },
     {
       "type": "Action.Execute",
       "title": "Важливі файли",
-      "verb": "importantFileList",
-      "fallback": "Action.Submit"
+      "verb": "importantFilesList"
     }
   ],
   "minHeight": "100px",
   "verticalContentAlignment": "center",
-  "keyword": "managerMenu"
+  "keyword": "managerMenu",
+  "shouldCareerUpdate": true
 }

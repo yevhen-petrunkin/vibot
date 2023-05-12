@@ -25,5 +25,7 @@
     }
   ],
   "verticalContentAlignment": "center",
-  "keyword": "importantFilesList"
+  "keyword": "importantFilesList",
+  "dynamic": true,
+  "shouldCareerUpdate": false
 }

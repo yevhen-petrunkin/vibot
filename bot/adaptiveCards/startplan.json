@@ -44,8 +44,8 @@
       "fallback": "Action.Submit"
     }
   ],
-  "minHeight": "200px",
-  "verticalContentAlignment": "center",
+
   "keyword": "startPlan",
+  "shouldCareerUpdate": true,
   "dynamic": false
 }
