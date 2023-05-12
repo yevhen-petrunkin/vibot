@@ -65,7 +65,7 @@
     {
       "type": "Action.Execute",
       "title": "Давай почнемо",
-      "verb": "register",
+      "verb": "determineSpecPath",
       "fallback": "Action.Submit"
     },
     {
@@ -77,5 +77,6 @@
   ],
 
   "keyword": "hello",
-  "dynamic": false
+  "dynamic": false,
+  "shouldCareerUpdate": true
 }

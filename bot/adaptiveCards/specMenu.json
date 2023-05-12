@@ -1,0 +1,96 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "Container",
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "Робоча область спеціаліста",
+          "weight": "bolder",
+          "size": "medium"
+        },
+        {
+          "type": "ColumnSet",
+          "columns": [
+            {
+              "type": "Column",
+              "width": "auto",
+              "items": [
+                {
+                  "type": "Image",
+                  "url": "https://pbs.twimg.com/profile_images/3647943215/d7f12830b3c17a5a9e4afcc370e3a37e_400x400.jpeg",
+                  "altText": "$userName",
+                  "size": "small",
+                  "style": "person"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "width": "stretch",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "$userName",
+                  "weight": "bolder",
+                  "wrap": true
+                },
+                {
+                  "type": "TextBlock",
+                  "spacing": "none",
+                  "text": "$userEmail",
+                  "isSubtle": true,
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "Що будемо робити?",
+      "weight": "bolder",
+      "wrap": true
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Написати менеджеру",
+      "verb": "sendToManager",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Подивитись цілі",
+      "verb": "checkPlans",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Редагувати інформацію",
+      "verb": "checkPersonalData",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Важливі файли",
+      "verb": "importantFilesList",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Найближчі зустрічі",
+      "verb": "importantFileList",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "minHeight": "100px",
+  "verticalContentAlignment": "center",
+  "keyword": "specMenu",
+  "dynamic": true,
+  "shouldCareerUpdate": true
+}

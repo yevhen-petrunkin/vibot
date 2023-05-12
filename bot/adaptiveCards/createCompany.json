@@ -1,0 +1,82 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Register New Company",
+      "size": "large",
+      "weight": "bolder",
+      "color": "dark",
+      "wrap": true,
+      "separator": true
+    },
+    {
+      "type": "Input.Text",
+      "id": "companyName",
+      "isMultiline": false,
+      "label": "Enter Company Name",
+      "placeholder": "My-Company",
+      "style": "text",
+      "isRequired": true,
+      "errorMessage": "This name is not allowed."
+    },
+    {
+      "type": "Input.Text",
+      "id": "adminEmail",
+      "isMultiline": false,
+      "label": "Enter admin email",
+      "style": "email",
+      "placeholder": "admin@mail.com",
+      "isRequired": true,
+      "errorMessage": "This email is not allowed."
+    },
+    {
+      "type": "Input.Date",
+      "id": "perfFirstStartDate",
+      "isMultiline": false,
+      "placeholder": "дд/мм/рр",
+      "label": "Starting Date of First Performance Review Period",
+      "isRequired": true,
+      "errorMessage": "Something wrong with the date."
+    },
+    {
+      "type": "Input.Date",
+      "id": "perfFirstEndDate",
+      "isMultiline": false,
+      "placeholder": "дд/мм/рр",
+      "label": "Final Date of First Performance Review Period",
+      "isRequired": true,
+      "errorMessage": "Something wrong with the date."
+    },
+    {
+      "type": "Input.Date",
+      "id": "perfSecondStartDate",
+      "isMultiline": false,
+      "placeholder": "дд/мм/рр",
+      "label": "Starting Date of Second Performance Review Period",
+      "isRequired": true,
+      "errorMessage": "Something wrong with the date."
+    },
+    {
+      "type": "Input.Date",
+      "id": "perfSecondEndDate",
+      "isMultiline": false,
+      "placeholder": "дд/мм/рр",
+      "label": "Final Date of Second Performance Review Period",
+      "isRequired": true,
+      "errorMessage": "Something wrong with the date."
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Create Company",
+      "verb": "companyCreated",
+      "fallback": "Action.Submit"
+    }
+  ],
+
+  "keyword": "createCompany",
+  "dynamic": false,
+  "shouldCareerUpdate": false
+}

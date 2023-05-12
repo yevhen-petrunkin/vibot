@@ -1,26 +1,49 @@
 {
   "type": "AdaptiveCard",
-  "version": "1.0",
   "body": [
     {
       "type": "TextBlock",
-      "text": "Скидаю тобі інструкцію “Як створити ефективний кар’єрний план”  ",
-      "weight": "bolder"
+      "text": "Вітаю! Я допоможу тобі з організацією роботи",
+      "size": "large",
+      "weight": "bolder",
+      "color": "dark",
+      "wrap": true,
+      "separator": true
+    },
+    {
+      "type": "Image",
+      "url": "https://i.ibb.co/mCCqLGt/27.jpg",
+      "altText": "",
+      "backgroundColor": "#EEEEEE",
+      "width": "434px",
+      "height": "200px"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Вмотивований спеціаліст - показник плідної роботи менеджера.",
+      "size": "medium",
+      "weight": "default",
+      "color": "dark",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "Скидаю тобі інструкцію “Як створити ефективний кар’єрний план” 😉",
+      "size": "medium",
+      "weight": "default",
+      "color": "dark",
+      "wrap": true
     }
   ],
   "actions": [
     {
-      "type": "Action.OpenUrl",
-      "title": "Скачать файл",
-      "url": "https://example.com/file.pdf"
-    },
-    {
       "type": "Action.Execute",
-      "title": "До меню",
+      "title": "Отримав",
       "verb": "managerMenu",
       "fallback": "Action.Submit"
     }
   ],
+
   "keyword": "managerFileSending",
   "dynamic": false,
   "shouldCareerUpdate": true

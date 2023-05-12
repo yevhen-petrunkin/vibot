@@ -15,12 +15,6 @@
       "title": "Ok",
       "verb": "goToCard",
       "fallback": "Action.Submit"
-    },
-    {
-      "type": "Action.Execute",
-      "title": "Reset user",
-      "verb": "deleteUser",
-      "fallback": "Action.Submit"
     }
   ]
 }

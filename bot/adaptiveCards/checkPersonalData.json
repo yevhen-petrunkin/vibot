@@ -2,17 +2,27 @@
   "type": "AdaptiveCard",
   "body": [
     {
-      "type": "RichTextBox",
+      "type": "RichTextBlock",
       "inlines": [
         {
           "type": "TextRun",
           "text": "Інформація про тебе",
-          "weight": "bolder"
+          "weight": "bolder",
+          "size": "large"
         }
       ]
     },
     {
-      "type": "RichTextBox",
+      "type": "RichTextBlock",
+      "inlines": [
+        {
+          "type": "TextRun",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "type": "RichTextBlock",
       "inlines": [
         {
           "type": "TextRun",
@@ -26,7 +36,7 @@
       ]
     },
     {
-      "type": "RichTextBox",
+      "type": "RichTextBlock",
       "inlines": [
         {
           "type": "TextRun",
@@ -40,7 +50,7 @@
       ]
     },
     {
-      "type": "RichTextBox",
+      "type": "RichTextBlock",
       "inlines": [
         {
           "type": "TextRun",
@@ -54,7 +64,7 @@
       ]
     },
     {
-      "type": "RichTextBox",
+      "type": "RichTextBlock",
       "inlines": [
         {
           "type": "TextRun",

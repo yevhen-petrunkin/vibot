@@ -1,19 +1,20 @@
-const { rawNavigateCard } = require("../adaptiveCards/cardIndex");
-
-const createAdaptiveCardFromObject = require("../helpers/createAdaptiveCardFromObject");
-const { adaptiveCards } = require("../adaptiveCards/cardIndex");
-const findAdaptiveCard = require("../helpers/findAdaptiveCard");
-const fetchMessageAdaptiveCardCommandById = require("../db-functions/fetchMessageAdaptiveCardCommandById.js");
-const postPrimaryUserData = require("../db-functions/postPrimaryUserData");
-const changeDataInAdaptiveCard = require("../helpers/changeDataInAdaptiveCard");
+const {
+  rawNavigateCard,
+  adaptiveCards,
+  rawSuggestAuthCard,
+} = require("../adaptiveCards/cardIndex");
 const showAdaptiveCardByData = require("../actions/showAdaptiveCardByData");
+const handleCredentials = require("../handlers/handleCredentials");
+const handleUserReplyMessages = require("../handlers/handleUserReplyMessages");
+const findAdaptiveCard = require("../helpers/findAdaptiveCard");
+const changeDataInAdaptiveCard = require("../helpers/changeDataInAdaptiveCard");
+const createAdaptiveCardFromObject = require("../helpers/createAdaptiveCardFromObject");
 
-async function handleMessageByText(text, config) {
-  const { context } = config;
-  const userId = context.activity.from.id;
-  const activityData = context.activity;
+async function handleMessageByText(message, config) {
+  const { context, credentials } = config;
+  const contextData = context.activity;
 
-  if (text.toLowerCase() === "dev") {
+  if (message.toLowerCase() === "dev") {
     const navigateCard = createAdaptiveCardFromObject(rawNavigateCard);
     await context.sendActivity({
       attachments: [navigateCard],
@@ -21,19 +22,17 @@ async function handleMessageByText(text, config) {
     return;
   }
 
-  if (text.toLowerCase() !== "hello") {
+  if (message.toLowerCase() !== "hello") {
     await context.sendActivity("Did you mean to type 'hello'?");
     return;
   }
 
-  if (text.toLowerCase() === "hello") {
-    const command = await fetchMessageAdaptiveCardCommandById(userId);
-
-    if (command.toLowerCase() === "hello") {
-      await postPrimaryUserData(activityData);
-    }
+  if (message.toLowerCase() === "hello") {
+    let command =
+      credentials && credentials.stage ? credentials.stage : "hello";
 
     let adaptiveCardData = null;
+
     adaptiveCardData = await findAdaptiveCard(command, adaptiveCards);
 
     if (!adaptiveCardData) {
@@ -42,15 +41,26 @@ async function handleMessageByText(text, config) {
     }
 
     if (adaptiveCardData.dynamic) {
-      adaptiveCardData = await changeDataInAdaptiveCard(
-        adaptiveCardData,
-        activityData,
-        userId
-      );
+      const user = await handleCredentials(contextData, credentials);
+      if (user) {
+        adaptiveCardData = await changeDataInAdaptiveCard(
+          adaptiveCardData,
+          config
+        );
+      } else {
+        const noConnectionWithDatabaseMsg =
+          "Cannot reach the necessary data right now. Try again later.";
+        await handleUserReplyMessages(
+          noConnectionWithDatabaseMsg,
+          context,
+          credentials
+        );
+        await showAdaptiveCardByData(rawSuggestAuthCard, context);
+        return;
+      }
     }
-
     await showAdaptiveCardByData(adaptiveCardData, context);
   }
 }
 
-module.exports = { handleMessageByText };
+module.exports = handleMessageByText;

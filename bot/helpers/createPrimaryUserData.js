@@ -1,6 +1,6 @@
 function createPrimaryUserData(data) {
   const { id, name } = data.from;
-  const userData = { name, id, stage: "hello" };
+  const userData = { userName: name, teamsId: id };
   return userData;
 }
 

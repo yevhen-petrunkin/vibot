@@ -176,6 +176,91 @@
       "problemMatcher": [],
       "label": "npm: dev - bot",
       "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
+    },
+    {
+      "type": "npm",
+      "script": "dev",
+      "path": "bot",
+      "group": "rebuild",
+      "problemMatcher": [],
+      "label": "npm: dev - bot",
+      "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
+    },
+    {
+      "type": "npm",
+      "script": "dev",
+      "path": "bot",
+      "group": "rebuild",
+      "problemMatcher": [],
+      "label": "npm: dev - bot",
+      "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
+    },
+    {
+      "type": "npm",
+      "script": "dev",
+      "path": "bot",
+      "group": "rebuild",
+      "problemMatcher": [],
+      "label": "npm: dev - bot",
+      "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
+    },
+    {
+      "type": "npm",
+      "script": "dev",
+      "path": "bot",
+      "group": "rebuild",
+      "problemMatcher": [],
+      "label": "npm: dev - bot",
+      "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
+    },
+    {
+      "type": "npm",
+      "script": "dev",
+      "path": "bot",
+      "group": "rebuild",
+      "problemMatcher": [],
+      "label": "npm: dev - bot",
+      "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
+    },
+    {
+      "type": "npm",
+      "script": "dev:teamsfx",
+      "path": "bot",
+      "problemMatcher": [],
+      "label": "npm: dev:teamsfx - bot",
+      "detail": "env-cmd --silent -f .env.teamsfx.local npm run dev"
+    },
+    {
+      "type": "npm",
+      "script": "dev:teamsfx",
+      "path": "bot",
+      "problemMatcher": [],
+      "label": "npm: dev:teamsfx - bot",
+      "detail": "env-cmd --silent -f .env.teamsfx.local npm run dev"
+    },
+    {
+      "type": "npm",
+      "script": "dev:teamsfx",
+      "path": "bot",
+      "problemMatcher": [],
+      "label": "npm: dev:teamsfx - bot",
+      "detail": "env-cmd --silent -f .env.teamsfx.local npm run dev"
+    },
+    {
+      "type": "npm",
+      "script": "dev:teamsfx",
+      "path": "bot",
+      "problemMatcher": [],
+      "label": "npm: dev:teamsfx - bot",
+      "detail": "env-cmd --silent -f .env.teamsfx.local npm run dev"
+    },
+    {
+      "type": "npm",
+      "script": "dev:teamsfx",
+      "path": "bot",
+      "problemMatcher": [],
+      "label": "npm: dev:teamsfx - bot",
+      "detail": "env-cmd --silent -f .env.teamsfx.local npm run dev"
     }
   ]
 }
