@@ -3,34 +3,92 @@
   "body": [
     {
       "type": "TextBlock",
-      "text": "Admin Menu",
-      "weight": "bolder",
-      "size": "medium"
+      "text": "Робоча область адміністратора",
+      "size": "large",
+      "weight": "bolder"
+    },
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "Image",
+              "url": "https://adaptivecards.io/content/cats/1.png",
+              "altText": "Matt Hidinger",
+              "size": "small",
+              "style": "person"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "Адмін Франко",
+              "weight": "bolder",
+              "wrap": true
+            },
+            {
+              "type": "TextBlock",
+              "spacing": "none",
+              "text": "admin@i.ua",
+              "isSubtle": true,
+              "wrap": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "Взаємодія з користувачем",
+      "weight": "bolder"
     }
   ],
 
   "actions": [
     {
       "type": "Action.Execute",
-      "title": "Create User",
+      "title": "Створити",
       "verb": "createUser",
       "fallback": "Action.Submit"
     },
     {
       "type": "Action.Execute",
-      "title": "Set Performance Dates",
+      "title": "Редагувати",
+      "verb": "updateUserEmail",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Видалити",
+      "verb": "delUser",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Змінити дату Performance Review",
       "verb": "setPerfDates",
       "fallback": "Action.Submit"
     },
     {
       "type": "Action.Execute",
-      "title": "Add Files",
-      "verb": "addFiles",
+      "title": "Надіслати повідомлення",
+      "verb": "sendMessage",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Завантажити файли",
+      "verb": "downloadFile",
       "fallback": "Action.Submit"
     }
   ],
-  "minHeight": "100px",
-  "verticalContentAlignment": "center",
   "keyword": "adminMenu",
   "dynamic": false,
   "shouldCareerUpdate": false

@@ -9,7 +9,7 @@
     },
     {
       "type": "Image",
-      "url": "https://adaptivecards.io/content/cats/1.png",
+      "url": "https://i.ibb.co/zSCBx7J/09a8f0ad-7cd2-46d9-9d62-3aea864f8f25.jpg",
       "altText": "VBot",
       "height": "200px"
     },
@@ -18,7 +18,7 @@
       "text": "До зустрічі 😉"
     }
   ],
-   "keyword": "confirmRecord",
+  "keyword": "confirmRecord",
   "shouldCareerUpdate": true,
   "dynamic": false
 }

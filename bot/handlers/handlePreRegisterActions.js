@@ -12,7 +12,6 @@ const {
 async function handlePreRegisterActions(verb, context, credentials) {
   const contextData = context.activity;
   let isTriggered = true;
-
   switch (verb.toLowerCase()) {
     case "createCompany".toLowerCase():
       await showAdaptiveCardByData(rawCreateCompanyCard, context);
@@ -44,12 +43,36 @@ async function handlePreRegisterActions(verb, context, credentials) {
 
     case "submitSignUp".toLowerCase():
       const signUpCredentials = await handleSignUp(contextData);
-      return { isTriggered, credentials: signUpCredentials };
+      if (signUpCredentials) {
+        const submitSignUpVerb = "submitReady";
+        await handleAdminReplyMessages(
+          submitSignUpVerb,
+          context,
+          signUpCredentials
+        );
+        console.log("handlePreRegisterActions:", contextData.value.action.data);
+        return { isTriggered, credentials: signUpCredentials };
+      }
+      return { isTriggered, credentials };
 
     case "submitLogIn".toLowerCase():
       const logInCredentials = await handleLogIn(contextData);
-      console.log("handlePreRegisterActions:", contextData.value.action.data);
-      return { isTriggered, credentials: logInCredentials };
+      if (logInCredentials) {
+        const submitLogInVerb = "submitReady";
+        await handleAdminReplyMessages(
+          submitLogInVerb,
+          context,
+          logInCredentials
+        );
+        console.log("handlePreRegisterActions:", contextData.value.action.data);
+        return { isTriggered, credentials: logInCredentials };
+      }
+      return { isTriggered, credentials };
+
+    // case "submitLogIn".toLowerCase():
+    //   const logInCredentials = await handleLogIn(contextData);
+    //         console.log("handlePreRegisterActions:", contextData.value.action.data);
+    //   return { isTriggered, credentials: logInCredentials };
 
     default:
       return { isTriggered: !isTriggered, credentials };

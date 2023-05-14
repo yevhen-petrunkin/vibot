@@ -1,0 +1,45 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Кому відправити повідомлення",
+      "weight": "bolder"
+    },
+    {
+      "type": "Input.ChoiceSet",
+      "id": "sendMessageId",
+      "isMultiSelect": true,
+      "style": "expanded",
+      "choices": [
+        {
+          "title": "Всі спеціалісти",
+          "value": "Всі спеціалісти"
+        },
+        {
+          "title": "Всі менеджери",
+          "value": "Всі менеджери"
+        }
+      ]
+    },
+    {
+      "type": "Input.Text",
+      "id": "sendMessageMessageId",
+      "label": "Яке повідомлення мені передати?",
+      "maxLength": 1000,
+      "isMultiline": true
+    }
+  ],
+
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Готово",
+      "verb": "sendMessageMessage",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "keyword": "sendMessage",
+  "shouldCareerUpdate": false,
+  "dynamic": false
+}

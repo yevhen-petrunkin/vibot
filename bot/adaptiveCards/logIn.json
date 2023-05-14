@@ -3,8 +3,7 @@
   "body": [
     {
       "type": "TextBlock",
-      "text": "Enter your email to log in",
-      "size": "large",
+      "text": "Заповніть дані для входу",
       "weight": "bolder",
       "color": "dark",
       "wrap": true,
@@ -15,7 +14,7 @@
       "type": "Input.Text",
       "id": "logInEmail",
       "isMultiline": false,
-      "label": "Enter Your Email",
+      "label": "Email",
       "style": "email",
       "placeholder": "user@mail.com",
       "isRequired": true,
@@ -25,7 +24,7 @@
   "actions": [
     {
       "type": "Action.Execute",
-      "title": "Log In",
+      "title": "Готово",
       "verb": "submitLogIn",
       "fallback": "Action.Submit"
     }

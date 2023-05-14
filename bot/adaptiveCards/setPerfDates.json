@@ -1,0 +1,38 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Вкажіть дати Performance Review",
+      "weight": "bolder"
+    },
+    {
+      "type": "Input.Date",
+      "id": "perfDateStart",
+      "label": "Початок",
+      "isMultiline": false,
+      "placeholder": "дд/мм/рр",
+      "isRequired": true
+    },
+    {
+      "type": "Input.Date",
+      "id": "perfDateEnd",
+      "label": "Завершення",
+      "isMultiline": false,
+      "placeholder": "дд/мм/рр",
+      "isRequired": true
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Готово",
+      "verb": "confirmUpdatePerfReview",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "verticalContentAlignment": "center",
+  "keyword": "setPerfDates",
+  "dynamic": false,
+  "shouldCareerUpdate": false
+}

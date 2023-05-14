@@ -1,0 +1,29 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Вкажіть email користувача",
+      "weight": "bolder"
+    },
+    {
+      "type": "Input.Text",
+      "id": "delEmail",
+      "label": "Email",
+      "style": "email",
+      "isMultiline": false,
+      "isRequired": true
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Видалити",
+      "verb": "delMessage",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "keyword": "delUser",
+  "dynamic": false,
+  "shouldCareerUpdate": false
+}
