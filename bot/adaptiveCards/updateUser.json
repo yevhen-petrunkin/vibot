@@ -1,0 +1,42 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Тарас Шевченко",
+      "weight": "bolder"
+    },
+    {
+      "type": "Input.ChoiceSet",
+      "id": "userRoleChange",
+      "style": "expanded",
+      "isMultiSelect": false,
+      "label": "Роль",
+      "choices": [
+        {
+          "title": "Адміністратор",
+          "value": "admin"
+        },
+        {
+          "title": "Менеджер",
+          "value": "manager"
+        },
+        {
+          "title": "Спеціалист",
+          "value": "specialist"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Готово",
+      "verb": "updateUserMessage",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "keyword": "updateUser",
+  "dynamic": false,
+  "shouldCareerUpdate": false
+}

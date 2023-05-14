@@ -3,8 +3,7 @@
   "body": [
     {
       "type": "TextBlock",
-      "text": "Register New Company",
-      "size": "large",
+      "text": "Заповніть дані для створення компанії",
       "weight": "bolder",
       "color": "dark",
       "wrap": true,
@@ -14,8 +13,7 @@
       "type": "Input.Text",
       "id": "companyName",
       "isMultiline": false,
-      "label": "Enter Company Name",
-      "placeholder": "My-Company",
+      "label": "Назва компанії",
       "style": "text",
       "isRequired": true,
       "errorMessage": "This name is not allowed."
@@ -24,7 +22,7 @@
       "type": "Input.Text",
       "id": "adminEmail",
       "isMultiline": false,
-      "label": "Enter admin email",
+      "label": "Email адміністратора",
       "style": "email",
       "placeholder": "admin@mail.com",
       "isRequired": true,
@@ -35,7 +33,7 @@
       "id": "perfFirstStartDate",
       "isMultiline": false,
       "placeholder": "дд/мм/рр",
-      "label": "Starting Date of First Performance Review Period",
+      "label": "Дата початку першого Performance Review",
       "isRequired": true,
       "errorMessage": "Something wrong with the date."
     },
@@ -44,7 +42,7 @@
       "id": "perfFirstEndDate",
       "isMultiline": false,
       "placeholder": "дд/мм/рр",
-      "label": "Final Date of First Performance Review Period",
+      "label": "Дата закінчення першого Performance Review",
       "isRequired": true,
       "errorMessage": "Something wrong with the date."
     },
@@ -53,7 +51,7 @@
       "id": "perfSecondStartDate",
       "isMultiline": false,
       "placeholder": "дд/мм/рр",
-      "label": "Starting Date of Second Performance Review Period",
+      "label": "Дата початку другого Performance Review",
       "isRequired": true,
       "errorMessage": "Something wrong with the date."
     },
@@ -62,7 +60,7 @@
       "id": "perfSecondEndDate",
       "isMultiline": false,
       "placeholder": "дд/мм/рр",
-      "label": "Final Date of Second Performance Review Period",
+      "label": "Дата закінчення другого Performance Review",
       "isRequired": true,
       "errorMessage": "Something wrong with the date."
     }
@@ -70,7 +68,7 @@
   "actions": [
     {
       "type": "Action.Execute",
-      "title": "Create Company",
+      "title": "Створити компанію",
       "verb": "companyCreated",
       "fallback": "Action.Submit"
     }

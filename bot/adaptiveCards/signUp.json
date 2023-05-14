@@ -3,8 +3,7 @@
   "body": [
     {
       "type": "TextBlock",
-      "text": "Sign Up for the First Time",
-      "size": "large",
+      "text": "Заповніть дані для входу",
       "weight": "bolder",
       "color": "dark",
       "wrap": true,
@@ -15,7 +14,7 @@
       "type": "Input.Text",
       "id": "signUpEmail",
       "isMultiline": false,
-      "label": "Enter Your Email",
+      "label": "Email",
       "style": "email",
       "placeholder": "user@mail.com",
       "isRequired": true,
@@ -25,7 +24,7 @@
       "type": "Input.Text",
       "id": "signUpKeyword",
       "isMultiline": false,
-      "label": "Enter Your Keyword",
+      "label": "Пароль",
       "placeholder": "mykeyword",
       "style": "text",
       "isRequired": true,
@@ -35,7 +34,7 @@
   "actions": [
     {
       "type": "Action.Execute",
-      "title": "Sign Up",
+      "title": "Готово",
       "verb": "submitSignUp",
       "fallback": "Action.Submit"
     }

@@ -12,7 +12,6 @@
       "id": "reasonDecline",
       "isMultiSelect": true,
       "style": "expanded",
-      "label": "Why no plan",
       "isRequired": true,
       "errorMessage": "This is a required input",
       "choices": [

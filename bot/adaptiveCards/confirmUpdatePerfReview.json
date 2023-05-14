@@ -3,8 +3,7 @@
   "body": [
     {
       "type": "TextBlock",
-      "text": "Дякую за відповідь",
-      "size": "large",
+      "text": "Ок, записав!",
       "weight": "bolder"
     },
     {
@@ -15,17 +14,11 @@
     },
     {
       "type": "TextBlock",
-      "text": "Менеджер вже поспішає на помічь.",
-      "weight": "bolder"
-    },
-    {
-      "type": "TextBlock",
-      "text": "Очикуй на повідомдення 😉"
+      "text": "Користувачам відправлено повідомлення про зміну дати Performance Review 😉",
+      "wrap": true
     }
   ],
-
-  "verticalContentAlignment": "center",
-  "keyword": "thankWaitNote",
+  "keyword": "confirmUpdatePerfReview",
   "shouldCareerUpdate": true,
   "dynamic": false
 }

@@ -3,8 +3,24 @@
   "body": [
     {
       "type": "TextBlock",
-      "text": "Do you want to sign up or log in!",
+      "text": "Ласкаво просимо в бот V7Pro!",
       "size": "large",
+      "weight": "bolder",
+      "color": "dark",
+      "wrap": true,
+      "separator": true
+    },
+    {
+      "type": "Image",
+      "url": "https://i.ibb.co/zSCBx7J/09a8f0ad-7cd2-46d9-9d62-3aea864f8f25.jpg",
+      "altText": "",
+      "backgroundColor": "#EEEEEE",
+      "width": "430px",
+      "height": "200px"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Оберіть дію",
       "weight": "bolder",
       "color": "dark",
       "wrap": true,
@@ -14,19 +30,19 @@
   "actions": [
     {
       "type": "Action.Execute",
-      "title": "Log In",
+      "title": "Увійти",
       "verb": "logIn",
       "fallback": "Action.Submit"
     },
     {
       "type": "Action.Execute",
-      "title": "Sign Up (if First Time)",
+      "title": "Зареєструватися",
       "verb": "signUp",
       "fallback": "Action.Submit"
     },
     {
       "type": "Action.Execute",
-      "title": "Create New Company",
+      "title": "Створити компанію",
       "verb": "createCompany",
       "fallback": "Action.Submit"
     }

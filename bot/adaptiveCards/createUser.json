@@ -3,28 +3,50 @@
   "body": [
     {
       "type": "TextBlock",
-      "text": "Create New User",
-      "size": "large",
+      "text": "Створити нового користувача",
       "weight": "bolder",
       "color": "dark",
       "wrap": true,
       "separator": true
     },
     {
-      "type": "TextBlock",
-      "text": "Fill In the Information:",
-      "size": "medium",
-      "weight": "default",
-      "color": "dark"
-    },
-    {
       "type": "Input.Text",
       "id": "userEmail",
       "isMultiline": false,
-      "label": "User Email",
+      "label": "Email",
       "style": "email",
       "isRequired": true,
       "errorMessage": "This email is not allowed."
+    },
+    {
+      "type": "Input.Text",
+      "id": "userKeyword",
+      "isMultiline": false,
+      "style": "text",
+      "label": "Пароль",
+      "isRequired": true,
+      "errorMessage": "This email is not allowed."
+    },
+    {
+      "type": "Input.ChoiceSet",
+      "id": "userRole",
+      "style": "expanded",
+      "isMultiSelect": false,
+      "label": "Роль",
+      "choices": [
+        {
+          "title": "Адміністратор",
+          "value": "admin"
+        },
+        {
+          "title": "Менеджер",
+          "value": "manager"
+        },
+        {
+          "title": "Спеціалист",
+          "value": "specialist"
+        }
+      ]
     },
     {
       "type": "Input.Date",
@@ -39,26 +61,8 @@
       "type": "Input.Text",
       "id": "managerEmail",
       "isMultiline": false,
-      "label": "Manager Email",
+      "label": "Email менеджера (тільки для спеціаліста)",
       "style": "email",
-      "isRequired": true,
-      "errorMessage": "This email is not allowed."
-    },
-    {
-      "type": "Input.Text",
-      "id": "userRole",
-      "isMultiline": false,
-      "style": "text",
-      "label": "Role",
-      "isRequired": true,
-      "errorMessage": "This email is not allowed."
-    },
-    {
-      "type": "Input.Text",
-      "id": "userKeyword",
-      "isMultiline": false,
-      "style": "text",
-      "label": "Sign Up Keyword",
       "isRequired": true,
       "errorMessage": "This email is not allowed."
     }
@@ -66,7 +70,7 @@
   "actions": [
     {
       "type": "Action.Execute",
-      "title": "Create User",
+      "title": "Створити",
       "verb": "userCreated",
       "fallback": "Action.Submit"
     }

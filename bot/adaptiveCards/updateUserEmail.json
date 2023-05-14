@@ -1,0 +1,29 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Вкажіть email користувача",
+      "weight": "bolder"
+    },
+    {
+      "type": "Input.Text",
+      "id": "updateEmail",
+      "label": "Email",
+      "style": "email",
+      "isMultiline": false,
+      "isRequired": true
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Редагувати",
+      "verb": "updateUser",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "keyword": "updateUserEmail",
+  "dynamic": false,
+  "shouldCareerUpdate": false
+}
