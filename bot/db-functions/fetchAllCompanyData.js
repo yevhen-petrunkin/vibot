@@ -10,7 +10,7 @@ async function fetchAllCompanyData(companyName) {
 
     if (!dataArr || !userArr) {
       console.log("Some data for the company is missing. Return empty array.");
-      return [];
+      return {};
     }
 
     const compData = {};
@@ -26,7 +26,7 @@ async function fetchAllCompanyData(companyName) {
   } catch (error) {
     console.log(error.message);
     console.log("Failed to fetch data for this company. Return empty array.");
-    return [];
+    return {};
   }
 }
 
