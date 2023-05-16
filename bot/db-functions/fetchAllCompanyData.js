@@ -22,7 +22,7 @@ async function fetchAllCompanyData(companyName) {
 
     console.log("Collection: ", companyObj);
     console.log("All company data obtained.");
-    // return
+    return companyObj;
   } catch (error) {
     console.log(error.message);
     console.log("Failed to fetch data for this company. Return empty array.");
