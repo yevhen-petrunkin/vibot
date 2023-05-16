@@ -1,4 +1,4 @@
-const { doc, updateDoc, serverTimestamp } = require("firebase/firestore");
+const { doc, updateDoc } = require("firebase/firestore");
 const { db } = require("../firebase");
 
 async function updateUserByEmail(userEmail, userData, companyName) {
@@ -6,7 +6,6 @@ async function updateUserByEmail(userEmail, userData, companyName) {
   try {
     await updateDoc(userRef, {
       ...userData,
-      timeStamp: serverTimestamp(),
     });
     console.log("User Data updated in firestore.");
     return true;

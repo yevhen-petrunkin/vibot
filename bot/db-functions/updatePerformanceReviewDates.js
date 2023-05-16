@@ -1,4 +1,4 @@
-const { doc, updateDoc, serverTimestamp } = require("firebase/firestore");
+const { doc, updateDoc } = require("firebase/firestore");
 const { db } = require("../firebase");
 
 async function updatePerformanceReviewDates(dateData, companyName) {
@@ -6,7 +6,6 @@ async function updatePerformanceReviewDates(dateData, companyName) {
   try {
     await updateDoc(dateRef, {
       ...dateData,
-      timeStamp: serverTimestamp(),
     });
     console.log("Dates added to company info.");
     return true;
