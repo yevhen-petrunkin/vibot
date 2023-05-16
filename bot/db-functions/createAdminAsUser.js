@@ -1,4 +1,4 @@
-const { doc, setDoc, serverTimestamp } = require("firebase/firestore");
+const { doc, setDoc } = require("firebase/firestore");
 const { db } = require("../firebase");
 
 async function createAdminAsUser(contextData, user) {
@@ -16,7 +16,6 @@ async function createAdminAsUser(contextData, user) {
     startingDate: "",
     stage: "admin",
     hasCareerPlan: false,
-    timeStamp: serverTimestamp(),
   };
 
   const companyUsersRef = doc(

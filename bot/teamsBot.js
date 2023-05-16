@@ -7,6 +7,8 @@ const {
   TurnContext,
 } = require("botbuilder");
 
+const fetchAllCompanyData = require("./db-functions/fetchAllCompanyData");
+
 const { normalizeMessageText } = require("./helpers/normalize");
 const handleMessageByText = require("./handlers/handleMessageByText");
 const handleNoCredentials = require("./handlers/handleNoCredentials");
@@ -37,6 +39,8 @@ class TeamsBot extends TeamsActivityHandler {
         context.activity
       );
       message = normalizeMessageText(removedMentionText);
+
+      fetchAllCompanyData(this.credentials.companyName);
 
       if (this.credentials.userRole === "admin") {
         ("Admin is still logged on message with credentials");

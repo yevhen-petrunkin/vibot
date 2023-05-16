@@ -1,4 +1,4 @@
-const { doc, setDoc, serverTimestamp } = require("firebase/firestore");
+const { doc, setDoc } = require("firebase/firestore");
 const { db } = require("../firebase");
 
 async function createUserAsStaff(contextData, user, companyName) {
@@ -15,7 +15,6 @@ async function createUserAsStaff(contextData, user, companyName) {
     startingDate,
     stage: "hello",
     hasCareerPlan: false,
-    timeStamp: serverTimestamp(),
   };
 
   const userRef = doc(db, companyName, "companyUsers", "users", userEmail);
