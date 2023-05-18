@@ -10,7 +10,7 @@
     },
     {
       "type": "Image",
-      "url": "https://i.ibb.co/zSCBx7J/09a8f0ad-7cd2-46d9-9d62-3aea864f8f25.jpg",
+      "url": "https://i.ibb.co/qdBG7vZ/image.png",
       "altText": "VBot",
       "height": "200px"
     },
@@ -36,6 +36,12 @@
       "type": "Action.Execute",
       "title": "Зв'язатися з менеджером",
       "verb": "sendToManager",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Перейти до меню",
+      "verb": "specMenu",
       "fallback": "Action.Submit"
     }
   ],

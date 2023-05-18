@@ -24,6 +24,7 @@ class TeamsBot extends TeamsActivityHandler {
     super();
 
     this.credentials = null;
+    this.state = null;
 
     this.onMessage(async (context, next) => {
       if (!this.credentials) {
@@ -84,7 +85,13 @@ class TeamsBot extends TeamsActivityHandler {
       return { statusCode: 200 };
     }
 
-    const config = { context, credentials: this.credentials };
+    this.state = context.activity.value.action.data;
+
+    const config = {
+      context,
+      credentials: this.credentials,
+      state: this.state,
+    };
 
     if (this.credentials.userRole === "admin") {
       console.log("Admin is still logged on invoke with credentials");
