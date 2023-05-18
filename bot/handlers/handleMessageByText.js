@@ -28,6 +28,8 @@ async function handleMessageByText(message, config) {
   }
 
   if (message.toLowerCase() === "hello") {
+    setTimeout(() => console.log("Function triggered!"), 300000);
+
     let command =
       credentials && credentials.stage ? credentials.stage : "hello";
 

@@ -26,13 +26,23 @@ class TeamsBot extends TeamsActivityHandler {
     this.credentials = null;
 
     this.onMessage(async (context, next) => {
+      // try {
+      //   let userDetails = await this.graphClient.api("/me").get();
+      //   console.log(userDetails);
+      // } catch (error) {
+      //   throw error;
+      // }
+
       if (!this.credentials) {
         this.credentials = await handleNoCredentials(context);
         console.log("Message Credentials: ", this.credentials);
         return;
       }
 
-      const config = { context, credentials: this.credentials };
+      const config = {
+        context,
+        credentials: this.credentials,
+      };
 
       let message = context.activity.text;
       const removedMentionText = TurnContext.removeRecipientMention(
@@ -68,6 +78,7 @@ class TeamsBot extends TeamsActivityHandler {
   async onAdaptiveCardInvoke(context, invokeValue) {
     console.log("Invoke Credentials: ", this.credentials);
     const verb = invokeValue.action.verb;
+    console.log(verb);
 
     if (!this.credentials) {
       const { isTriggered, credentials } = await handlePreRegisterActions(
@@ -84,7 +95,12 @@ class TeamsBot extends TeamsActivityHandler {
       return { statusCode: 200 };
     }
 
-    const config = { context, credentials: this.credentials };
+    this.state = context.activity.value.data;
+
+    const config = {
+      context,
+      credentials: this.credentials,
+    };
 
     if (this.credentials.userRole === "admin") {
       console.log("Admin is still logged on invoke with credentials");

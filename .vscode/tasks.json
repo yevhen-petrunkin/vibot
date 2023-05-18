@@ -2,265 +2,291 @@
 // The teamsfx tasks defined in this file require Teams Toolkit version >= 4.1.0.
 // See https://aka.ms/teamsfx-debug-tasks for details on how to customize each task and how to integrate with existing Teams Toolkit projects.
 {
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "Start Teams App Locally",
-      "dependsOn": [
-        "Validate & install prerequisites",
-        "Install npm packages",
-        "Start local tunnel",
-        "Set up bot",
-        "Build & upload Teams manifest",
-        "Start services"
-      ],
-      "dependsOrder": "sequence"
-    },
-    {
-      "label": "Validate & install prerequisites",
-      "type": "teamsfx",
-      "command": "debug-check-prerequisites",
-      "args": {
-        "prerequisites": ["nodejs", "m365Account", "ngrok", "portOccupancy"],
-        "portOccupancy": [3978, 9239]
-      }
-    },
-    {
-      "label": "Install npm packages",
-      "type": "teamsfx",
-      "command": "debug-npm-install",
-      "args": {
-        "projects": [
-          {
-            "cwd": "${workspaceFolder}/bot",
-            "npmInstallArgs": ["--no-audit"]
-          }
-        ]
-      }
-    },
-    {
-      "label": "Start local tunnel",
-      "type": "teamsfx",
-      "command": "debug-start-local-tunnel",
-      "args": {
-        "ngrokArgs": "http 3978 --log=stdout --log-format=logfmt"
-      },
-      "isBackground": true,
-      "problemMatcher": "$teamsfx-local-tunnel-watch"
-    },
-    {
-      "label": "Set up bot",
-      "type": "teamsfx",
-      "command": "debug-set-up-bot",
-      "args": {
-        "botMessagingEndpoint": "/api/messages"
-      }
-    },
-    {
-      "label": "Build & upload Teams manifest",
-      "type": "teamsfx",
-      "command": "debug-prepare-manifest",
-      "args": {}
-    },
-    {
-      "label": "Start services",
-      "dependsOn": ["Start bot"]
-    },
-    {
-      "label": "Start bot",
-      "type": "shell",
-      "command": "npm run dev:teamsfx",
-      "isBackground": true,
-      "options": {
-        "cwd": "${workspaceFolder}/bot"
-      },
-      "problemMatcher": {
-        "pattern": [
-          {
-            "regexp": "^.*$",
-            "file": 0,
-            "location": 1,
-            "message": 2
-          }
-        ],
-        "background": {
-          "activeOnStart": true,
-          "beginsPattern": "[nodemon] starting",
-          "endsPattern": "restify listening to|Bot/ME service listening at|[nodemon] app crashed"
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start Teams App Locally",
+            "dependsOn": [
+                "Validate & install prerequisites",
+                "Start local tunnel",
+                "Provision",
+                "Deploy",
+                "Start services"
+            ],
+            "dependsOrder": "sequence"
+        },
+        {
+            "label": "Validate & install prerequisites",
+            "type": "teamsfx",
+            "command": "debug-check-prerequisites",
+            "args": {
+                "prerequisites": [
+                    "nodejs", // Validate if Node.js is installed.
+                    "m365Account", // Sign-in prompt for Microsoft 365 account, then validate if the account enables the sideloading permission.
+                    "portOccupancy" // Validate available ports to ensure those debug ones are not occupied.
+                ],
+                "portOccupancy": [
+                    3978,
+                    9239
+                ]
+            }
+        },
+        {
+            // Start the local tunnel service to forward public URL to local port and inspect traffic.
+            // See https://aka.ms/teamsfx-tasks/local-tunnel for the detailed args definitions.
+            "label": "Start local tunnel",
+            "type": "teamsfx",
+            "command": "debug-start-local-tunnel",
+            "args": {
+                "type": "dev-tunnel",
+                "ports": [
+                    {
+                        "portNumber": 3978,
+                        "protocol": "http",
+                        "access": "public",
+                        "writeToEnvironmentFile": {
+                            // Keep consistency with upgraded configuration.
+                            "endpoint": "PROVISIONOUTPUT__AZUREWEBAPPBOTOUTPUT__SITEENDPOINT",
+                            "domain": "PROVISIONOUTPUT__AZUREWEBAPPBOTOUTPUT__DOMAIN"
+                        }
+                    }
+                ],
+                "env": "local"
+            },
+            "isBackground": true,
+            "problemMatcher": "$teamsfx-local-tunnel-watch"
+        },
+        {
+            // Create the debug resources.
+            // See https://aka.ms/teamsfx-tasks/provision to know the details and how to customize the args.
+            "label": "Provision",
+            "type": "teamsfx",
+            "command": "provision",
+            "args": {
+                "env": "local"
+            }
+        },
+        {
+            // Build project.
+            // See https://aka.ms/teamsfx-tasks/deploy to know the details and how to customize the args.
+            "label": "Deploy",
+            "type": "teamsfx",
+            "command": "deploy",
+            "args": {
+                "env": "local"
+            }
+        },
+        {
+            "label": "Start services",
+            "dependsOn": [
+                "Start bot"
+            ]
+        },
+        {
+            "label": "Start bot",
+            "type": "shell",
+            "command": "npm run dev:teamsfx",
+            "isBackground": true,
+            "options": {
+                "cwd": "${workspaceFolder}/bot"
+            },
+            "problemMatcher": {
+                "pattern": [
+                    {
+                        "regexp": "^.*$",
+                        "file": 0,
+                        "location": 1,
+                        "message": 2
+                    }
+                ],
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "[nodemon] starting",
+                    "endsPattern": "restify listening to|Bot/ME service listening at|[nodemon] app crashed"
+                }
+            }
+        },
+        {
+            "type": "teamsfx",
+            "command": "bot start",
+            "problemMatcher": [
+                "$teamsfx-bot-watch"
+            ],
+            "label": "teamsfx: bot start"
+        },
+        {
+            "type": "npm",
+            "script": "dev",
+            "path": "bot",
+            "group": "rebuild",
+            "problemMatcher": [],
+            "label": "npm: dev - bot",
+            "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
+        },
+        {
+            "type": "npm",
+            "script": "dev",
+            "path": "bot",
+            "group": "rebuild",
+            "problemMatcher": [],
+            "label": "npm: dev - bot",
+            "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
+        },
+        {
+            "type": "npm",
+            "script": "dev",
+            "path": "bot",
+            "group": "rebuild",
+            "problemMatcher": [],
+            "label": "npm: dev - bot",
+            "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
+        },
+        {
+            "type": "npm",
+            "script": "dev",
+            "path": "bot",
+            "group": "rebuild",
+            "problemMatcher": [],
+            "label": "npm: dev - bot",
+            "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
+        },
+        {
+            "type": "npm",
+            "script": "dev",
+            "path": "bot",
+            "group": "rebuild",
+            "problemMatcher": [],
+            "label": "npm: dev - bot",
+            "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
+        },
+        {
+            "type": "npm",
+            "script": "dev",
+            "path": "bot",
+            "group": "rebuild",
+            "problemMatcher": [],
+            "label": "npm: dev - bot",
+            "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
+        },
+        {
+            "type": "npm",
+            "script": "dev",
+            "path": "bot",
+            "group": "rebuild",
+            "problemMatcher": [],
+            "label": "npm: dev - bot",
+            "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
+        },
+        {
+            "type": "npm",
+            "script": "dev",
+            "path": "bot",
+            "group": "rebuild",
+            "problemMatcher": [],
+            "label": "npm: dev - bot",
+            "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
+        },
+        {
+            "type": "npm",
+            "script": "dev",
+            "path": "bot",
+            "group": "rebuild",
+            "problemMatcher": [],
+            "label": "npm: dev - bot",
+            "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
+        },
+        {
+            "type": "npm",
+            "script": "dev",
+            "path": "bot",
+            "group": "rebuild",
+            "problemMatcher": [],
+            "label": "npm: dev - bot",
+            "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
+        },
+        {
+            "type": "npm",
+            "script": "dev",
+            "path": "bot",
+            "group": "rebuild",
+            "problemMatcher": [],
+            "label": "npm: dev - bot",
+            "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
+        },
+        {
+            "type": "npm",
+            "script": "dev",
+            "path": "bot",
+            "group": "rebuild",
+            "problemMatcher": [],
+            "label": "npm: dev - bot",
+            "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
+        },
+        {
+            "type": "npm",
+            "script": "dev",
+            "path": "bot",
+            "group": "rebuild",
+            "problemMatcher": [],
+            "label": "npm: dev - bot",
+            "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
+        },
+        {
+            "type": "npm",
+            "script": "dev",
+            "path": "bot",
+            "group": "rebuild",
+            "problemMatcher": [],
+            "label": "npm: dev - bot",
+            "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
+        },
+        {
+            "type": "npm",
+            "script": "dev:teamsfx",
+            "path": "bot",
+            "problemMatcher": [],
+            "label": "npm: dev:teamsfx - bot",
+            "detail": "env-cmd --silent -f .env.teamsfx.local npm run dev"
+        },
+        {
+            "type": "npm",
+            "script": "dev:teamsfx",
+            "path": "bot",
+            "problemMatcher": [],
+            "label": "npm: dev:teamsfx - bot",
+            "detail": "env-cmd --silent -f .env.teamsfx.local npm run dev"
+        },
+        {
+            "type": "npm",
+            "script": "dev:teamsfx",
+            "path": "bot",
+            "problemMatcher": [],
+            "label": "npm: dev:teamsfx - bot",
+            "detail": "env-cmd --silent -f .env.teamsfx.local npm run dev"
+        },
+        {
+            "type": "npm",
+            "script": "dev:teamsfx",
+            "path": "bot",
+            "problemMatcher": [],
+            "label": "npm: dev:teamsfx - bot",
+            "detail": "env-cmd --silent -f .env.teamsfx.local npm run dev"
+        },
+        {
+            "type": "npm",
+            "script": "dev:teamsfx",
+            "path": "bot",
+            "problemMatcher": [],
+            "label": "npm: dev:teamsfx - bot",
+            "detail": "env-cmd --silent -f .env.teamsfx.local npm run dev"
+        },
+        {
+            "type": "npm",
+            "script": "dev:teamsfx",
+            "path": "bot",
+            "problemMatcher": [],
+            "label": "npm: dev:teamsfx - bot",
+            "detail": "env-cmd --silent -f .env.teamsfx.local npm run dev"
         }
-      }
-    },
-    {
-      "type": "teamsfx",
-      "command": "bot start",
-      "problemMatcher": ["$teamsfx-bot-watch"],
-      "label": "teamsfx: bot start"
-    },
-    {
-      "type": "npm",
-      "script": "dev",
-      "path": "bot",
-      "group": "rebuild",
-      "problemMatcher": [],
-      "label": "npm: dev - bot",
-      "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
-    },
-    {
-      "type": "npm",
-      "script": "dev",
-      "path": "bot",
-      "group": "rebuild",
-      "problemMatcher": [],
-      "label": "npm: dev - bot",
-      "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
-    },
-    {
-      "type": "npm",
-      "script": "dev",
-      "path": "bot",
-      "group": "rebuild",
-      "problemMatcher": [],
-      "label": "npm: dev - bot",
-      "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
-    },
-    {
-      "type": "npm",
-      "script": "dev",
-      "path": "bot",
-      "group": "rebuild",
-      "problemMatcher": [],
-      "label": "npm: dev - bot",
-      "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
-    },
-    {
-      "type": "npm",
-      "script": "dev",
-      "path": "bot",
-      "group": "rebuild",
-      "problemMatcher": [],
-      "label": "npm: dev - bot",
-      "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
-    },
-    {
-      "type": "npm",
-      "script": "dev",
-      "path": "bot",
-      "group": "rebuild",
-      "problemMatcher": [],
-      "label": "npm: dev - bot",
-      "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
-    },
-    {
-      "type": "npm",
-      "script": "dev",
-      "path": "bot",
-      "group": "rebuild",
-      "problemMatcher": [],
-      "label": "npm: dev - bot",
-      "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
-    },
-    {
-      "type": "npm",
-      "script": "dev",
-      "path": "bot",
-      "group": "rebuild",
-      "problemMatcher": [],
-      "label": "npm: dev - bot",
-      "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
-    },
-    {
-      "type": "npm",
-      "script": "dev",
-      "path": "bot",
-      "group": "rebuild",
-      "problemMatcher": [],
-      "label": "npm: dev - bot",
-      "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
-    },
-    {
-      "type": "npm",
-      "script": "dev",
-      "path": "bot",
-      "group": "rebuild",
-      "problemMatcher": [],
-      "label": "npm: dev - bot",
-      "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
-    },
-    {
-      "type": "npm",
-      "script": "dev",
-      "path": "bot",
-      "group": "rebuild",
-      "problemMatcher": [],
-      "label": "npm: dev - bot",
-      "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
-    },
-    {
-      "type": "npm",
-      "script": "dev",
-      "path": "bot",
-      "group": "rebuild",
-      "problemMatcher": [],
-      "label": "npm: dev - bot",
-      "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
-    },
-    {
-      "type": "npm",
-      "script": "dev",
-      "path": "bot",
-      "group": "rebuild",
-      "problemMatcher": [],
-      "label": "npm: dev - bot",
-      "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
-    },
-    {
-      "type": "npm",
-      "script": "dev",
-      "path": "bot",
-      "group": "rebuild",
-      "problemMatcher": [],
-      "label": "npm: dev - bot",
-      "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
-    },
-    {
-      "type": "npm",
-      "script": "dev:teamsfx",
-      "path": "bot",
-      "problemMatcher": [],
-      "label": "npm: dev:teamsfx - bot",
-      "detail": "env-cmd --silent -f .env.teamsfx.local npm run dev"
-    },
-    {
-      "type": "npm",
-      "script": "dev:teamsfx",
-      "path": "bot",
-      "problemMatcher": [],
-      "label": "npm: dev:teamsfx - bot",
-      "detail": "env-cmd --silent -f .env.teamsfx.local npm run dev"
-    },
-    {
-      "type": "npm",
-      "script": "dev:teamsfx",
-      "path": "bot",
-      "problemMatcher": [],
-      "label": "npm: dev:teamsfx - bot",
-      "detail": "env-cmd --silent -f .env.teamsfx.local npm run dev"
-    },
-    {
-      "type": "npm",
-      "script": "dev:teamsfx",
-      "path": "bot",
-      "problemMatcher": [],
-      "label": "npm: dev:teamsfx - bot",
-      "detail": "env-cmd --silent -f .env.teamsfx.local npm run dev"
-    },
-    {
-      "type": "npm",
-      "script": "dev:teamsfx",
-      "path": "bot",
-      "problemMatcher": [],
-      "label": "npm: dev:teamsfx - bot",
-      "detail": "env-cmd --silent -f .env.teamsfx.local npm run dev"
-    }
-  ]
+    ]
 }
