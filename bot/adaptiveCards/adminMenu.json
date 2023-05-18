@@ -2,43 +2,48 @@
   "type": "AdaptiveCard",
   "body": [
     {
-      "type": "TextBlock",
-      "text": "Робоча область адміністратора",
-      "size": "large",
-      "weight": "bolder"
-    },
-    {
-      "type": "ColumnSet",
-      "columns": [
+      "type": "Container",
+      "items": [
         {
-          "type": "Column",
-          "width": "auto",
-          "items": [
-            {
-              "type": "Image",
-              "url": "https://adaptivecards.io/content/cats/1.png",
-              "altText": "Matt Hidinger",
-              "size": "small",
-              "style": "person"
-            }
-          ]
+          "type": "TextBlock",
+          "text": "Робоча область адміністратора",
+          "size": "large",
+          "weight": "bolder"
         },
         {
-          "type": "Column",
-          "width": "stretch",
-          "items": [
+          "type": "ColumnSet",
+          "columns": [
             {
-              "type": "TextBlock",
-              "text": "Адмін Франко",
-              "weight": "bolder",
-              "wrap": true
+              "type": "Column",
+              "width": "auto",
+              "items": [
+                {
+                  "type": "Image",
+                  "url": "https://adaptivecards.io/content/cats/1.png",
+                  "altText": "$userName",
+                  "size": "small",
+                  "style": "person"
+                }
+              ]
             },
             {
-              "type": "TextBlock",
-              "spacing": "none",
-              "text": "admin@i.ua",
-              "isSubtle": true,
-              "wrap": true
+              "type": "Column",
+              "width": "stretch",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "$userName",
+                  "weight": "bolder",
+                  "wrap": true
+                },
+                {
+                  "type": "TextBlock",
+                  "spacing": "none",
+                  "text": "$userEmail",
+                  "isSubtle": true,
+                  "wrap": true
+                }
+              ]
             }
           ]
         }
@@ -47,10 +52,10 @@
     {
       "type": "TextBlock",
       "text": "Взаємодія з користувачем",
-      "weight": "bolder"
+      "weight": "bolder",
+      "wrap": true
     }
   ],
-
   "actions": [
     {
       "type": "Action.Execute",
@@ -61,7 +66,7 @@
     {
       "type": "Action.Execute",
       "title": "Редагувати",
-      "verb": "updateUserEmail",
+      "verb": "updateUser",
       "fallback": "Action.Submit"
     },
     {
@@ -90,6 +95,6 @@
     }
   ],
   "keyword": "adminMenu",
-  "dynamic": false,
+  "dynamic": true,
   "shouldCareerUpdate": false
 }

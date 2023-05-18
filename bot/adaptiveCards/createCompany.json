@@ -45,24 +45,6 @@
       "label": "Дата закінчення першого Performance Review",
       "isRequired": true,
       "errorMessage": "Something wrong with the date."
-    },
-    {
-      "type": "Input.Date",
-      "id": "perfSecondStartDate",
-      "isMultiline": false,
-      "placeholder": "дд/мм/рр",
-      "label": "Дата початку другого Performance Review",
-      "isRequired": true,
-      "errorMessage": "Something wrong with the date."
-    },
-    {
-      "type": "Input.Date",
-      "id": "perfSecondEndDate",
-      "isMultiline": false,
-      "placeholder": "дд/мм/рр",
-      "label": "Дата закінчення другого Performance Review",
-      "isRequired": true,
-      "errorMessage": "Something wrong with the date."
     }
   ],
   "actions": [

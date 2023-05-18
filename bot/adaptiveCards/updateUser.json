@@ -3,8 +3,25 @@
   "body": [
     {
       "type": "TextBlock",
-      "text": "Тарас Шевченко",
+      "text": "Вкажіть email користувача",
       "weight": "bolder"
+    },
+    {
+      "type": "Input.Text",
+      "id": "updateEmail",
+      "label": "Email",
+      "style": "email",
+      "isMultiline": false,
+      "isRequired": true
+    },
+    {
+      "type": "Input.Date",
+      "id": "startingDateUpdate",
+      "isMultiline": false,
+      "placeholder": "дд/мм/рр",
+      "label": "Початок роботи в компанії.",
+      "isRequired": false,
+      "errorMessage": "Something wrong with the date."
     },
     {
       "type": "Input.ChoiceSet",
@@ -22,7 +39,7 @@
           "value": "manager"
         },
         {
-          "title": "Спеціалист",
+          "title": "Спеціаліст",
           "value": "specialist"
         }
       ]

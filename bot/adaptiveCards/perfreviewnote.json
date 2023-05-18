@@ -6,6 +6,14 @@
       "text": "Ок! Пам'ятай, що найближче Performance Review буде з 10.04.2023 по 25.05.2023 😉"
     }
   ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Ок",
+      "verb": "perfReviewNoteMessage",
+      "fallback": "Action.Submit"
+    }
+  ],
   "keyword": "perfReviewNote",
   "shouldCareerUpdate": true,
   "dynamic": true

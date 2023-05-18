@@ -2,10 +2,13 @@ async function handleUserReplyMessages(verb, context, credentials) {
   let message = null;
   const { companyName, userEmail } = credentials;
   switch (verb.toLowerCase()) {
-    // case "companyCreated".toLowerCase():
-    //   message = "The company is being created...";
-    //   break;
-
+    case "perfReviewNoteMessage".toLowerCase():
+      message = "Для виклику робочого меню введіть команду “Hello”.";
+      break;
+    case "answerToSendMessage".toLowerCase():
+      message =
+        "Повідомлення відправлено. Очікуй на відповідь. Для виклику робочого меню введіть команду “Hello”.";
+      break;
     default:
       break;
   }
