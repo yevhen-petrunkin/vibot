@@ -8,15 +8,9 @@
     },
     {
       "type": "Input.Text",
-      "id": "emailManager",
-      "label": "Email менеджера",
-      "maxLength": 100,
-      "isMultiline": false
-    },
-    {
-      "type": "Input.Text",
       "id": "managerMessage",
       "label": "Яке повідомлення мені передати?",
+      "isRequired": true,
       "maxLength": 1000,
       "isMultiline": true
     }
@@ -26,7 +20,7 @@
     {
       "type": "Action.Execute",
       "title": "Готово",
-      "verb": "answerToSend",
+      "verb": "answerToSendMessage",
       "fallback": "Action.Submit"
     }
   ],

@@ -9,13 +9,18 @@
     },
     {
       "type": "Image",
-      "url": "https://i.ibb.co/zSCBx7J/09a8f0ad-7cd2-46d9-9d62-3aea864f8f25.jpg",
+      "url": "https://i.ibb.co/yprdJg9/image.png",
       "altText": "VBot",
       "height": "200px"
     },
     {
       "type": "TextBlock",
       "text": "До зустрічі 😉"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Для виклику робочого меню введіть команду “Hello”.",
+      "wrap": true
     }
   ],
   "keyword": "confirmRecord",

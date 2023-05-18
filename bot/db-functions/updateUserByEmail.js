@@ -8,6 +8,7 @@ async function updateUserByEmail(userEmail, userData, companyName) {
       ...userData,
     });
     console.log("User Data updated in firestore.");
+    console.log(userData);
     return true;
   } catch (error) {
     const errorCode = error.code;

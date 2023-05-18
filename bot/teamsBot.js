@@ -24,6 +24,7 @@ class TeamsBot extends TeamsActivityHandler {
     super();
 
     this.credentials = null;
+    this.state = null;
 
     this.onMessage(async (context, next) => {
       // try {
@@ -95,11 +96,12 @@ class TeamsBot extends TeamsActivityHandler {
       return { statusCode: 200 };
     }
 
-    this.state = context.activity.value.data;
+    this.state = context.activity.value.action.data;
 
     const config = {
       context,
       credentials: this.credentials,
+      state: this.state,
     };
 
     if (this.credentials.userRole === "admin") {
