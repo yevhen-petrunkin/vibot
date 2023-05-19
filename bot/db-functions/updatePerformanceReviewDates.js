@@ -22,12 +22,6 @@ module.exports = updatePerformanceReviewDates;
 
 // ---------- dateData must be an object that looks like this: !!!!!!!!!!!!!!
 // {
-//       firstPerfReviewPeriod: {
 //         startPerfReviewDate: "",
 //         endPerfReviewDate: "",
-//       },
-//       secondPerfReviewPeriod: {
-//         startPerfReviewDate: "",
-//         endPerfReviewDate: "",
-//       },
 // };

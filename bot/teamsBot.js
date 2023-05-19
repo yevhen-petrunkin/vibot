@@ -10,12 +10,14 @@ const {
 const fetchAllCompanyData = require("./db-functions/fetchAllCompanyData");
 
 const { normalizeMessageText } = require("./helpers/normalize");
+const defineNextVerb = require("./helpers/defineNextVerb");
 const handleMessageByText = require("./handlers/handleMessageByText");
 const handleNoCredentials = require("./handlers/handleNoCredentials");
 const handlePreRegisterActions = require("./handlers/handlePreRegisterActions");
 const handleInvokeByVerb = require("./handlers/handleIvokeByVerb");
 const handleAdminFunctions = require("./handlers/handleAdminFunctions");
 const showAdaptiveCardByData = require("./actions/showAdaptiveCardByData");
+const sendEmail = require("./actions/sendEmail");
 
 const { rawAdminMenuCard } = require("./adaptiveCards/cardIndex");
 
@@ -43,6 +45,7 @@ class TeamsBot extends TeamsActivityHandler {
       const config = {
         context,
         credentials: this.credentials,
+        state: this.state,
       };
 
       let message = context.activity.text;
@@ -79,7 +82,6 @@ class TeamsBot extends TeamsActivityHandler {
   async onAdaptiveCardInvoke(context, invokeValue) {
     console.log("Invoke Credentials: ", this.credentials);
     const verb = invokeValue.action.verb;
-    console.log(verb);
 
     if (!this.credentials) {
       const { isTriggered, credentials } = await handlePreRegisterActions(
@@ -116,7 +118,8 @@ class TeamsBot extends TeamsActivityHandler {
       console.log(
         "User (manager/specialist) is still logged on invoke with credentials"
       );
-      this.credentials.stage = verb;
+      this.credentials.stage = defineNextVerb(verb);
+      console.log("New Stage:", this.credentials.stage);
       await handleInvokeByVerb(verb, config);
     }
 
