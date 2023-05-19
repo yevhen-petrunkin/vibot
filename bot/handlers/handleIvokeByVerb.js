@@ -5,10 +5,12 @@ const {
 
 const findAdaptiveCard = require("../helpers/findAdaptiveCard");
 const changeCommand = require("../helpers/changeCommand");
+const defineNextVerb = require("../helpers/defineNextVerb");
 const changeDataInAdaptiveCard = require("../helpers/changeDataInAdaptiveCard");
 const showAdaptiveCardByData = require("../actions/showAdaptiveCardByData");
-const handleUserReplyMessages = require("../handlers/handleUserReplyMessages");
-const handleInvokeAdditionalStepsByVerb = require("../handlers/handleInvokeAdditionalStepsByVerb");
+const handleUserReplyMessages = require("./handleUserReplyMessages");
+const handleCredentials = require("./handleCredentials");
+const handleInvokeAdditionalStepsByVerb = require("./handleInvokeAdditionalStepsByVerb");
 const updateUserCareerStageByEmail = require("../db-functions/updateUserCareerStageByEmail");
 
 async function handleInvokeByVerb(verb, config) {
@@ -27,11 +29,11 @@ async function handleInvokeByVerb(verb, config) {
       await context.sendActivity("Sorry. Did not find the necessary answer.");
       return;
     }
-    await handleInvokeAdditionalStepsByVerb(command, contextData);
+    await handleInvokeAdditionalStepsByVerb(command, config);
     return;
   }
 
-  await handleInvokeAdditionalStepsByVerb(command, contextData);
+  await handleInvokeAdditionalStepsByVerb(command, config);
 
   if (adaptiveCardData.dynamic) {
     const user = await handleCredentials(contextData, credentials);
@@ -54,7 +56,9 @@ async function handleInvokeByVerb(verb, config) {
   }
 
   if (adaptiveCardData.shouldCareerUpdate) {
-    await updateUserCareerStageByEmail(userEmail, command, companyName);
+    const nextVerb = defineNextVerb(command);
+    console.log("Next Verb", nextVerb);
+    await updateUserCareerStageByEmail(userEmail, nextVerb, companyName);
   }
 
   await showAdaptiveCardByData(adaptiveCardData, context);

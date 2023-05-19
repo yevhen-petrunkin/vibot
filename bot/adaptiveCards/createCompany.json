@@ -30,7 +30,7 @@
     },
     {
       "type": "Input.Date",
-      "id": "perfFirstStartDate",
+      "id": "perfStartDate",
       "isMultiline": false,
       "placeholder": "дд/мм/рр",
       "label": "Дата початку першого Performance Review",
@@ -39,7 +39,7 @@
     },
     {
       "type": "Input.Date",
-      "id": "perfFirstEndDate",
+      "id": "perfEndDate",
       "isMultiline": false,
       "placeholder": "дд/мм/рр",
       "label": "Дата закінчення першого Performance Review",

@@ -10,12 +10,14 @@ const {
 const fetchAllCompanyData = require("./db-functions/fetchAllCompanyData");
 
 const { normalizeMessageText } = require("./helpers/normalize");
+const defineNextVerb = require("./helpers/defineNextVerb");
 const handleMessageByText = require("./handlers/handleMessageByText");
 const handleNoCredentials = require("./handlers/handleNoCredentials");
 const handlePreRegisterActions = require("./handlers/handlePreRegisterActions");
 const handleInvokeByVerb = require("./handlers/handleIvokeByVerb");
 const handleAdminFunctions = require("./handlers/handleAdminFunctions");
 const showAdaptiveCardByData = require("./actions/showAdaptiveCardByData");
+const sendEmail = require("./actions/sendEmail");
 
 const { rawAdminMenuCard } = require("./adaptiveCards/cardIndex");
 
@@ -27,13 +29,24 @@ class TeamsBot extends TeamsActivityHandler {
     this.state = null;
 
     this.onMessage(async (context, next) => {
+      // try {
+      //   let userDetails = await this.graphClient.api("/me").get();
+      //   console.log(userDetails);
+      // } catch (error) {
+      //   throw error;
+      // }
+
       if (!this.credentials) {
         this.credentials = await handleNoCredentials(context);
         console.log("Message Credentials: ", this.credentials);
         return;
       }
 
-      const config = { context, credentials: this.credentials };
+      const config = {
+        context,
+        credentials: this.credentials,
+        state: this.state,
+      };
 
       let message = context.activity.text;
       const removedMentionText = TurnContext.removeRecipientMention(
@@ -105,7 +118,8 @@ class TeamsBot extends TeamsActivityHandler {
       console.log(
         "User (manager/specialist) is still logged on invoke with credentials"
       );
-      this.credentials.stage = verb;
+      this.credentials.stage = defineNextVerb(verb);
+      console.log("New Stage:", this.credentials.stage);
       await handleInvokeByVerb(verb, config);
     }
 

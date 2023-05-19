@@ -15,7 +15,6 @@ async function fetchAllUsers(companyName) {
     users.forEach((user) => {
       newArr.push(user.data());
     });
-    console.log("User Array: ", newArr);
     console.log("All User data obtained.");
     return newArr;
   } catch (error) {
@@ -26,23 +25,3 @@ async function fetchAllUsers(companyName) {
 }
 
 module.exports = fetchAllUsers;
-
-// try {
-//   const users = await getDocs(collection(db, "users"));
-//   const usersArr = [];
-//   if (users) {
-//     users.forEach((user) => {
-//       const userData = { id: user.id, data: user.data() };
-//       usersArr.push(userData);
-//     });
-//     if (usersArr.length) {
-//       const command = findCommandStageByUserId(userId, usersArr);
-//       return command.toLowerCase();
-//     }
-//   }
-//   if (!users || !usersArr.length) {
-//     return "hello";
-//   }
-// } catch (error) {
-//   console.log(error.message);
-// }

@@ -2,24 +2,13 @@ const { doc, setDoc } = require("firebase/firestore");
 const { db } = require("../firebase");
 
 async function createCompanyInfo(contextData) {
-  const {
-    companyName,
-    perfFirstStartDate,
-    perfFirstEndDate,
-    perfSecondStartDate,
-    perfSecondEndDate,
-  } = contextData.value.action.data;
+  const { companyName, perfStartDate, perfEndDate } =
+    contextData.value.action.data;
 
   const companyInfo = {
     companyName,
-    firstPerfReviewPeriod: {
-      startPerfReviewDate: perfFirstStartDate,
-      endPerfReviewDate: perfFirstEndDate,
-    },
-    secondPerfReviewPeriod: {
-      startPerfReviewDate: perfSecondStartDate,
-      endPerfReviewDate: perfSecondEndDate,
-    },
+    startPerfReviewDate: perfStartDate,
+    endPerfReviewDate: perfEndDate,
   };
   const companyInfoRef = doc(db, companyName, "companyInfo");
   try {
