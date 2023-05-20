@@ -7,8 +7,8 @@ async function createCompanyInfo(contextData) {
 
   const companyInfo = {
     companyName,
-    startPerfReviewDate: perfStartDate,
-    endPerfReviewDate: perfEndDate,
+    perfStartDate,
+    perfEndDate,
   };
   const companyInfoRef = doc(db, companyName, "companyInfo");
   try {

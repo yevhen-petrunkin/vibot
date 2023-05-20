@@ -8,30 +8,30 @@
     },
     {
       "type": "Input.ChoiceSet",
-      "id": "downloadFileId",
+      "id": "fileAssign",
       "isMultiSelect": true,
       "style": "expanded",
       "choices": [
         {
           "title": "Всі спеціалісти",
-          "value": "Всі спеціалісти"
+          "value": "specialists"
         },
         {
           "title": "Всі менеджери",
-          "value": "Всі менеджери"
+          "value": "managers"
         }
       ]
     },
     {
       "type": "Input.Text",
-      "id": "downloadFileFileId",
+      "id": "fileName",
       "label": "Назва файлу",
       "maxLength": 500,
       "isMultiline": false
     },
     {
       "type": "Input.Text",
-      "id": "downloadFileUrlId",
+      "id": "fileUrl",
       "label": "Посилання",
       "maxLength": 500,
       "isMultiline": false

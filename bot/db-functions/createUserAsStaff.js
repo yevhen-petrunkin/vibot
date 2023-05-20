@@ -5,6 +5,8 @@ async function createUserAsStaff(contextData, user, companyName) {
   const formData = contextData.value.action.data;
   const { userEmail, startingDate, userRole, managerEmail } = formData;
 
+  const userRef = doc(db, companyName, "companyUsers", "users", userEmail);
+
   const userData = {
     userId: user.uid,
     teamsId: "",
@@ -16,8 +18,6 @@ async function createUserAsStaff(contextData, user, companyName) {
     stage: "hello",
     hasCareerPlan: false,
   };
-
-  const userRef = doc(db, companyName, "companyUsers", "users", userEmail);
 
   try {
     await setDoc(userRef, userData);
