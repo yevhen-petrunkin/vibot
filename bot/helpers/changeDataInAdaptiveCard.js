@@ -10,6 +10,7 @@ const { promisify } = require("util");
 
 const scriptsFolder =
   "C:/Users/Icepriest/TeamsApps/vb/bot/db-functions/fetchers";
+const scriptsFolder = './db-functions/fetchers';
 //C:/Users/Icepriest/TeamsApps/vbot-main2/vibot-main/bot
 
 // Функция, которая принимает путь к папке и возвращает массив ключей-значений скриптов
@@ -18,12 +19,20 @@ function loadScripts(folderPath) {
 
   fs.readdirSync(folderPath).forEach((file) => {
     const filePath = path.join(folderPath, file);
+  fs.readdirSync(folderPath).forEach(file => {
+    let filePath = path.join(folderPath, file);
     const { name, ext } = path.parse(file);
 
     // Проверяем, что файл является скриптом JavaScript
     if (ext === ".js") {
       // Динамически импортируем скрипт
       const script = require(filePath);
+    if (ext === '.js') {
+      // Динамически импортируем скрипт 
+
+      filePath = filePath.replace(/\\/g, '/');
+
+      const script = require('../' + filePath);
 
       // Используем имя файла (без расширения) в качестве ключа
       scripts[name] = script;
