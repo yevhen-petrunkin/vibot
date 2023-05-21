@@ -32,14 +32,16 @@
               "items": [
                 {
                   "type": "TextBlock",
-                  "text": "Tima Timofey",
+                  "text": "У вас немає ім'я",
+                  "dtext": "fetchUserName",
                   "weight": "bolder",
                   "wrap": true
                 },
                 {
                   "type": "TextBlock",
                   "spacing": "none",
-                  "text": "Email: {{DATE(2017-02-14T06:08:39Z, SHORT)}}",
+                  "text":"У вас немає пошти",
+                  "dtext": "getUserEmailFromCredentials",
                   "isSubtle": true,
                   "wrap": true
                 }
@@ -70,7 +72,7 @@
     {
       "type": "Action.Execute",
       "title": "Спеціалисти без плану",
-      "verb": "answerToSend"
+      "verb": "noPlanList"
     },
     {
       "type": "Action.Execute",
