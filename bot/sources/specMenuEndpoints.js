@@ -1,9 +1,10 @@
-const prepareEndpoints = [
+const specMenuEndpoints = [
   "thankWaitNote",
   "perfReviewNote",
+  "perfReviewNoteMessage",
   "answerToSend",
   "thankCardDef",
   "confirmRecord",
 ];
 
-module.exports = { prepareEndpoints };
+module.exports = { specMenuEndpoints };

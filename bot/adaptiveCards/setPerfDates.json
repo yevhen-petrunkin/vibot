@@ -8,7 +8,7 @@
     },
     {
       "type": "Input.Date",
-      "id": "perfDateStart",
+      "id": "perfStartDate",
       "label": "Початок",
       "isMultiline": false,
       "placeholder": "дд/мм/рр",
@@ -16,7 +16,7 @@
     },
     {
       "type": "Input.Date",
-      "id": "perfDateEnd",
+      "id": "perfEndDate",
       "label": "Завершення",
       "isMultiline": false,
       "placeholder": "дд/мм/рр",

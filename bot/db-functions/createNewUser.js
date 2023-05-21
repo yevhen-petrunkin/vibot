@@ -12,7 +12,7 @@ async function createNewUser(context, credentials) {
       await updateUserCompanyName(companyName, user);
       await createUserAsStaff(context.activity, user, companyName);
       console.log("All operations completed successfully.");
-      const newVerb = "userReady";
+      const newVerb = "userCreated";
       await handleAdminReplyMessages(newVerb, context, credentials);
     }
   } catch (error) {

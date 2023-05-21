@@ -26,7 +26,7 @@ class TeamsBot extends TeamsActivityHandler {
     super();
 
     this.credentials = null;
-    this.state = null;
+    this.state = {};
 
     this.onMessage(async (context, next) => {
       // try {
@@ -35,6 +35,8 @@ class TeamsBot extends TeamsActivityHandler {
       // } catch (error) {
       //   throw error;
       // }
+
+      console.log("OnMessage Triggered");
 
       if (!this.credentials) {
         this.credentials = await handleNoCredentials(context);
@@ -57,7 +59,7 @@ class TeamsBot extends TeamsActivityHandler {
       fetchAllCompanyData(this.credentials.companyName);
 
       if (this.credentials.userRole === "admin") {
-        ("Admin is still logged on message with credentials");
+        console.log("Admin is still logged on message with credentials");
         await showAdaptiveCardByData(rawAdminMenuCard, context);
       }
 
@@ -65,7 +67,9 @@ class TeamsBot extends TeamsActivityHandler {
         this.credentials.userRole === "manager" ||
         this.credentials.userRole === "specialist"
       ) {
-        ("User (manager/specialist) is still logged on message with credentials");
+        console.log(
+          "User (manager/specialist) is still logged on message with credentials"
+        );
         await handleMessageByText(message, config);
       }
 
@@ -98,7 +102,10 @@ class TeamsBot extends TeamsActivityHandler {
       return { statusCode: 200 };
     }
 
-    this.state = context.activity.value.action.data;
+    if (context.activity.value.action.data) {
+      this.state = { ...this.state, ...context.activity.value.action.data };
+      console.log("New State: ", this.state);
+    }
 
     const config = {
       context,
