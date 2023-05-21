@@ -26,6 +26,7 @@
       "type": "Input.Text",
       "id": "fileName",
       "label": "Назва файлу",
+      "isRequired": true,
       "maxLength": 500,
       "isMultiline": false
     },
@@ -33,6 +34,7 @@
       "type": "Input.Text",
       "id": "fileUrl",
       "label": "Посилання",
+      "isRequired": true,
       "maxLength": 500,
       "isMultiline": false
     }

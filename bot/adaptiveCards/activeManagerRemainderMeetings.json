@@ -1,0 +1,46 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "Image",
+      "url": "https://i.ibb.co/qdBG7vZ/image.png",
+      "altText": "VBot",
+      "height": "200px"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Найближче Performance Review буде з 10.04.2023 по 25.05.2023",
+      "wrap": true,
+      "weight": "bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Ти проводив зустрічі зі спеціалістами?",
+      "wrap": true
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Так",
+      "verb": "messageOk",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Нагадати пізніше",
+      "verb": "activeLiter",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Наступне повідомлення",
+      "verb": "activeNoMassage",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "verticalContentAlignment": "center",
+  "keyword": "activeManagerRemainderMeetings",
+  "dynamic": true,
+  "shouldCareerUpdate": false
+}

@@ -1,0 +1,148 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Перелік твоїх цілей:",
+      "size": "large",
+      "weight": "bolder"
+    },
+    {
+      "type": "FactSet",
+      "weight": "bolder",
+      "facts": [
+        {
+          "title": "№1 ",
+          "value": "Назва цілі "
+        }
+      ]
+    },
+    {
+      "type": "FactSet",
+      "facts": [
+        {
+          "title": "Дедлайн:",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "Опис",
+      "wrap": true
+    },
+    {
+      "type": "FactSet",
+      "weight": "bolder",
+      "facts": [
+        {
+          "title": "№2 ",
+          "value": "Назва цілі "
+        }
+      ]
+    },
+    {
+      "type": "FactSet",
+      "facts": [
+        {
+          "title": "Дедлайн:",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "Опис",
+      "wrap": true
+    },
+    {
+      "type": "FactSet",
+      "weight": "bolder",
+      "facts": [
+        {
+          "title": "№3 ",
+          "value": "Назва цілі "
+        }
+      ]
+    },
+    {
+      "type": "FactSet",
+      "facts": [
+        {
+          "title": "Дедлайн:",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "Опис",
+      "wrap": true
+    },
+    {
+      "type": "FactSet",
+      "weight": "bolder",
+      "facts": [
+        {
+          "title": "№4 ",
+          "value": "Назва цілі "
+        }
+      ]
+    },
+    {
+      "type": "FactSet",
+      "facts": [
+        {
+          "title": "Дедлайн:",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "Опис",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "💡 Твої можливості та потенціал непідвладні межам. Визнач свої цілі і крок за кроком рухайся до їх досягнення. Пам'ятай, що ти володар свого власного успіху, і я повністю вірю в тебе. Нехай мотивація палає у твоєму серці.",
+      "wrap": true
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Редагувати №1",
+      "verb": "editPlan",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Редагувати №2",
+      "verb": "editPlan",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Редагувати №3",
+      "verb": "editPlan",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Редагувати №4",
+      "verb": "editPlan",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Готово",
+      "verb": "editPlanMessage",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "verticalContentAlignment": "center",
+  "keyword": "checkPlans",
+  "dynamic": false,
+  "shouldCareerUpdate": false
+}

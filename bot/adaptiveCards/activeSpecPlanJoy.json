@@ -1,0 +1,46 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Привіт! Сподіваюсь в тебе виходить досягати намічених цілей.",
+      "wrap": true,
+      "weight": "bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Чи задоволений ти своїм карʼєрним планом? 😉 ",
+      "wrap": true
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Так",
+      "verb": "perfReviewNote",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Ні",
+      "verb": "askNotJoy",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Нагадати пізніше",
+      "verb": "activeLiter",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Наступне повідомлення",
+      "verb": "activeNoMassage",
+      "fallback": "Action.Submit"
+    }
+  ],
+
+  "keyword": "activeSpecPlanJoy",
+  "shouldCareerUpdate": true,
+  "dynamic": false
+}

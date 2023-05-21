@@ -1,0 +1,40 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Назва цілі",
+      "wrap": true,
+      "weight": "bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Вітаю, в тебе вийшов дедлайн. Чи вдалося досягнути цілі? 😉",
+      "wrap": true
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Так",
+      "verb": "messageSuccess",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Передивитись цілі",
+      "verb": "checkPlans",
+      "fallback": "Action.Submit"
+    },
+       {
+         "type": "Action.Execute",
+         "title": "Наступне повідомлення",
+         "verb": "activeNoMassage",
+         "fallback": "Action.Submit"
+       }
+  ],
+  "verticalContentAlignment": "center",
+  "keyword": "activeSpecRemainderGoalDL",
+  "dynamic": true,
+  "shouldCareerUpdate": false
+}

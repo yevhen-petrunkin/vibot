@@ -11,17 +11,17 @@
     {
       "type": "Action.Execute",
       "title": "Завтра",
-      "verb": "confirmRecord",
+      "verb": "activeWroteDown",
       "fallback": "Action.Submit"
     },
     {
       "type": "Action.Execute",
       "title": "Через тиждень",
-      "verb": "confirmRecord",
+      "verb": "activeWroteDown",
       "fallback": "Action.Submit"
     }
   ],
-  "keyword": "askReminder",
+  "keyword": "activeLiter",
   "shouldCareerUpdate": true,
   "dynamic": false
 }

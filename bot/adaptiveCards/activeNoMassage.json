@@ -1,0 +1,23 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Повідомлень більше немає! 😉",
+      "weight": "bolder"
+    },
+    {
+      "type": "Image",
+      "url": "https://i.ibb.co/Lhsv7wm/image.png",
+      "altText": "VBot",
+      "height": "200px"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Для продовження роботи введіть команду “Hello”."
+    }
+  ],
+  "keyword": "activeNoMassage",
+  "shouldCareerUpdate": true,
+  "dynamic": false
+}

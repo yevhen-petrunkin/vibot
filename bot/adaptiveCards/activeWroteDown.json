@@ -1,0 +1,19 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Ок, записав!",
+      "weight": "bolder"
+    },
+    {
+      "type": "Image",
+      "url": "https://i.ibb.co/yprdJg9/image.png",
+      "altText": "VBot",
+      "height": "200px"
+    }
+  ],
+  "keyword": "activeWroteDown",
+  "shouldCareerUpdate": true,
+  "dynamic": false
+}
