@@ -5,7 +5,8 @@
       "type": "TextBlock",
       "text": "Привіт! Нагадую, про можливість додаткового навчання.",
       "size": "large",
-      "weight": "bolder"
+      "weight": "bolder",
+      "wrap": true
     },
 
     {
