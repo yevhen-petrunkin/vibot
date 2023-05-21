@@ -51,6 +51,16 @@
     },
     {
       "type": "TextBlock",
+      "text": "Ти закріплений за менеджером Тарас Шевченко",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "Наступне Performance Review: 01.06.2023-15.06.2023",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
       "text": "Що будемо робити?",
       "weight": "bolder",
       "wrap": true
@@ -59,20 +69,8 @@
   "actions": [
     {
       "type": "Action.Execute",
-      "title": "Написати менеджеру",
-      "verb": "sendToManager",
-      "fallback": "Action.Submit"
-    },
-    {
-      "type": "Action.Execute",
-      "title": "Подивитись цілі",
+      "title": "Мої цілі",
       "verb": "checkPlans",
-      "fallback": "Action.Submit"
-    },
-    {
-      "type": "Action.Execute",
-      "title": "Редагувати інформацію",
-      "verb": "checkPersonalData",
       "fallback": "Action.Submit"
     },
     {
@@ -80,16 +78,8 @@
       "title": "Важливі файли",
       "verb": "importantFilesList",
       "fallback": "Action.Submit"
-    },
-    {
-      "type": "Action.Execute",
-      "title": "Найближчі зустрічі",
-      "verb": "importantFileList",
-      "fallback": "Action.Submit"
     }
   ],
-  "minHeight": "100px",
-  "verticalContentAlignment": "center",
   "keyword": "specMenu",
   "dynamic": true,
   "shouldCareerUpdate": true
