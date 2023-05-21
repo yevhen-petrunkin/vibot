@@ -1,6 +1,10 @@
 // const axios = require("axios");
 // const querystring = require("querystring");
 
+const createAdaptiveCardFromObject = require("./helpers/createAdaptiveCardFromObject");
+const { rawNavigateCard, adaptiveCards } = require("./adaptiveCards/cardIndex");
+const findAdaptiveCard = require("./helpers/findAdaptiveCard");
+
 const {
   TeamsActivityHandler,
   // CardFactory,
@@ -26,15 +30,24 @@ class TeamsBot extends TeamsActivityHandler {
     super();
 
     this.credentials = null;
-    this.state = null;
+    this.state = {};
 
     this.onMessage(async (context, next) => {
-      // try {
-      //   let userDetails = await this.graphClient.api("/me").get();
-      //   console.log(userDetails);
-      // } catch (error) {
-      //   throw error;
-      // }
+      let message = context.activity.text;
+      const removedMentionText = TurnContext.removeRecipientMention(
+        context.activity
+      );
+      message = normalizeMessageText(removedMentionText);
+
+      if (message.toLowerCase() === "dev") {
+        const navigateCard = createAdaptiveCardFromObject(rawNavigateCard);
+        await context.sendActivity({
+          attachments: [navigateCard],
+        });
+        return;
+      }
+
+      console.log("OnMessage Triggered");
 
       if (!this.credentials) {
         this.credentials = await handleNoCredentials(context);
@@ -48,16 +61,10 @@ class TeamsBot extends TeamsActivityHandler {
         state: this.state,
       };
 
-      let message = context.activity.text;
-      const removedMentionText = TurnContext.removeRecipientMention(
-        context.activity
-      );
-      message = normalizeMessageText(removedMentionText);
-
       fetchAllCompanyData(this.credentials.companyName);
 
       if (this.credentials.userRole === "admin") {
-        ("Admin is still logged on message with credentials");
+        console.log("Admin is still logged on message with credentials");
         await showAdaptiveCardByData(rawAdminMenuCard, context);
       }
 
@@ -65,7 +72,9 @@ class TeamsBot extends TeamsActivityHandler {
         this.credentials.userRole === "manager" ||
         this.credentials.userRole === "specialist"
       ) {
-        ("User (manager/specialist) is still logged on message with credentials");
+        console.log(
+          "User (manager/specialist) is still logged on message with credentials"
+        );
         await handleMessageByText(message, config);
       }
 
@@ -83,6 +92,16 @@ class TeamsBot extends TeamsActivityHandler {
     console.log("Invoke Credentials: ", this.credentials);
     const verb = invokeValue.action.verb;
 
+    if (verb.toLowerCase() === "goToCard".toLowerCase()) {
+      const command = context.activity.value.action.data.neededCard;
+      const adaptiveCardData = await findAdaptiveCard(command, adaptiveCards);
+      const callCard = createAdaptiveCardFromObject(adaptiveCardData);
+      await context.sendActivity({
+        attachments: [callCard],
+      });
+      return { statusCode: 200 };
+    }
+
     if (!this.credentials) {
       const { isTriggered, credentials } = await handlePreRegisterActions(
         verb,
@@ -98,7 +117,10 @@ class TeamsBot extends TeamsActivityHandler {
       return { statusCode: 200 };
     }
 
-    this.state = context.activity.value.action.data;
+    if (context.activity.value.action.data) {
+      this.state = context.activity.value.action.data;
+      console.log("New State: ", this.state);
+    }
 
     const config = {
       context,
@@ -126,6 +148,13 @@ class TeamsBot extends TeamsActivityHandler {
     return { statusCode: 200 };
   }
 }
+
+// try {
+//   let userDetails = await this.graphClient.api("/me").get();
+//   console.log(userDetails);
+// } catch (error) {
+//   throw error;
+// }
 
 // Message extension Code
 // Action.

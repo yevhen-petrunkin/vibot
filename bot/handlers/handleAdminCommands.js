@@ -1,63 +1,59 @@
 const createNewUser = require("../db-functions/createNewUser");
 const logInUser = require("../db-functions/logInUser");
-const updatePerfReview = require("../db-functions/updatePerformanceReviewDates");
+const updatePerformanceReviewDates = require("../db-functions/updatePerformanceReviewDates");
 const updateUserByEmail = require("../db-functions/updateUserByEmail");
+const createNewCompanyFile = require("../db-functions/createNewCompanyFile");
 const handleCredentials = require("./handleCredentials");
 
-async function handleAdminCommands(verb, context, credentials, state) {
+async function handleAdminCommands(verb, config) {
+  const { context, credentials, state } = config;
   const { companyName, userEmail } = credentials;
 
-  // let thisUserEmail = null;
   const isUserAuth = await handleCredentials(context.activity, credentials);
-  switch (verb.toLowerCase()) {
-    case "userCreated".toLowerCase():
-      if (isUserAuth) {
+  if (isUserAuth) {
+    switch (verb.toLowerCase()) {
+      case "createUserMessage".toLowerCase():
         await createNewUser(context, credentials);
         await logInUser(context.activity, userEmail);
-      }
-      break;
-    case "confirmUpdatePerfReview".toLowerCase():
-      const dateDataStart = context.activity.value.action.data.perfDateStart;
-      const dateDataEnd = context.activity.value.action.data.perfDateEnd;
-      const dateData = {
-        firstPerfReviewPeriod: {
-          startPerfReviewDate: dateDataStart,
-          endPerfReviewDate: dateDataEnd,
-        },
-      };
-      console.log(dateDataStart, dateDataEnd);
-      if (isUserAuth) {
-        await updatePerfReview(dateData, companyName);
-      }
-      break;
+        break;
 
-    // case "updateUser".toLowerCase():
-    //   const thisUserEmail = context.activity.value.action.data.updateEmail;
-    //   console.log(thisUserEmail);
-    //   return thisUserEmail;
+      case "confirmUpdatePerfReview".toLowerCase():
+        const dateData = context.activity.value.action.data;
+        console.log("Perf Dates :", dateData);
+        await updatePerformanceReviewDates(dateData, companyName);
+        break;
 
-    case "updateUserMessage".toLowerCase():
-      const thisUserEmail = context.activity.value.action.data.updateEmail;
-      const startDate = context.activity.value.action.data.startingDateUpdate;
-      const userRole = context.activity.value.action.data.userRoleChange;
-      let userData = {};
-      console.log(thisUserEmail);
+      case "updateUserMessage".toLowerCase():
+        const { updateEmail, startingDateUpdate, userRoleChange } =
+          context.activity.value.action.data;
 
-      if (isUserAuth) {
-        if (!startDate) {
-          userData = { userRole: userRole };
+        let userData = {};
+
+        if (!startingDateUpdate) {
+          userData = { userRole: userRoleChange };
         }
-        if (!userRole) {
-          userData = { startingDate: startDate };
+        if (!userRoleChange) {
+          userData = { startingDate: startingDateUpdate };
         }
-        if (userRole && startDate) {
-          userData = { startingDate: startDate, userRole: userRole };
+        if (userRoleChange && startingDateUpdate) {
+          userData = {
+            startingDate: startingDateUpdate,
+            userRole: userRoleChange,
+          };
         }
-        console.log(userData, thisUserEmail);
-        await updateUserByEmail(thisUserEmail, userData, companyName);
-      }
-      break;
+
+        await updateUserByEmail(updateEmail, userData, config);
+        break;
+
+      case "downloadFileMessage".toLowerCase():
+        await createNewCompanyFile(context, credentials);
+        break;
+
+      default:
+        break;
+    }
   }
+  return;
 }
 
 module.exports = handleAdminCommands;

@@ -13,16 +13,20 @@ async function handleAdminFunctions(verb, config) {
   adaptiveCardData = await findAdaptiveCard(verb, adaptiveCards);
 
   if (!adaptiveCardData) {
-    const isReplyMessage = handleAdminReplyMessages(verb, context, credentials);
+    const isReplyMessage = await handleAdminReplyMessages(
+      verb,
+      context,
+      credentials
+    );
     if (!isReplyMessage) {
       await context.sendActivity("Sorry. Did not find the necessary answer.");
       return;
     }
-    await handleAdminCommands(verb, context, credentials);
+    await handleAdminCommands(verb, config);
     return;
   }
 
-  await handleAdminCommands(verb, context, credentials);
+  await handleAdminCommands(verb, config);
 
   if (adaptiveCardData.dynamic) {
     const user = await handleCredentials(contextData, credentials);

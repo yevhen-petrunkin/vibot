@@ -3,7 +3,7 @@ async function handleAdminReplyMessages(verb, context, credentials) {
   const { companyName, userEmail } = credentials;
   switch (verb.toLowerCase()) {
     case "companyCreated".toLowerCase():
-      message = "Компанію буде створено...";
+      message = "Йде запис даних про компанію...";
       break;
 
     case "companyReady".toLowerCase():
@@ -16,11 +16,11 @@ async function handleAdminReplyMessages(verb, context, credentials) {
         "Ти успішно увійшов в акаунт. \n Для виклику робочого меню введіть команду “Hello”.";
       break;
 
-    case "userCreated".toLowerCase():
-      message = "Користувач буде створений...";
+    case "createUserMessage".toLowerCase():
+      message = "Йде запис даних про користувача...";
       break;
 
-    case "userReady".toLowerCase():
+    case "userCreated".toLowerCase():
       message =
         "Користувач успішно створений в базі компанії. \n Для продовження роботи введіть команду “Hello”.";
       break;
@@ -31,6 +31,10 @@ async function handleAdminReplyMessages(verb, context, credentials) {
       break;
 
     case "updateUserMessage".toLowerCase():
+      message = "Дані про користувача оновлюються...";
+      break;
+
+    case "userUpdated".toLowerCase():
       message =
         "Зміни успішно збережені в базі компанії. \n Для продовження роботи введіть команду “Hello”.";
       break;
@@ -41,15 +45,21 @@ async function handleAdminReplyMessages(verb, context, credentials) {
       break;
 
     case "downloadFileMessage".toLowerCase():
+      message = "Файл завантажуєтсья...";
+      break;
+
+    case "fileDownloaded".toLowerCase():
       message =
         "Файл успішно завантажено в меню користувачів. \n Для продовження роботи введіть команду “Hello”.";
       break;
+
     default:
       break;
   }
   if (message) {
     await context.sendActivity(message);
   }
+  return message;
 }
 
 module.exports = handleAdminReplyMessages;

@@ -24,7 +24,11 @@ async function handleInvokeByVerb(verb, config) {
   adaptiveCardData = await findAdaptiveCard(command, adaptiveCards);
 
   if (!adaptiveCardData) {
-    const isReplyMessage = handleUserReplyMessages(verb, context, credentials);
+    const isReplyMessage = await handleUserReplyMessages(
+      verb,
+      context,
+      credentials
+    );
     if (!isReplyMessage) {
       await context.sendActivity("Sorry. Did not find the necessary answer.");
       return;

@@ -1,14 +1,28 @@
 const { doc, updateDoc } = require("firebase/firestore");
 const { db } = require("../firebase");
+const handleAdminReplyMessages = require("../handlers/handleAdminReplyMessages");
 
-async function updateUserByEmail(userEmail, userData, companyName) {
-  const userRef = doc(db, companyName, "companyUsers", "users", userEmail);
+async function updateUserByEmail(
+  updateEmail,
+  userData,
+  { context, credentials }
+) {
+  const userRef = doc(
+    db,
+    credentials.companyName,
+    "companyUsers",
+    "users",
+    updateEmail
+  );
+
   try {
     await updateDoc(userRef, {
       ...userData,
     });
-    console.log("User Data updated in firestore.");
-    console.log(userData);
+    console.log("User Data updated in firestore.", userData);
+    const newVerb = "userUpdated";
+    await handleAdminReplyMessages(newVerb, context, credentials);
+
     return true;
   } catch (error) {
     const errorCode = error.code;
