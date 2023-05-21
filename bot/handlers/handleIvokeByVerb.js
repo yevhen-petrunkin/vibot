@@ -59,19 +59,13 @@ async function handleInvokeByVerb(verb, config) {
     }
   }
 
-  try{
-
   if (adaptiveCardData.shouldCareerUpdate) {
     const nextVerb = defineNextVerb(command);
     console.log("Next Verb", nextVerb);
-    await updateUserCareerStageByEmail(userEmail, nextVerb, companyName);
+    await updateUserCareerStageByEmail(userEmail, nextVerb, config);
   }
 
   await showAdaptiveCardByData(adaptiveCardData, context);
-  }
-  catch(error){
-    console.error("Error: ", error);
-  }
 }
 
 module.exports = handleInvokeByVerb;

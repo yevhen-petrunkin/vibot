@@ -1,9 +1,9 @@
 const updateUserByEmail = require("./updateUserByEmail");
 
-async function updateUserCareerStageByEmail(userEmail, stage, companyName) {
+async function updateUserCareerStageByEmail(userEmail, stage, config) {
   const careerData = { stage };
   try {
-    await updateUserByEmail(userEmail, careerData, companyName);
+    await updateUserByEmail(userEmail, careerData, config);
     console.log("User Career Stage updated");
     return true;
   } catch (error) {

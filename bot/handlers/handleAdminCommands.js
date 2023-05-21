@@ -3,6 +3,7 @@ const logInUser = require("../db-functions/logInUser");
 const updatePerformanceReviewDates = require("../db-functions/updatePerformanceReviewDates");
 const updateUserByEmail = require("../db-functions/updateUserByEmail");
 const createNewCompanyFile = require("../db-functions/createNewCompanyFile");
+const deleteUser = require("../db-functions/deleteUser");
 const handleCredentials = require("./handleCredentials");
 
 async function handleAdminCommands(verb, config) {
@@ -47,6 +48,11 @@ async function handleAdminCommands(verb, config) {
 
       case "downloadFileMessage".toLowerCase():
         await createNewCompanyFile(context, credentials);
+        break;
+
+      case "delMessage".toLowerCase():
+        const { delEmail } = context.activity.value.action.data;
+        await deleteUser(delEmail, context, credentials);
         break;
 
       default:

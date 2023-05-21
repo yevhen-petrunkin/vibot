@@ -11,7 +11,7 @@ async function handleInvokeAdditionalStepsByVerb(verb, config) {
     case "startCareerPlan".toLowerCase():
       if (isUserAuth) {
         const planData = { hasCareerPlan: true };
-        updateUserByEmail(userEmail, planData, companyName);
+        updateUserByEmail(userEmail, planData, config);
       }
       break;
   }
