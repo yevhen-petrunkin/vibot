@@ -1,0 +1,26 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "Image",
+      "url": "https://i.ibb.co/qdBG7vZ/image.png",
+      "altText": "VBot",
+      "height": "200px"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Привіт! У спеціаліста Леся Українка завершився дедлайн по цілі.",
+      "wrap": true,
+      "weight": "bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Запитайся чи все вийшло 😉",
+      "wrap": true
+    }
+  ],
+  "verticalContentAlignment": "center",
+  "keyword": "activeManagerGoalSpec",
+  "dynamic": true,
+  "shouldCareerUpdate": false
+}

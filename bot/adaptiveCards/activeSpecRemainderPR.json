@@ -1,0 +1,32 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "Image",
+      "url": "https://i.ibb.co/qdBG7vZ/image.png",
+      "altText": "VBot",
+      "height": "200px"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Привіт! Нагадую, що найближче Performance Review буде з 10.04.2023 по 25.05.2023",
+      "wrap": true,
+      "weight": "bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": "💡 Performance Review дозволяє отримати об'єктивну оцінку своєї роботи та досягнень, ідентифікувати свої сильні та слабкі сторони, а також отримати цінні рекомендації щодо поліпшення своєї професійної діяльності. ",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "Якщо в тебе виникли питання, зв’яжися зі своїм менеджером.",
+      "wrap": true,
+      "weight": "bolder"
+    }
+  ],
+  "verticalContentAlignment": "center",
+  "keyword": "activeSpecRemainderPR",
+  "dynamic": true,
+  "shouldCareerUpdate": false
+}

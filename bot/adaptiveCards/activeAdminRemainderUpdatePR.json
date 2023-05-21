@@ -1,0 +1,39 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Привіт! Нещодавно було Performance Review.",
+      "weight": "bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Нагадую, що необхідно змінити дати для наступного Performance Review 😉 ",
+      "wrap": true
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Готово",
+      "verb": "messageOk",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Змінити",
+      "verb": "setPerfDates",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Нагадати пізніше",
+      "verb": "activeWroteDown",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "verticalContentAlignment": "center",
+  "keyword": "activeAdminRemainderUpdatePR",
+  "dynamic": false,
+  "shouldCareerUpdate": false
+}

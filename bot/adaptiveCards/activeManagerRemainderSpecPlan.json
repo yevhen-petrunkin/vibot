@@ -1,0 +1,34 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Привіт! Нагадую, що для ефективного розвитку в компанії треба періодично корегувати цілі.",
+      "wrap": true,
+      "weight": "bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Ти вже переглнув карʼєрні плани спеціалістів у поточному кварталі?",
+      "wrap": true
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Так",
+      "verb": "messageOk",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Нагадати пізніше",
+      "verb": "activeWroteDown",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "verticalContentAlignment": "center",
+  "keyword": "activeManagerRemainderSpec",
+  "dynamic": false,
+  "shouldCareerUpdate": false
+}

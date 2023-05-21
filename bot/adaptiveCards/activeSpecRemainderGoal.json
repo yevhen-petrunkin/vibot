@@ -1,0 +1,71 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Привіт! Нагадую про твої цілі",
+      "size": "large",
+      "weight": "bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Назва цілі",
+      "wrap": true,
+      "weight": "bolder"
+    },
+    {
+      "type": "FactSet",
+      "facts": [
+        {
+          "title": "Дедлайн:",
+          "value": "01.10.2023"
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "Назва цілі",
+      "wrap": true,
+      "weight": "bolder"
+    },
+    {
+      "type": "FactSet",
+      "facts": [
+        {
+          "title": "Дедлайн:",
+          "value": "01.10.2023"
+        }
+      ]
+    },
+
+    {
+      "type": "TextBlock",
+      "text": "💡 Карʼєрний план - це інструмент, який допомагає знайти найкращу відповідність між особистими цілями, навиками спеціаліста та можливостями, що є у компанії.",
+      "wrap": true
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Ok",
+      "verb": "",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Передивитись цілі",
+      "verb": "checkPlans",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Нагадати пізніше",
+      "verb": "activeWroteDown",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "verticalContentAlignment": "center",
+  "keyword": "activeSpecRemainderGoal",
+  "dynamic": true,
+  "shouldCareerUpdate": false
+}

@@ -1,0 +1,34 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Твій спеціаліст Леся Українка вже 6 місяців в компанії, зв’яжіться з ним, щоб обговорити карʼєрний план.",
+      "wrap": true,
+      "weight": "bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": "💡 Для створення ефективного кар’єрного плану необхідно визначитися з трьома базовими складовими: мета, шлях, ресурси.",
+      "wrap": true
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Готово",
+      "verb": "messageOk",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Нагадати пізніше",
+      "verb": "activeWroteDown",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "verticalContentAlignment": "center",
+  "keyword": "activeManagerRemainderSpec",
+  "dynamic": true,
+  "shouldCareerUpdate": false
+}
