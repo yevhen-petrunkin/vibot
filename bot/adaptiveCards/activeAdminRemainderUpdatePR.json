@@ -28,7 +28,7 @@
     {
       "type": "Action.Execute",
       "title": "Нагадати пізніше",
-      "verb": "activeWroteDown",
+      "verb": "activeLiter",
       "fallback": "Action.Submit"
     }
   ],

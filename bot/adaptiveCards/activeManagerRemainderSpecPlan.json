@@ -23,12 +23,18 @@
     {
       "type": "Action.Execute",
       "title": "Нагадати пізніше",
-      "verb": "activeWroteDown",
+      "verb": "activeLiter",
+      "fallback": "Action.Submit"
+    },
+       {
+      "type": "Action.Execute",
+      "title": "Наступне повідомлення",
+      "verb": "activeNoMassage",
       "fallback": "Action.Submit"
     }
   ],
   "verticalContentAlignment": "center",
-  "keyword": "activeManagerRemainderSpec",
+  "keyword": "activeManagerRemainderSpecPlan",
   "dynamic": false,
   "shouldCareerUpdate": false
 }

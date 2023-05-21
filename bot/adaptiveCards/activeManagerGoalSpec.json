@@ -19,6 +19,15 @@
       "wrap": true
     }
   ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Наступне повідомлення",
+      "verb": "activeNoMassage",
+      "fallback": "Action.Submit"
+    }
+  ],
+
   "verticalContentAlignment": "center",
   "keyword": "activeManagerGoalSpec",
   "dynamic": true,

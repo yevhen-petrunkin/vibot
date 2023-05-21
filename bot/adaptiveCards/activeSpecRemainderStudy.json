@@ -19,6 +19,12 @@
       "type": "Action.OpenUrl",
       "title": "Посилання на файл",
       "url": "https://adaptivecards.io"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Наступне повідомлення",
+      "verb": "activeNoMassage",
+      "fallback": "Action.Submit"
     }
   ],
   "verticalContentAlignment": "center",
