@@ -1,0 +1,53 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Внесіть зміни до цілей",
+      "weight": "bolder",
+      "wrap": true
+    },
+    {
+      "type": "Input.Text",
+      "id": "goalName",
+      "isMultiline": false,
+      "label": "Назва",
+      "style": "text",
+      "isRequired": true,
+      "errorMessage": "Something wrong"
+    },
+    {
+      "type": "Input.Date",
+      "id": "dedline",
+      "isMultiline": false,
+      "placeholder": "дд/мм/рр",
+      "label": "Дедлайн",
+      "isRequired": true,
+      "errorMessage": "Something wrong with the date."
+    },
+    {
+      "type": "Input.Text",
+      "id": "description",
+      "isMultiline": true,
+      "label": "Опис",
+      "style": "text"
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Готово",
+      "verb": "editPlanMessage",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Ціль виконано",
+      "verb": "goalMessage",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "keyword": "editPlans",
+  "dynamic": false,
+  "shouldCareerUpdate": false
+}

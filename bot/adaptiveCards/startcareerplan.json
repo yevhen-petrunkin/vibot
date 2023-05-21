@@ -34,12 +34,6 @@
     },
     {
       "type": "Action.Execute",
-      "title": "Зв'язатися з менеджером",
-      "verb": "sendToManager",
-      "fallback": "Action.Submit"
-    },
-    {
-      "type": "Action.Execute",
       "title": "Перейти до меню",
       "verb": "specMenu",
       "fallback": "Action.Submit"
