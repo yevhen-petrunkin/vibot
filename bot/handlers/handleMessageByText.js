@@ -41,25 +41,25 @@ async function handleMessageByText(message, config) {
       return;
     }
 
-    // if (adaptiveCardData.dynamic) {
-    //   const user = await handleCredentials(contextData, credentials);
-    //   if (user) {
-    //     adaptiveCardData = await changeDataInAdaptiveCard(
-    //       adaptiveCardData,
-    //       config
-    //     );
-    //   } else {
-    //     const noConnectionWithDatabaseMsg =
-    //       "Cannot reach the necessary data right now. Try again later.";
-    //     await handleUserReplyMessages(
-    //       noConnectionWithDatabaseMsg,
-    //       context,
-    //       credentials
-    //     );
-    //     await showAdaptiveCardByData(rawSuggestAuthCard, context);
-    //     return;
-    //   }
-    // }
+ if (adaptiveCardData.dynamic) {
+   const user = await handleCredentials(contextData, credentials);
+   if (user) {
+     adaptiveCardData = await changeDataInAdaptiveCard(
+       adaptiveCardData,
+       config
+     );
+   } else {
+     const noConnectionWithDatabaseMsg =
+       "Cannot reach the necessary data right now. Try again later.";
+     await handleUserReplyMessages(
+       noConnectionWithDatabaseMsg,
+       context,
+       credentials
+     );
+     await showAdaptiveCardByData(rawSuggestAuthCard, context);
+     return;
+   }
+  }
     await showAdaptiveCardByData(adaptiveCardData, context);
   }
 }

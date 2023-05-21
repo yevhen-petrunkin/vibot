@@ -32,14 +32,16 @@
               "items": [
                 {
                   "type": "TextBlock",
-                  "text": "$userName",
+                  "text": "У вас немає ім'я",
+                  "dtext": "fetchUserName",
                   "weight": "bolder",
                   "wrap": true
                 },
                 {
                   "type": "TextBlock",
                   "spacing": "none",
-                  "text": "$userEmail",
+                  "text":"У вас немає пошти",
+                  "dtext": "getUserEmailFromCredentials",
                   "isSubtle": true,
                   "wrap": true
                 }
