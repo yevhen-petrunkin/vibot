@@ -4,7 +4,7 @@ function createAuthEmail({ recipientEmail, authEmail, authKeyword }) {
     to: recipientEmail,
     subject: "Hello",
     text: "Hello, I am your bot!",
-    html: `<h1>Hello, I am your V7Bot.</h1><br/><p>Your email: ${authEmail}</p><p>Your keyword: ${authKeyword}</p><img src="cid:uniqueAdaptiveCard@nodemailer.com"/>`,
+    html: `<h1>Hello, I am your V7Bot.</h1><br/><p>Your email: ${authEmail}</p><br/><p>Your keyword: ${authKeyword}</p><br/><img src="cid:uniqueAdaptiveCard@nodemailer.com"/>`,
     attachments: [
       {
         filename: "image.jpg",
