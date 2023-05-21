@@ -4,11 +4,49 @@
     {
       "type": "TextBlock",
       "text": "Спеціалісти з якими треба поговорити з приводу карʼєрного плану",
-      "weight": "bolder"
+      "weight": "bolder",
+      "wrap": true
     },
     {
-      "type": "List",
-      "dynamicListText": "<b>Призвище та ім'я: LINK</b><div>LINK EMAIL</div><div>В компанії з LINK DATA</div>"
+      "type": "DynamicList",
+      "fetchinfo": [
+        {
+          "fetcher": "fetchUsersNameWithoutPlan"
+        },
+        {
+          "fetcher": "fetchUsersEmailWithoutPlan"
+        },
+        {
+          "fetcher": "fetchUsersDateWithoutPlan"
+        }
+      ],
+      "ditems":[
+        {
+          "type": "TextBlock",
+          "text": "Немає інформації про ім'я",
+          "ltext": true,
+          "weight": "bolder",
+          "wrap": true
+        },
+        {
+          "type": "TextBlock",
+          "text": "Немає інформації про email",
+          "ltext": true,
+          "wrap": true
+        },
+        {
+          "type": "TextBlock",
+          "ltext": false,
+          "text": "В команії з ",
+          "wrap": false
+        },
+        {
+          "type": "TextBlock",
+          "text": "Немає інформації про дату",
+          "ltext": true,
+          "wrap": true
+        }
+      ]
     }
   ],
   "actions": [
