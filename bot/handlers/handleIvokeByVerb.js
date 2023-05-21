@@ -59,6 +59,8 @@ async function handleInvokeByVerb(verb, config) {
     }
   }
 
+  try{
+
   if (adaptiveCardData.shouldCareerUpdate) {
     const nextVerb = defineNextVerb(command);
     console.log("Next Verb", nextVerb);
@@ -66,6 +68,10 @@ async function handleInvokeByVerb(verb, config) {
   }
 
   await showAdaptiveCardByData(adaptiveCardData, context);
+  }
+  catch(error){
+    console.error("Error: ", error);
+  }
 }
 
 module.exports = handleInvokeByVerb;
