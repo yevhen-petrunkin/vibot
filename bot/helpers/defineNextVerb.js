@@ -1,22 +1,12 @@
-function defineNextVerb(verb) {
-  let returnVerb = verb;
-  const specMenuEndpoints = [
-    "thankWaitNote",
-    "perfReviewNote",
-    "perfReviewNoteMessage",
-    "answerToSend",
-    "thankCardDef",
-    "confirmRecord",
-  ];
-  const doesNeedTransferToSpecMenu = specMenuEndpoints.some(
-    (endpoint) => verb.toLowerCase() === endpoint.toLowerCase()
-  );
+const { specMenuEndpoints } = require("../sources/specMenuEndpoints");
+const checkTransferToOtherCard = require("../helpers/checkTransferToOtherCard");
 
-  if (doesNeedTransferToSpecMenu) {
-    returnVerb = "specMenu";
+function defineNextVerb(verb) {
+  if (checkTransferToOtherCard(specMenuEndpoints, verb)) {
+    return "specMenu";
   }
 
-  return returnVerb;
+  return verb;
 }
 
 module.exports = defineNextVerb;

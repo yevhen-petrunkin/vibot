@@ -71,7 +71,7 @@
     {
       "type": "Action.Execute",
       "title": "Створити",
-      "verb": "userCreated",
+      "verb": "createUserMessage",
       "fallback": "Action.Submit"
     }
   ],
