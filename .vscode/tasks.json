@@ -20,17 +20,11 @@
       "type": "teamsfx",
       "command": "debug-check-prerequisites",
       "args": {
-        "prerequisites": [
-          "nodejs", // Validate if Node.js is installed.
-          "m365Account", // Sign-in prompt for Microsoft 365 account, then validate if the account enables the sideloading permission.
-          "portOccupancy" // Validate available ports to ensure those debug ones are not occupied.
-        ],
+        "prerequisites": ["nodejs", "m365Account", "portOccupancy"],
         "portOccupancy": [3978, 9239]
       }
     },
     {
-      // Start the local tunnel service to forward public URL to local port and inspect traffic.
-      // See https://aka.ms/teamsfx-tasks/local-tunnel for the detailed args definitions.
       "label": "Start local tunnel",
       "type": "teamsfx",
       "command": "debug-start-local-tunnel",
@@ -42,7 +36,6 @@
             "protocol": "http",
             "access": "public",
             "writeToEnvironmentFile": {
-              // Keep consistency with upgraded configuration.
               "endpoint": "PROVISIONOUTPUT__AZUREWEBAPPBOTOUTPUT__SITEENDPOINT",
               "domain": "PROVISIONOUTPUT__AZUREWEBAPPBOTOUTPUT__DOMAIN"
             }
@@ -54,8 +47,6 @@
       "problemMatcher": "$teamsfx-local-tunnel-watch"
     },
     {
-      // Create the debug resources.
-      // See https://aka.ms/teamsfx-tasks/provision to know the details and how to customize the args.
       "label": "Provision",
       "type": "teamsfx",
       "command": "provision",
@@ -64,8 +55,6 @@
       }
     },
     {
-      // Build project.
-      // See https://aka.ms/teamsfx-tasks/deploy to know the details and how to customize the args.
       "label": "Deploy",
       "type": "teamsfx",
       "command": "deploy",
@@ -232,6 +221,14 @@
       "problemMatcher": [],
       "label": "npm: dev - bot",
       "detail": "nodemon --inspect=9239 --signal SIGINT ./index.js"
+    },
+    {
+      "type": "npm",
+      "script": "dev:teamsfx",
+      "path": "bot",
+      "problemMatcher": [],
+      "label": "npm: dev:teamsfx - bot",
+      "detail": "env-cmd --silent -f .env.teamsfx.local npm run dev"
     },
     {
       "type": "npm",

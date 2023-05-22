@@ -25,11 +25,6 @@ async function handleAdminReplyMessages(verb, context, credentials) {
         "Користувач успішно створений в базі компанії. \n Для продовження роботи введіть команду “Hello”.";
       break;
 
-    case "delMessage".toLowerCase():
-      message =
-        "Користувач успішно видалені з бази компанії. \n Для продовження роботи введіть команду “Hello”.";
-      break;
-
     case "updateUserMessage".toLowerCase():
       message = "Дані про користувача оновлюються...";
       break;
@@ -51,6 +46,15 @@ async function handleAdminReplyMessages(verb, context, credentials) {
     case "fileDownloaded".toLowerCase():
       message =
         "Файл успішно завантажено в меню користувачів. \n Для продовження роботи введіть команду “Hello”.";
+      break;
+
+    case "delMessage".toLowerCase():
+      message = "Запис про користувача видаляється...";
+      break;
+
+    case "userDeleted".toLowerCase():
+      message =
+        "Користувач був успішно видалений. \n Для продовження роботи введіть команду “Hello”.";
       break;
 
     default:

@@ -19,15 +19,6 @@
       "errorMessage": "This email is not allowed."
     },
     {
-      "type": "Input.Text",
-      "id": "userKeyword",
-      "isMultiline": false,
-      "style": "text",
-      "label": "Пароль",
-      "isRequired": true,
-      "errorMessage": "This email is not allowed."
-    },
-    {
       "type": "Input.ChoiceSet",
       "id": "userRole",
       "style": "expanded",

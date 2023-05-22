@@ -1,7 +1,8 @@
 const nodemailer = require("nodemailer");
 
-async function sendEmail(email) {
+async function sendEmail(emailCreator, config) {
   console.log("Sending email...");
+  const email = emailCreator(config);
   let transporter = nodemailer.createTransport({
     host: "smtp.ukr.net",
     port: 465,
@@ -13,9 +14,10 @@ async function sendEmail(email) {
   });
   try {
     let info = await transporter.sendMail(email);
-    console.log("Message sent: %s", info.messageId);
+    console.log("Email sent: %s", info.messageId);
   } catch (error) {
     console.log(error.message);
+    console.log("Failed to send email.");
   }
 }
 
