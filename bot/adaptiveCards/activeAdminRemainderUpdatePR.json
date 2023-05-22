@@ -30,6 +30,12 @@
       "title": "Нагадати пізніше",
       "verb": "activeLiter",
       "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
+      "title": "Наступне повідомлення",
+      "verb": "nextReminder",
+      "fallback": "Action.Submit"
     }
   ],
   "verticalContentAlignment": "center",

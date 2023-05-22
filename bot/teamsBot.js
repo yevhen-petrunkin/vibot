@@ -3,7 +3,6 @@
 
 const createAdaptiveCardFromObject = require("./helpers/createAdaptiveCardFromObject");
 const { rawNavigateCard, adaptiveCards } = require("./adaptiveCards/cardIndex");
-const findAdaptiveCard = require("./helpers/findAdaptiveCard");
 
 const {
   TeamsActivityHandler,
@@ -15,12 +14,15 @@ const fetchAllCompanyData = require("./db-functions/fetchAllCompanyData");
 
 const { normalizeMessageText } = require("./helpers/normalize");
 const defineNextVerb = require("./helpers/defineNextVerb");
+const findAdaptiveCard = require("./helpers/findAdaptiveCard");
 const handleMessageByText = require("./handlers/handleMessageByText");
 const handleNoCredentials = require("./handlers/handleNoCredentials");
 const handlePreRegisterActions = require("./handlers/handlePreRegisterActions");
 const handleInvokeByVerb = require("./handlers/handleIvokeByVerb");
 const handleAdminFunctions = require("./handlers/handleAdminFunctions");
+const handleAdminReplyMessages = require("./handlers/handleAdminReplyMessages");
 const showAdaptiveCardByData = require("./actions/showAdaptiveCardByData");
+const showNextReminder = require("./actions/showNextReminder");
 const sendEmail = require("./actions/sendEmail");
 
 const { rawAdminMenuCard } = require("./adaptiveCards/cardIndex");
@@ -31,6 +33,8 @@ class TeamsBot extends TeamsActivityHandler {
 
     this.credentials = null;
     this.state = {};
+    this.reminders = [];
+    this.reminderIndex = 0;
 
     this.onMessage(async (context, next) => {
       let message = context.activity.text;
@@ -46,8 +50,6 @@ class TeamsBot extends TeamsActivityHandler {
         });
         return;
       }
-
-      console.log("OnMessage Triggered");
 
       if (!this.credentials) {
         this.credentials = await handleNoCredentials(context);
@@ -103,17 +105,35 @@ class TeamsBot extends TeamsActivityHandler {
     }
 
     if (!this.credentials) {
-      const { isTriggered, credentials } = await handlePreRegisterActions(
-        verb,
-        context,
-        this.credentials
-      );
+      const { isTriggered, credentials, reminders } =
+        await handlePreRegisterActions(verb, context, this.credentials);
 
       if (!isTriggered) {
         this.credentials = await handleNoCredentials(context);
         return { statusCode: 200 };
       }
       this.credentials = credentials;
+      this.reminders = reminders;
+      return { statusCode: 200 };
+    }
+
+    if (verb.toLowerCase() === "nextReminder".toLowerCase()) {
+      this.reminderIndex += 1;
+      console.log("Reminder index: ", this.reminderIndex);
+      if (this.reminderIndex >= this.reminders.length) {
+        const noReminderVerb = "activeNoMessage";
+        const adaptiveCardData = await findAdaptiveCard(
+          noReminderVerb,
+          adaptiveCards
+        );
+        await showAdaptiveCardByData(adaptiveCardData, context);
+        console.log("No more reminders left.");
+        return { statusCode: 200 };
+      }
+      const nextReminder = this.reminders[this.reminderIndex];
+      console.log("nextReminder: ", this.reminderIndex);
+
+      await showNextReminder(nextReminder, context);
       return { statusCode: 200 };
     }
 

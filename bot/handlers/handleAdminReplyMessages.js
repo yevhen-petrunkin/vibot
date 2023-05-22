@@ -57,6 +57,16 @@ async function handleAdminReplyMessages(verb, context, credentials) {
         "Користувач був успішно видалений. \n Для продовження роботи введіть команду “Hello”.";
       break;
 
+    case "noReminderMessage".toLowerCase():
+      message =
+        "Більше повідомлень немає. \n Для продовження роботи введіть команду “Hello”.";
+      break;
+
+    case "reminderSentMessage".toLowerCase():
+      message =
+        "Нагадування було відправлено. \n Для продовження роботи введіть команду “Hello”.";
+      break;
+
     default:
       break;
   }
