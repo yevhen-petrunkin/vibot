@@ -17,6 +17,7 @@ async function createUserAsStaff(contextData, user, companyName) {
     startingDate,
     stage: "hello",
     hasCareerPlan: false,
+    reminders: [],
   };
 
   try {
