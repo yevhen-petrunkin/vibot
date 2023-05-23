@@ -14,6 +14,7 @@ async function checkSixMothsLaterDate(context, credentials) {
         verb: "activeSpecAscPlan",
         triggerDate: sixMonthsLaterDate,
         data: { startingDate: date },
+        complete: false,
       };
     }
     return null;
