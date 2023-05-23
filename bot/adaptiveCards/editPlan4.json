@@ -9,6 +9,15 @@
     },
     {
       "type": "Input.Text",
+      "id": "goalId",
+      "isMultiline": false,
+      "label": "Id",
+      "value": "goal4",
+      "style": "text",
+      "isVisible": false
+    },
+    {
+      "type": "Input.Text",
       "id": "goalName",
       "isMultiline": false,
       "label": "Назва",
@@ -37,7 +46,7 @@
     {
       "type": "Action.Execute",
       "title": "Готово",
-      "verb": "createGoal4",
+      "verb": "createGoal",
       "fallback": "Action.Submit"
     },
     {

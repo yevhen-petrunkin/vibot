@@ -14,11 +14,11 @@
     {
       "type": "TextBlock",
       "text": "Для виклику робочого меню введіть команду “Hello”.",
-       "wrap": true
+      "wrap": true
     }
   ],
 
-  "keyword": "createGoal1",
+  "keyword": "createGoal",
   "shouldCareerUpdate": false,
   "dynamic": false
 }

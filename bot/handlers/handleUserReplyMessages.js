@@ -9,6 +9,10 @@ async function handleUserReplyMessages(verb, context, credentials) {
       message =
         "Повідомлення відправлено. Очікуй на відповідь. Для виклику робочого меню введіть команду “Hello”.";
       break;
+    case "goalSentMessage".toLowerCase():
+      message =
+        "Ціль було відправлено. \n Для продовження роботи введіть команду “Hello”.";
+      break;
     default:
       break;
   }
