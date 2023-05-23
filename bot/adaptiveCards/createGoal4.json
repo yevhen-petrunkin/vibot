@@ -3,15 +3,13 @@
   "body": [
     {
       "type": "TextBlock",
-      "text": "Дякую за відповідь!",
-      "size": "large",
-      "weight": "bolder"
+      "text": "Ти впевнено прямуєшь до своєї мети, не зупиняйся.",
+      "wrap": true
     },
     {
-      "type": "Image",
-      "url": "https://i.ibb.co/47JXFDq/image.png",
-      "altText": "VBot",
-      "size": "stretch"
+      "type": "TextBlock",
+      "text": "Успіхів!😉",
+      "weight": "bolder"
     },
     {
       "type": "TextBlock",
@@ -19,7 +17,8 @@
       "wrap": true
     }
   ],
-  "keyword": "thankCardDef",
-  "shouldCareerUpdate": true,
+
+  "keyword": "createGoal4",
+  "shouldCareerUpdate": false,
   "dynamic": false
 }

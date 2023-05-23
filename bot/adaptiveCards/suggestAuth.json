@@ -15,8 +15,7 @@
       "url": "https://i.ibb.co/qB5PJvg/image.png",
       "altText": "",
       "backgroundColor": "#EEEEEE",
-      "width": "430px",
-      "height": "200px"
+      "size": "stretch"
     },
     {
       "type": "TextBlock",
