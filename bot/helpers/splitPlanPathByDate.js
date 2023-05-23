@@ -1,10 +1,7 @@
-function splitPlanPathByDate(date) {
-  const startDate = new Date(date);
-  const currentDate = new Date();
-  const sixMonthsLater = new Date(startDate.setMonth(startDate.getMonth() + 6));
-  const didSixMonthsPass = currentDate >= sixMonthsLater;
+const checkIsSixMonthsPassed = require("./checkIsSixMonthsPassed");
 
-  return didSixMonthsPass ? "startPlan" : "helpPlan";
+function splitPlanPathByDate(date) {
+  return checkIsSixMonthsPassed(date) ? "startPlan" : "helpPlan";
 }
 
 module.exports = splitPlanPathByDate;

@@ -1,4 +1,5 @@
 const handleAdminReplyMessages = require("./handleAdminReplyMessages");
+const handleProactiveMessages = require("./handleProactiveMessages");
 const createNewCompany = require("../db-functions/createNewCompany");
 const showAdaptiveCardByData = require("../actions/showAdaptiveCardByData");
 const handleLogIn = require("./handleLogIn");
@@ -65,7 +66,11 @@ async function handlePreRegisterActions(verb, context, credentials) {
           logInCredentials
         );
         console.log("handlePreRegisterActions:", contextData.value.action.data);
-        return { isTriggered, credentials: logInCredentials };
+        const reminders = await handleProactiveMessages(
+          context,
+          logInCredentials
+        );
+        return { isTriggered, credentials: logInCredentials, reminders };
       }
       return { isTriggered, credentials };
 

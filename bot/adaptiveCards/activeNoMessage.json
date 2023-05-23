@@ -10,6 +10,7 @@
       "type": "Image",
       "url": "https://i.ibb.co/Lhsv7wm/image.png",
       "altText": "VBot",
+
       "size": "stretch"
     },
     {
@@ -18,6 +19,6 @@
     }
   ],
   "keyword": "activeNoMessage",
-  "shouldCareerUpdate": true,
+  "shouldCareerUpdate": false,
   "dynamic": false
 }
