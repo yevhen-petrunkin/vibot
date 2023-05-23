@@ -6,20 +6,6 @@ async function createAdminAsUser(contextData, user) {
   const userName = contextData.from.name;
   const { companyName, adminEmail } = contextData.value.action.data;
 
-  const userData = {
-    userId: user.uid,
-    teamsId,
-    userName,
-    userEmail: adminEmail,
-    userRole: "admin",
-    managerEmail: "",
-    startingDate: "",
-    stage: "admin",
-    hasCareerPlan: false,
-    reminders: [],
-    goals: [],
-  };
-
   const companyUsersRef = doc(
     db,
     companyName,
@@ -29,6 +15,25 @@ async function createAdminAsUser(contextData, user) {
   );
 
   try {
+    const userData = {
+      userId: user.uid,
+      teamsId,
+      userName,
+      userEmail: adminEmail,
+      userRole: "admin",
+      managerEmail: "",
+      startingDate: "",
+      stage: "admin",
+      hasCareerPlan: false,
+      reminders: [],
+      goals: [],
+      userPerfDates: {
+        notifiedOnStart: false,
+        notifiedOnEnd: false,
+        perfStartDate,
+        perfEndDate,
+      },
+    };
     await setDoc(companyUsersRef, userData);
     console.log("Admin Registered As User");
   } catch (error) {

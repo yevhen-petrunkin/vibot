@@ -25,10 +25,16 @@ async function createReminderArray({ sourceArr, context, credentials }) {
         const reminder = await checkup(context, credentials);
         if (reminder) {
           console.log("createReminderArray: reminderToAdd: ", reminder);
-          return reminder;
+          return await reminder;
         }
       });
       remindersToAdd = await Promise.all(reminderPromises);
+      console.log("createReminderArray: remindersToAdd", remindersToAdd);
+      remindersToAdd = remindersToAdd.filter((reminder) => reminder);
+      console.log(
+        "createReminderArray: filtered remindersToAdd",
+        remindersToAdd
+      );
     }
 
     const newReminders = [...oldReminders, ...remindersToAdd];

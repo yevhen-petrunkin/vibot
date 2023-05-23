@@ -14,14 +14,19 @@ async function createUserCredentials() {
         userEmail,
         userRole: userData.userRole,
         stage: userData.stage,
+        userPerfDates: userData.userPerfDates,
       };
       console.log("User Credentials created!");
       return credentials;
     }
-    console.log("user Credentials have not been created!");
+    console.log(
+      "createUserCredentials: Could not fetch userData. user Credentials have not been created!"
+    );
     return null;
   } catch (error) {
     console.log(error.message);
+    console.log("createUserCredentials: Failed to create credentials!");
+    return null;
   }
 }
 
