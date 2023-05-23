@@ -12,7 +12,7 @@
       "id": "goalId",
       "isMultiline": false,
       "label": "Id",
-      "value": "editPlan1",
+      "value": "goal1",
       "style": "text",
       "isVisible": false
     },
@@ -46,7 +46,7 @@
     {
       "type": "Action.Execute",
       "title": "Готово",
-      "verb": "createGoal1",
+      "verb": "createGoal",
       "fallback": "Action.Submit"
     },
     {
