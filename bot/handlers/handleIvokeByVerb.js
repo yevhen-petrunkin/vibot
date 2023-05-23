@@ -11,6 +11,7 @@ const showAdaptiveCardByData = require("../actions/showAdaptiveCardByData");
 const handleUserReplyMessages = require("./handleUserReplyMessages");
 const handleCredentials = require("./handleCredentials");
 const handleInvokeAdditionalStepsByVerb = require("./handleInvokeAdditionalStepsByVerb");
+const handleInvokeAdditionalStepsByVerb2 = require("./handleInvokeAdditionalStepsByVerb2");
 const updateUserCareerStageByEmail = require("../db-functions/updateUserCareerStageByEmail");
 
 async function handleInvokeByVerb(verb, config) {
@@ -34,10 +35,12 @@ async function handleInvokeByVerb(verb, config) {
       return;
     }
     await handleInvokeAdditionalStepsByVerb(command, config);
+    await handleInvokeAdditionalStepsByVerb2(command, config);
     return;
   }
 
   await handleInvokeAdditionalStepsByVerb(command, config);
+  await handleInvokeAdditionalStepsByVerb2(command, config);
 
   if (adaptiveCardData.dynamic) {
     const user = await handleCredentials(contextData, credentials);
