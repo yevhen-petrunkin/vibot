@@ -1,0 +1,24 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Ти впевнено прямуєшь до своєї мети, не зупиняйся.",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "Успіхів!😉",
+      "weight": "bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Для виклику робочого меню введіть команду “Hello”.",
+       "wrap": true
+    }
+  ],
+
+  "keyword": "createGoal1",
+  "shouldCareerUpdate": false,
+  "dynamic": false
+}

@@ -10,7 +10,7 @@
       "type": "Image",
       "url": "https://i.ibb.co/yprdJg9/image.png",
       "altText": "VBot",
-      "height": "200px"
+      "size": "stretch"
     }
   ],
   "keyword": "activeWroteDown",

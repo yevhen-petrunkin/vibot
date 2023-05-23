@@ -10,7 +10,7 @@
       "type": "Image",
       "url": "https://i.ibb.co/Lhsv7wm/image.png",
       "altText": "VBot",
-      "height": "200px"
+      "size": "stretch"
     },
     {
       "type": "TextBlock",
