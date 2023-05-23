@@ -17,7 +17,7 @@
       "text": "Для продовження роботи введіть команду “Hello”."
     }
   ],
-  "keyword": "activeNoMassage",
+  "keyword": "activeNoMessage",
   "shouldCareerUpdate": true,
   "dynamic": false
 }
