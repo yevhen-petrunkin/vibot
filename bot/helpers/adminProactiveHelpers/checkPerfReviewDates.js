@@ -13,6 +13,7 @@ async function checkPerfReviewDates(context, credentials) {
           verb: "activeAdminRemainderUpdatePR",
           triggerDate: dates.perfEndDate,
           data: dates,
+          complete: false,
         };
       }
     }

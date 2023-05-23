@@ -26,12 +26,12 @@
       "verb": "checkPlans",
       "fallback": "Action.Submit"
     },
-       {
-         "type": "Action.Execute",
-         "title": "Наступне повідомлення",
-         "verb": "activeNoMassage",
-         "fallback": "Action.Submit"
-       }
+    {
+      "type": "Action.Execute",
+      "title": "Наступне повідомлення",
+      "verb": "nextReminder",
+      "fallback": "Action.Submit"
+    }
   ],
   "verticalContentAlignment": "center",
   "keyword": "activeSpecRemainderGoalDL",
