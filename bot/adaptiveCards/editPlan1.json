@@ -9,6 +9,15 @@
     },
     {
       "type": "Input.Text",
+      "id": "goalId",
+      "isMultiline": false,
+      "label": "Id",
+      "value": "editPlan1",
+      "style": "text",
+      "isVisible": false
+    },
+    {
+      "type": "Input.Text",
       "id": "goalName",
       "isMultiline": false,
       "label": "Назва",
