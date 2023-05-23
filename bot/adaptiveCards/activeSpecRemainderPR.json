@@ -29,7 +29,7 @@
     {
       "type": "Action.Execute",
       "title": "Наступне повідомлення",
-      "verb": "activeNoMassage",
+      "verb": "nextReminder",
       "fallback": "Action.Submit"
     }
   ],

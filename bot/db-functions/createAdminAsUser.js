@@ -17,6 +17,7 @@ async function createAdminAsUser(contextData, user) {
     stage: "admin",
     hasCareerPlan: false,
     reminders: [],
+    goals: [],
   };
 
   const companyUsersRef = doc(
