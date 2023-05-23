@@ -113,25 +113,25 @@
     {
       "type": "Action.Execute",
       "title": "Редагувати №1",
-      "verb": "editPlan",
+      "verb": "editPlan1",
       "fallback": "Action.Submit"
     },
     {
       "type": "Action.Execute",
       "title": "Редагувати №2",
-      "verb": "editPlan",
+      "verb": "editPlan2",
       "fallback": "Action.Submit"
     },
     {
       "type": "Action.Execute",
       "title": "Редагувати №3",
-      "verb": "editPlan",
+      "verb": "editPlan3",
       "fallback": "Action.Submit"
     },
     {
       "type": "Action.Execute",
       "title": "Редагувати №4",
-      "verb": "editPlan",
+      "verb": "editPlan4",
       "fallback": "Action.Submit"
     },
     {

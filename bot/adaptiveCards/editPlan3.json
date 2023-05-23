@@ -18,7 +18,7 @@
     },
     {
       "type": "Input.Date",
-      "id": "dedline",
+      "id": "deadLine",
       "isMultiline": false,
       "placeholder": "дд/мм/рр",
       "label": "Дедлайн",
@@ -37,7 +37,7 @@
     {
       "type": "Action.Execute",
       "title": "Готово",
-      "verb": "editPlanMessage",
+      "verb": "createGoal3",
       "fallback": "Action.Submit"
     },
     {
@@ -47,7 +47,7 @@
       "fallback": "Action.Submit"
     }
   ],
-  "keyword": "editPlans",
+  "keyword": "editPlan3",
   "dynamic": false,
   "shouldCareerUpdate": false
 }

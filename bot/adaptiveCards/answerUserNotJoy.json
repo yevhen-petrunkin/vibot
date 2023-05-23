@@ -1,0 +1,24 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Тарас Шевченко",
+      "weight": "bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Не задоволений карєрним планом тому що: ",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "...",
+      "wrap": true
+    }
+  ],
+
+  "keyword": "answerUserNotJoy",
+  "dynamic": true,
+  "shouldCareerUpdate": false
+}

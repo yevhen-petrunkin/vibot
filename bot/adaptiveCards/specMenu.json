@@ -40,7 +40,7 @@
                 {
                   "type": "TextBlock",
                   "spacing": "none",
-                  "text":"У вас немає пошти",
+                  "text": "У вас немає пошти",
                   "dtext": "getUserEmailFromCredentials",
                   "isSubtle": true,
                   "wrap": true
