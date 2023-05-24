@@ -19,27 +19,33 @@
     {
       "type": "Input.Text",
       "id": "goalName",
-      "isMultiline": false,
       "label": "Назва",
+      "placeholder": "Назва цілі",
+      "value": "",
       "style": "text",
+      "isMultiline": false,
       "isRequired": true,
-      "errorMessage": "Something wrong"
+      "errorMessage": "Щось не так"
     },
     {
       "type": "Input.Date",
       "id": "deadLine",
       "isMultiline": false,
-      "placeholder": "дд/мм/рр",
-      "label": "Дедлайн",
+      "placeholder": "дд-мм-рррр",
+      "value": "",
       "isRequired": true,
-      "errorMessage": "Something wrong with the date."
+      "label": "Дедлайн",
+      "errorMessage": "Щось не так"
     },
     {
       "type": "Input.Text",
       "id": "description",
-      "isMultiline": true,
       "label": "Опис",
-      "style": "text"
+      "placeholder": "Опис цілі",
+      "value": "",
+      "style": "text",
+      "isMultiline": true,
+      "errorMessage": "Щось не так"
     }
   ],
   "actions": [
@@ -52,11 +58,11 @@
     {
       "type": "Action.Execute",
       "title": "Ціль виконано",
-      "verb": "goalMessage",
+      "verb": "goalDone",
       "fallback": "Action.Submit"
     }
   ],
   "keyword": "editPlan3",
-  "dynamic": false,
+  "dynamic": true,
   "shouldCareerUpdate": false
 }

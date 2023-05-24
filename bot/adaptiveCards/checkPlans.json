@@ -143,6 +143,6 @@
   ],
   "verticalContentAlignment": "center",
   "keyword": "checkPlans",
-  "dynamic": false,
+  "dynamic": true,
   "shouldCareerUpdate": false
 }

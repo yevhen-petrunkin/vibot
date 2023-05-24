@@ -23,14 +23,32 @@ async function handleInvokeAdditionalStepsByVerb2(verb, config) {
         const userData = await fetchUserByEmail(userEmail, companyName);
         console.log("user:", userData);
         //console.log("id:", goal.id);
-        const findGoal = userData.goals.find((goalId) => goalId.id === goal.id);
-        // console.log("findGoal:", findGoal);
-        if (findGoal) {
-          deleteGoalByEmail(userEmail, findGoal, config);
+        if (userData) {
+          const findGoal = userData.goals.find(
+            (goalId) => goalId.id === goal.id
+          );
+          if (findGoal) {
+            await deleteGoalByEmail(userEmail, findGoal, config);
+          }
+          console.log("goal:", goal);
+          await updateGoalsByEmail(userEmail, goal, config);
         }
-        console.log("goal:", goal);
-        updateGoalsByEmail(userEmail, goal, config);
+        // console.log("findGoal:", findGoal);
+        break;
 
+      case "goalDone".toLowerCase():
+        //  console.log(credentials.stage);
+        const goalId = context.activity.value.action.data.goalId;
+        const userDataId = await fetchUserByEmail(userEmail, companyName);
+        console.log("user:", userDataId);
+        //console.log("id:", goal.id);
+        if (userDataId) {
+          const findGoalById = userDataId.goals.find(
+            (goal) => goal.id === goalId
+          );
+          // console.log("findGoal:", findGoal);
+          await deleteGoalByEmail(userEmail, findGoalById, config);
+        }
         break;
     }
   }
