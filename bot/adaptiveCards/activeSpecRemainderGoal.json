@@ -48,13 +48,13 @@
     {
       "type": "Action.Execute",
       "title": "Ok",
-      "verb": "",
+      "verb": "prolongUntilNextMonth",
       "fallback": "Action.Submit"
     },
     {
       "type": "Action.Execute",
       "title": "Передивитись цілі",
-      "verb": "checkPlans",
+      "verb": "prolongUntilNextMonthAndCheck",
       "fallback": "Action.Submit"
     },
     {

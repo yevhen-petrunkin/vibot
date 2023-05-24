@@ -17,13 +17,13 @@
     {
       "type": "Action.Execute",
       "title": "Так",
-      "verb": "perfReviewNote",
+      "verb": "untilNextQuarterYes",
       "fallback": "Action.Submit"
     },
     {
       "type": "Action.Execute",
       "title": "Ні",
-      "verb": "askNotJoy",
+      "verb": "untilNextQuarterNo",
       "fallback": "Action.Submit"
     },
     {

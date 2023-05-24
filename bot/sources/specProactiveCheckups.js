@@ -1,5 +1,6 @@
 const checkNearestPerfReviewDates = require("../helpers/specialistProactiveHelpers/checkNearestPerfReviewDates");
 const checkPastPerfReviewDates = require("../helpers/specialistProactiveHelpers/checkPastPerfReviewDates");
+const checkSpecGoalDeadlines = require("../helpers/specialistProactiveHelpers/checkSpecGoalDeadlines");
 
 const specProactiveCheckups = [
   {
@@ -9,6 +10,10 @@ const specProactiveCheckups = [
   {
     verb: "activeSpecRemainderStudy",
     checkup: checkPastPerfReviewDates,
+  },
+  {
+    verb: "activeSpecRemainderGoalDL",
+    checkup: checkSpecGoalDeadlines,
   },
 ];
 

@@ -6,6 +6,7 @@ async function checkSixMothsLaterDate(context, credentials) {
     const { userEmail, companyName } = await credentials;
     const userName = await context.activity.from.name;
     const date = await fetchUserStartingDateByEmail(userEmail, companyName);
+
     if (date) {
       const sixMonthsLaterDate = getSixMothsLaterDate(date);
       return {

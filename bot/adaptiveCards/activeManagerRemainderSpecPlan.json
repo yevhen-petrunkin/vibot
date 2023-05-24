@@ -17,7 +17,7 @@
     {
       "type": "Action.Execute",
       "title": "Так",
-      "verb": "messageOk",
+      "verb": "prolongUntilNextQuarter",
       "fallback": "Action.Submit"
     },
     {

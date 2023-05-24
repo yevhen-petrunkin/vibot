@@ -22,6 +22,12 @@
   "actions": [
     {
       "type": "Action.Execute",
+      "title": "Готово",
+      "verb": "messageOk",
+      "fallback": "Action.Submit"
+    },
+    {
+      "type": "Action.Execute",
       "title": "Наступне повідомлення",
       "verb": "nextReminder",
       "fallback": "Action.Submit"

@@ -40,8 +40,7 @@ adapter.onTurnError = async (context, error) => {
   );
 };
 
-const conversationReferences = {};
-const bot = new TeamsBot(conversationReferences);
+const bot = new TeamsBot();
 
 const server = restify.createServer();
 server.use(restify.plugins.bodyParser());

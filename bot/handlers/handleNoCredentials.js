@@ -6,7 +6,10 @@ const showAdaptiveCardByData = require("../actions/showAdaptiveCardByData");
 async function handleNoCredentials(context) {
   const user = await observeAuthState();
   if (user) {
-    const { userRole, stage } = await fetchUserByEmail(user);
+    const { userRole, stage } = await fetchUserByEmail(
+      user.email,
+      user.displayName
+    );
     const newCredentials = {
       companyName: user.displayName,
       userEmail: user.email,

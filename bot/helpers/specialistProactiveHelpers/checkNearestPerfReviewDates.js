@@ -4,14 +4,14 @@ const fetchPerformanceReviewDates = require("../../db-functions/fetchPerformance
 const updateUserByEmail = require("../../db-functions/updateUserByEmail");
 
 async function checkNearestPerfReviewDates(context, credentials) {
-  const userName = context.activity.from.name;
-  const { companyName, userPerfDates, userEmail } = credentials;
-  const { notifiedOnStart, notifiedOnEnd, perfStartDate } = userPerfDates;
-  const newDatesData = {
-    userPerfDates,
-  };
-
   try {
+    const userName = context.activity.from.name;
+    const { companyName, userPerfDates, userEmail } = credentials;
+    const { notifiedOnStart, notifiedOnEnd, perfStartDate } = userPerfDates;
+    const newDatesData = {
+      userPerfDates,
+    };
+
     if (notifiedOnStart && !notifiedOnEnd) {
       return null;
     }
@@ -48,7 +48,7 @@ async function checkNearestPerfReviewDates(context, credentials) {
             verb: "activeSpecRemainderPR",
             triggerDate: weekEarlierDate,
             data: dates,
-            complete: false,
+            complete: true,
           };
         }
 
