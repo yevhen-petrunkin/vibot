@@ -2,8 +2,9 @@ const checkIsDatePassed = require("../checkIsDatePassed");
 const fetchPerformanceReviewDates = require("../../db-functions/fetchPerformanceReviewDates");
 
 async function checkPerfReviewDates(context, credentials) {
-  const userName = context.activity.from.name;
   try {
+    const userName = context.activity.from.name;
+
     const dates = await fetchPerformanceReviewDates(credentials.companyName);
     if (dates.perfEndDate) {
       if (checkIsDatePassed(dates.perfEndDate)) {

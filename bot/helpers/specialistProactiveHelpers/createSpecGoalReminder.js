@@ -5,24 +5,24 @@ async function createSpecGoalReminder(context, credentials) {
     const { userEmail } = await credentials;
     const userName = await context.activity.from.name;
 
-    const nearestQuarterDate = getNearestFirstDayOfMonth();
+    const nearestFirstDayOfMonth = getNearestFirstDayOfMonth();
 
     console.log(
-      "createPlanJoyReminder: Nearest Quarter Date: ",
-      nearestQuarterDate
+      "createSpecGoalReminder: Nearest First Day Of Month: ",
+      nearestFirstDayOfMonth
     );
 
     return {
       userEmail,
       userName,
-      verb: "activeSpecPlanJoy",
-      triggerDate: nearestQuarterDate,
-      data: { hasCareerPlan: true },
+      verb: "activeSpecRemainderGoal",
+      triggerDate: nearestFirstDayOfMonth,
+      data: [],
       complete: false,
     };
   } catch (error) {
     console.log(error.message);
-    console.log("createPlanJoyReminder: Failed to create reminder.");
+    console.log("createSpecGoalReminder: Failed to create reminder.");
     return null;
   }
 }

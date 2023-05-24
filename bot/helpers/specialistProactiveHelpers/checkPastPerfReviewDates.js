@@ -3,14 +3,14 @@ const getTwoDaysLaterDate = require("../getTwoDaysLaterDate");
 const updateUserByEmail = require("../../db-functions/updateUserByEmail");
 
 async function checkPastPerfReviewDates(context, credentials) {
-  const userName = context.activity.from.name;
-  const { userPerfDates, userEmail } = credentials;
-  const { notifiedOnStart, notifiedOnEnd, perfEndDate } = userPerfDates;
-  const newDatesData = {
-    userPerfDates,
-  };
-
   try {
+    const userName = context.activity.from.name;
+    const { userPerfDates, userEmail } = credentials;
+    const { notifiedOnStart, notifiedOnEnd, perfEndDate } = userPerfDates;
+    const newDatesData = {
+      userPerfDates,
+    };
+
     if (
       (!notifiedOnStart && !notifiedOnEnd) ||
       (notifiedOnStart && notifiedOnEnd)
@@ -33,7 +33,7 @@ async function checkPastPerfReviewDates(context, credentials) {
           verb: "activeSpecRemainderStudy",
           triggerDate: twoDaysLaterDate,
           data: { ...newDatesData },
-          complete: false,
+          complete: true,
         };
       }
 

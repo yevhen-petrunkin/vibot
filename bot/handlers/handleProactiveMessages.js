@@ -1,5 +1,8 @@
 const { adminProactiveCheckups } = require("../sources/adminProactiveCheckups");
 const { specProactiveCheckups } = require("../sources/specProactiveCheckups");
+const {
+  managerProactiveCheckups,
+} = require("../sources/managerProactiveCheckups");
 const createReminderArray = require("../helpers/createReminderArray");
 
 async function handleProactiveMessages(context, credentials) {
@@ -15,10 +18,13 @@ async function handleProactiveMessages(context, credentials) {
       });
     }
 
-    // if (userRole.toLowerCase() === "manager".toLowerCase()) {
-    //   await createReminderArray(context, credentials);
-    //   return;
-    // }
+    if (userRole.toLowerCase() === "manager".toLowerCase()) {
+      return await createReminderArray({
+        sourceArr: managerProactiveCheckups,
+        context,
+        credentials,
+      });
+    }
 
     if (userRole.toLowerCase() === "admin".toLowerCase()) {
       return await createReminderArray({

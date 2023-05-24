@@ -22,13 +22,13 @@
     {
       "type": "Action.Execute",
       "title": "Так",
-      "verb": "checkPlanJoy",
+      "verb": "ifHasPlanYes",
       "fallback": "Action.Submit"
     },
     {
       "type": "Action.Execute",
       "title": "Ні",
-      "verb": "askAboutPlan",
+      "verb": "ifHasPlanNo",
       "fallback": "Action.Submit"
     },
     {

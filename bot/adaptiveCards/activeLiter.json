@@ -11,13 +11,13 @@
     {
       "type": "Action.Execute",
       "title": "Завтра",
-      "verb": "activeWroteDown",
+      "verb": "remindTomorrow",
       "fallback": "Action.Submit"
     },
     {
       "type": "Action.Execute",
       "title": "Через тиждень",
-      "verb": "activeWroteDown",
+      "verb": "remindInAWeek",
       "fallback": "Action.Submit"
     }
   ],

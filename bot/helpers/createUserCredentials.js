@@ -14,6 +14,7 @@ async function createUserCredentials() {
         userEmail,
         userRole: userData.userRole,
         stage: userData.stage,
+        managerEmail: userData.managerEmail,
         userPerfDates: userData.userPerfDates,
       };
       console.log("User Credentials created!");

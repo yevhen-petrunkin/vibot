@@ -16,14 +16,8 @@
   "actions": [
     {
       "type": "Action.Execute",
-      "title": "Так",
-      "verb": "messageSuccess",
-      "fallback": "Action.Submit"
-    },
-    {
-      "type": "Action.Execute",
       "title": "Передивитись цілі",
-      "verb": "checkPlans",
+      "verb": "editGoals",
       "fallback": "Action.Submit"
     },
     {

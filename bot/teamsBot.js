@@ -13,6 +13,7 @@ const {
 const fetchAllCompanyData = require("./db-functions/fetchAllCompanyData");
 
 const { normalizeMessageText } = require("./helpers/normalize");
+const checkIsReminder = require("./helpers/checkIsReminder");
 const defineNextVerb = require("./helpers/defineNextVerb");
 const findAdaptiveCard = require("./helpers/findAdaptiveCard");
 const handleMessageByText = require("./handlers/handleMessageByText");
@@ -21,8 +22,11 @@ const handlePreRegisterActions = require("./handlers/handlePreRegisterActions");
 const handleInvokeByVerb = require("./handlers/handleIvokeByVerb");
 const handleAdminFunctions = require("./handlers/handleAdminFunctions");
 const handleAdminReplyMessages = require("./handlers/handleAdminReplyMessages");
+const handleNextReminder = require("./handlers/handleNextReminder");
+const handleReminders = require("./handlers/handleReminders");
 const showAdaptiveCardByData = require("./actions/showAdaptiveCardByData");
 const showNextReminder = require("./actions/showNextReminder");
+
 const sendEmail = require("./actions/sendEmail");
 
 const { rawAdminMenuCard } = require("./adaptiveCards/cardIndex");
@@ -37,6 +41,7 @@ class TeamsBot extends TeamsActivityHandler {
     this.reminderIndex = 0;
 
     this.onMessage(async (context, next) => {
+      console.log("On Message");
       let message = context.activity.text;
       const removedMentionText = TurnContext.removeRecipientMention(
         context.activity
@@ -119,21 +124,7 @@ class TeamsBot extends TeamsActivityHandler {
 
     if (verb.toLowerCase() === "nextReminder".toLowerCase()) {
       this.reminderIndex += 1;
-      console.log("Reminder index: ", this.reminderIndex);
-      if (this.reminderIndex >= this.reminders.length) {
-        const noReminderVerb = "activeNoMessage";
-        const adaptiveCardData = await findAdaptiveCard(
-          noReminderVerb,
-          adaptiveCards
-        );
-        await showAdaptiveCardByData(adaptiveCardData, context);
-        console.log("No more reminders left.");
-        return { statusCode: 200 };
-      }
-      const nextReminder = this.reminders[this.reminderIndex];
-      console.log("nextReminder: ", this.reminderIndex);
-
-      await showNextReminder(nextReminder, context);
+      await handleNextReminder(this.reminderIndex, this.reminders, context);
       return { statusCode: 200 };
     }
 
@@ -146,7 +137,14 @@ class TeamsBot extends TeamsActivityHandler {
       context,
       credentials: this.credentials,
       state: this.state,
+      reminders: this.reminders,
+      reminderIndex: this.reminderIndex,
     };
+
+    if (checkIsReminder(verb)) {
+      this.reminders = await handleReminders(verb, config);
+      return { statusCode: 200 };
+    }
 
     if (this.credentials.userRole === "admin") {
       console.log("Admin is still logged on invoke with credentials");
@@ -160,7 +158,9 @@ class TeamsBot extends TeamsActivityHandler {
       console.log(
         "User (manager/specialist) is still logged on invoke with credentials"
       );
+
       this.credentials.stage = defineNextVerb(verb);
+
       console.log("New Stage:", this.credentials.stage);
       await handleInvokeByVerb(verb, config);
     }
