@@ -1,0 +1,19 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Вітаю! Ти молодець, так тримати.",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "Для виклику робочого меню введіть команду “Hello”.",
+      "wrap": true
+    }
+  ],
+
+  "keyword": "goalDone",
+  "shouldCareerUpdate": false,
+  "dynamic": false
+}

@@ -13,6 +13,14 @@ async function handleUserReplyMessages(verb, context, credentials) {
       message =
         "Ціль було відправлено. \n Для продовження роботи введіть команду “Hello”.";
       break;
+    case "goalDeleteMessage".toLowerCase():
+      message =
+        "Ціль було видалено. \n Для продовження роботи введіть команду “Hello”.";
+      break;
+    case "goalDoneMessage".toLowerCase():
+      message =
+        "Ціль було видалено. \n Для продовження роботи введіть команду “Hello”.";
+      break;
     default:
       break;
   }

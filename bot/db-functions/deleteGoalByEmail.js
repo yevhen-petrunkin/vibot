@@ -16,7 +16,7 @@ async function deleteGoalByEmail(updateEmail, goal, { context, credentials }) {
       goals: arrayRemove(goal),
     });
     console.log("deleteGoalsByEmail: Goal has been delete to firestore.", goal);
-    const newVerb = "goalSentMessage";
+    const newVerb = "goalDeleteMessage";
     await handleUserReplyMessages(newVerb, context, credentials);
 
     return true;
