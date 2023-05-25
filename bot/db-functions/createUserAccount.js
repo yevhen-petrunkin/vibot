@@ -5,8 +5,17 @@ const createAuthEmail = require("../helpers/emailCreators/createAuthEmail");
 const sendEmail = require("../actions/sendEmail");
 
 async function createUserAccount(contextData) {
-  const { userEmail } = contextData.value.action.data;
+  const { userEmail, userRole } = contextData.value.action.data;
   const userKeyword = await createKeyword(16);
+  let linkToManual = "";
+
+  if (userRole.toLowerCase() === "specialist".toLowerCase()) {
+    linkToManual = "./files/specialist.pdf";
+  }
+
+  if (userRole.toLowerCase() === "manager".toLowerCase()) {
+    linkToManual = "./files/manager.pdf";
+  }
 
   try {
     const { user } = await createUserWithEmailAndPassword(
@@ -19,6 +28,7 @@ async function createUserAccount(contextData) {
       recipientEmail: userEmail,
       authEmail: userEmail,
       authKeyword: userKeyword,
+      link: linkToManual,
     };
 
     await sendEmail(createAuthEmail, authConfig);

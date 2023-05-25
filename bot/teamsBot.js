@@ -2,7 +2,12 @@
 // const querystring = require("querystring");
 
 const createAdaptiveCardFromObject = require("./helpers/createAdaptiveCardFromObject");
-const { rawNavigateCard, adaptiveCards } = require("./adaptiveCards/cardIndex");
+const {
+  rawNavigateCard,
+  adaptiveCards,
+  rawSupportCard,
+  rawAdminMenuCard,
+} = require("./adaptiveCards/cardIndex");
 
 const {
   TeamsActivityHandler,
@@ -12,10 +17,6 @@ const {
 
 const fetchAllCompanyData = require("./db-functions/fetchAllCompanyData");
 
-const { normalizeMessageText } = require("./helpers/normalize");
-const checkIsReminder = require("./helpers/checkIsReminder");
-const defineNextVerb = require("./helpers/defineNextVerb");
-const findAdaptiveCard = require("./helpers/findAdaptiveCard");
 const handleMessageByText = require("./handlers/handleMessageByText");
 const handleNoCredentials = require("./handlers/handleNoCredentials");
 const handlePreRegisterActions = require("./handlers/handlePreRegisterActions");
@@ -25,11 +26,12 @@ const handleAdminReplyMessages = require("./handlers/handleAdminReplyMessages");
 const handleNextReminder = require("./handlers/handleNextReminder");
 const handleReminders = require("./handlers/handleReminders");
 const showAdaptiveCardByData = require("./actions/showAdaptiveCardByData");
-const showNextReminder = require("./actions/showNextReminder");
-
 const sendEmail = require("./actions/sendEmail");
-
-const { rawAdminMenuCard } = require("./adaptiveCards/cardIndex");
+const createSupportEmail = require("./helpers/emailCreators/createSupportEmail");
+const findAdaptiveCard = require("./helpers/findAdaptiveCard");
+const { normalizeMessageText } = require("./helpers/normalize");
+const checkIsReminder = require("./helpers/checkIsReminder");
+const defineNextVerb = require("./helpers/defineNextVerb");
 
 class TeamsBot extends TeamsActivityHandler {
   constructor() {
@@ -38,7 +40,7 @@ class TeamsBot extends TeamsActivityHandler {
     this.credentials = null;
     this.state = {};
     this.reminders = [];
-    this.reminderIndex = 1;
+    this.reminderIndex = 0;
 
     this.onMessage(async (context, next) => {
       console.log("On Message");
@@ -52,6 +54,14 @@ class TeamsBot extends TeamsActivityHandler {
         const navigateCard = createAdaptiveCardFromObject(rawNavigateCard);
         await context.sendActivity({
           attachments: [navigateCard],
+        });
+        return;
+      }
+
+      if (message.toLowerCase() === "help") {
+        const supportCard = createAdaptiveCardFromObject(rawSupportCard);
+        await context.sendActivity({
+          attachments: [supportCard],
         });
         return;
       }
@@ -111,6 +121,22 @@ class TeamsBot extends TeamsActivityHandler {
       return { statusCode: 200 };
     }
 
+    if (verb.toLowerCase() === "sendToSupport".toLowerCase()) {
+      const userName = context.activity.from.name;
+      const formData = context.activity.value.action.data;
+      const data = {
+        userName,
+        userEmail: formData.userEmail,
+        userMessage: formData.userMessage,
+      };
+      await sendEmail(createSupportEmail, data);
+      await context.sendActivity(
+        "Лист у технічну підтримку надіслано. Чекайте на відповідь."
+      );
+
+      return { statusCode: 200 };
+    }
+
     if (!this.credentials) {
       const { isTriggered, credentials, reminders } =
         await handlePreRegisterActions(verb, context, this.credentials);
@@ -124,6 +150,10 @@ class TeamsBot extends TeamsActivityHandler {
       return { statusCode: 200 };
     }
 
+    if (context.activity.value.action.data) {
+      this.state = context.activity.value.action.data;
+    }
+
     const config = {
       context,
       credentials: this.credentials,
@@ -134,12 +164,14 @@ class TeamsBot extends TeamsActivityHandler {
 
     if (verb.toLowerCase() === "nextReminder".toLowerCase()) {
       this.reminderIndex += 1;
+      const config = {
+        context,
+        credentials: this.credentials,
+        reminders: this.reminders,
+        reminderIndex: this.reminderIndex,
+      };
       await handleNextReminder(config);
       return { statusCode: 200 };
-    }
-
-    if (context.activity.value.action.data) {
-      this.state = context.activity.value.action.data;
     }
 
     if (checkIsReminder(verb)) {
