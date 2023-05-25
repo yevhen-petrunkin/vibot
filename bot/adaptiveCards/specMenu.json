@@ -52,6 +52,43 @@
       ]
     },
     {
+      "type": "RichTextBlock",
+      "inlines": [
+        {
+          "type": "TextRun",
+          "text": "Ти закріплений за менеджером "
+        },
+        {
+          "type": "TextRun",
+          "text": "у якого немає ім'я",
+          "dtext": "fetchManagerName"
+        }       
+      ]
+    },
+    {
+      "type": "RichTextBlock",
+      "inlines": [
+        {
+          "type": "TextRun",
+          "text": "Наступне Performance Review: "
+        },
+        {
+          "type": "TextRun",
+          "text": "починаеться з невідомої дати",
+          "dtext": "fetchPerformanceReviewEndDate"
+        },
+        {
+          "type": "TextRun",
+          "text": "-"
+        },
+        {
+          "type": "TextRun",
+          "text": "продовжуеться невідомою датою",
+          "dtext": "fetchPerformanceReviewStartDate"
+        }
+      ]
+    },
+    {
       "type": "TextBlock",
       "text": "Ти закріплений за менеджером Тарас Шевченко",
       "wrap": true

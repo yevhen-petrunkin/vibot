@@ -70,6 +70,7 @@ async function mainDynamicFunction(adaptiveCard, credentials) {
   console.log("main");
   await ReplaceLists(adaptiveCard, credentials);
   await ReplaceDtexts(adaptiveCard, credentials);
+  await ReplaceDvalues(adaptiveCard, credentials);
 }
 
 async function ReplaceLists(adaptiveCard, credentials) {
@@ -229,6 +230,37 @@ async function ReplaceDtexts(obj, credentials) {
       }
     } else if (typeof obj[property] === "object") {
       await ReplaceDtexts(obj[property], credentials);
+    }
+  }
+}
+
+async function ReplaceDvalues(obj, credentials) {
+  for (let property in obj) {
+    if (property === "dvalue") {
+
+      let fetchedValue = await scripts[obj["dvalue"]](credentials);
+
+      try {
+        if (
+          fetchedValue !== undefined &&
+          fetchedValue !== null &&
+          fetchedValue !== ""
+        ) {
+          obj["value"] = fetchedValue;
+          console.log(obj["value"]);
+          console.log(obj);
+        } else if (
+          typeof fetchedValue !== "string" &&
+          fetchedValue !== undefined &&
+          fetchedValue !== null
+        ) {
+          obj["value"] = "Error: value is not string";
+        }
+      } catch (error) {
+        console.error("Error: ", error);
+      }
+    } else if (typeof obj[property] === "object") {
+      await ReplaceDvalues(obj[property], credentials);
     }
   }
 }
