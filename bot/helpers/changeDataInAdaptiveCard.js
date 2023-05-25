@@ -70,8 +70,11 @@ async function mainDynamicFunction(adaptiveCard, credentials) {
   console.log("main");
   await ReplaceLists(adaptiveCard, credentials);
   await ReplaceDtexts(adaptiveCard, credentials);
+  await ReplaceDvalues(adaptiveCard, credentials)
 }
-
+//correctadmin@c.com
+//correctm1@c.com
+//corrects1@c.com
 async function ReplaceLists(adaptiveCard, credentials) {
   console.log("ReplaceLists");
   var arraysOfListData = []; //тут збреігаються усі фетч масиви усіх листів картки
@@ -117,10 +120,8 @@ async function FetchListData(fetchinfo, credentials) {
   }
   return fetchArray;
 }
-//fetchArray[iterator] = require('../db-functions/fetchUsersEmailsByManagerEmail.js')(credentials.userEmail, credentials.companyName);
-//{fetchUsersByManagerEmail} = require('../db-functions/fetchUsersByManagerEmail.js'); fetchArray[iterator] = fetchUsersByManagerEmail(credentials.userEmail, credentials.companyName).map((user) => user.data().userEmail);
+
 //arrayOfListData має таку структуру: він тримає у кожному індексі окримі масиви з різними типами даних.
-//
 function CreateItemsFromDynamicItems(dlist, arrayOfListData, credentials) {
   //другий параметр має у собі масиви, які створються за даних фетчерів. Кожин фетчер створює окремий субмасив
   let ditemsLength = dlist.ditems.length; //скільки усього ітемів у листі
@@ -196,17 +197,10 @@ function getMaxSubarrayLength(array) {
 }
 
 async function ReplaceDtexts(obj, credentials) {
-  console.log("Start of dtexts");
   for (let property in obj) {
     if (property === "dtext") {
-      console.log("Start");
 
       let fetchedValue = await scripts[obj["dtext"]](credentials);
-
-      console.log("after ");
-      //console.log(obj['text']);
-
-      console.log(fetchedValue);
 
       try {
         if (
@@ -229,6 +223,37 @@ async function ReplaceDtexts(obj, credentials) {
       }
     } else if (typeof obj[property] === "object") {
       await ReplaceDtexts(obj[property], credentials);
+    }
+  }
+}
+
+async function ReplaceDvalues(obj, credentials) {
+  for (let property in obj) {
+    if (property === "dvalue") {
+
+      let fetchedValue = await scripts[obj["dvalue"]](credentials);
+
+      try {
+        if (
+          fetchedValue !== undefined &&
+          fetchedValue !== null &&
+          fetchedValue !== ""
+        ) {
+          obj["value"] = fetchedValue;
+          console.log(obj["value"]);
+          console.log(obj);
+        } else if (
+          typeof fetchedValue !== "string" &&
+          fetchedValue !== undefined &&
+          fetchedValue !== null
+        ) {
+          obj["value"] = "Error: value is not string";
+        }
+      } catch (error) {
+        console.error("Error: ", error);
+      }
+    } else if (typeof obj[property] === "object") {
+      await ReplaceDvalues(obj[property], credentials);
     }
   }
 }
