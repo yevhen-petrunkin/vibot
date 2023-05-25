@@ -12,7 +12,8 @@
       "label": "Початок",
       "isMultiline": false,
       "placeholder": "дд/мм/рр",
-      "isRequired": true
+      "isRequired": true,
+      "errorMessage": "Невірна дата"
     },
     {
       "type": "Input.Date",
@@ -20,7 +21,8 @@
       "label": "Завершення",
       "isMultiline": false,
       "placeholder": "дд/мм/рр",
-      "isRequired": true
+      "isRequired": true,
+      "errorMessage": "Невірна дата"
     }
   ],
   "actions": [
