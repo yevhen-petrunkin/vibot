@@ -6,6 +6,8 @@ function getWeekEarlierDate(date) {
   const month = String(earlierDate.getMonth() + 1).padStart(2, "0");
   const day = String(earlierDate.getDate()).padStart(2, "0");
 
+  console.log("getWeekEarlierDate: ", `${year}-${month}-${day}`);
+
   return `${year}-${month}-${day}`;
 }
 

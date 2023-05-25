@@ -67,6 +67,11 @@ async function handleAdminReplyMessages(verb, context, credentials) {
         "Нагадування було відправлено. \n Для продовження роботи введіть команду “Hello”.";
       break;
 
+    case "noCardFound".toLowerCase():
+      message =
+        "Не знайшов потрібної відповіді. Спробуй пізніше. \n Для продовження роботи введіть команду “Hello”.";
+      break;
+
     default:
       break;
   }

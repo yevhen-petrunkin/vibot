@@ -4,16 +4,19 @@ const handleCredentials = require("./handleCredentials");
 const checkSixMothsLaterDate = require("../helpers/specialistProactiveHelpers/checkSixMothsLaterDate");
 const createPlanJoyReminder = require("../helpers/specialistProactiveHelpers/createPlanJoyReminder");
 const createSpecGoalReminder = require("../helpers/specialistProactiveHelpers/createSpecGoalReminder");
+const createMessageFromFromData = require("../helpers/specialistProactiveHelpers/createMessageFromFromData");
 const createPlanReviewReminder = require("../helpers/managerProactiveHelpers/createPlanReviewReminder");
 
 async function handleInvokeAdditionalStepsByVerb(verb, config) {
   const { context, credentials, state } = config;
   const { companyName, userEmail, managerEmail, userRole } = credentials;
-  const userName = await context.activity.from.name;
+  const contextData = context.activity;
+  const userName = await contextData.from.name;
+  let newVerb = verb;
   let reminder = null;
   let additionalReminder = null;
 
-  const isUserAuth = await handleCredentials(context.activity, credentials);
+  const isUserAuth = await handleCredentials(contextData, credentials);
   if (isUserAuth) {
     switch (verb.toLowerCase()) {
       case "checkPlanJoy".toLowerCase():
@@ -46,6 +49,26 @@ async function handleInvokeAdditionalStepsByVerb(verb, config) {
       case "managerFileSending".toLowerCase():
         reminder = await createPlanReviewReminder(context, credentials);
         await updateRemindersByEmail(userEmail, reminder, config);
+        break;
+
+      case "thankWaitNote".toLowerCase():
+        newVerb = "answerUserNotJoy";
+        reminder = await createMessageFromFromData(
+          newVerb,
+          contextData,
+          credentials
+        );
+        await updateRemindersByEmail(managerEmail, reminder, config);
+        break;
+
+      case "thankCardDef".toLowerCase():
+        newVerb = "answerUserNotPlan";
+        reminder = await createMessageFromFromData(
+          newVerb,
+          contextData,
+          credentials
+        );
+        await updateRemindersByEmail(managerEmail, reminder, config);
         break;
     }
   }

@@ -6,6 +6,8 @@ function getTwoDaysLaterDate(date) {
   const month = String(laterDate.getMonth() + 1).padStart(2, "0");
   const day = String(laterDate.getDate()).padStart(2, "0");
 
+  console.log("getTwoDaysLaterDate: ", `${year}-${month}-${day}`);
+
   return `${year}-${month}-${day}`;
 }
 

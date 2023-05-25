@@ -22,7 +22,7 @@
     {
       "type": "Action.Execute",
       "title": "Змінити",
-      "verb": "setPerfDates",
+      "verb": "changePerfDates",
       "fallback": "Action.Submit"
     },
     {

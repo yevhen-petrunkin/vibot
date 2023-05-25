@@ -1,5 +1,5 @@
-function getNearestQuarterDate() {
-  const currentDate = new Date();
+function getNearestQuarterDateFromDate(date) {
+  const currentDate = new Date(date);
   const january1st = new Date(currentDate.getFullYear(), 0, 1);
   const april1st = new Date(currentDate.getFullYear(), 3, 1);
   const july1st = new Date(currentDate.getFullYear(), 6, 1);
@@ -21,9 +21,9 @@ function getNearestQuarterDate() {
   const month = (nearestDate.getMonth() + 1).toString().padStart(2, "0");
   const day = nearestDate.getDate().toString().padStart(2, "0");
 
-  console.log("getNearestQuarterDate: ", `${year}-${month}-${day}`);
+  console.log("getNearestQuarterDateFromDate: ", `${year}-${month}-${day}`);
 
   return `${year}-${month}-${day}`;
 }
 
-module.exports = getNearestQuarterDate;
+module.exports = getNearestQuarterDateFromDate;

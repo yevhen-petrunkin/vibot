@@ -8,7 +8,7 @@
     },
     {
       "type": "Input.ChoiceSet",
-      "id": "whyNotJoy",
+      "id": "survery",
       "isMultiSelect": true,
       "style": "expanded",
       "choices": [
@@ -26,13 +26,13 @@
         },
         {
           "title": "Свій варіант",
-          "value": "4"
+          "value": "Свій варіант:"
         }
       ]
     },
     {
       "type": "Input.Text",
-      "id": "yourOptionWhyNotJoy",
+      "id": "yourOptionText",
       "maxLength": 1000,
       "isMultiline": true
     }

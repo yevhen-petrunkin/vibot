@@ -9,7 +9,7 @@
     },
     {
       "type": "Input.ChoiceSet",
-      "id": "reasonDecline",
+      "id": "survery",
       "isMultiSelect": true,
       "style": "expanded",
       "isRequired": true,
@@ -29,13 +29,13 @@
         },
         {
           "title": "Свій варіант",
-          "value": "4"
+          "value": "myOption"
         }
       ]
     },
     {
       "type": "Input.Text",
-      "id": "yourOptionReasonDecline",
+      "id": "yourOptionText",
       "maxLength": 1000,
       "isMultiline": true
     }

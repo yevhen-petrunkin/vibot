@@ -74,11 +74,6 @@ async function handlePreRegisterActions(verb, context, credentials) {
       }
       return { isTriggered, credentials };
 
-    // case "submitLogIn".toLowerCase():
-    //   const logInCredentials = await handleLogIn(contextData);
-    //         console.log("handlePreRegisterActions:", contextData.value.action.data);
-    //   return { isTriggered, credentials: logInCredentials };
-
     default:
       return { isTriggered: !isTriggered, credentials };
   }

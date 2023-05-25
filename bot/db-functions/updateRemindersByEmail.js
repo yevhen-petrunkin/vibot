@@ -34,27 +34,6 @@ async function updateRemindersByEmail(
     console.log(
       "updateRemindersByEmail: Failed to send reminder to firestore. Trying to create reminders and send again..."
     );
-    try {
-      await setDoc(userRef, {
-        reminders: [reminder],
-      });
-      console.log(
-        "updateRemindersByEmail: Reminders have been created and reminder sent to firestore.",
-        reminder
-      );
-      const newVerb = "reminderSentMessage";
-      await handleAdminReplyMessages(newVerb, context, credentials);
-
-      return true;
-    } catch (error) {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode, errorMessage);
-      console.log(
-        "updateRemindersByEmail: Failed to create reminders and send reminder to firestore."
-      );
-    }
-
     return false;
   }
 }
