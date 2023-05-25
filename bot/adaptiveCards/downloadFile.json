@@ -10,7 +10,9 @@
       "type": "Input.ChoiceSet",
       "id": "fileAssign",
       "isMultiSelect": true,
+      "isRequired": true,
       "style": "expanded",
+      "errorMessage": "Необхідно обрати хча б один варіант",
       "choices": [
         {
           "title": "Всі спеціалісти",
@@ -28,7 +30,8 @@
       "label": "Назва файлу",
       "isRequired": true,
       "maxLength": 500,
-      "isMultiline": false
+      "isMultiline": false,
+      "errorMessage": "Невірна назва файлу"
     },
     {
       "type": "Input.Text",
@@ -36,7 +39,8 @@
       "label": "Посилання",
       "isRequired": true,
       "maxLength": 500,
-      "isMultiline": false
+      "isMultiline": false,
+      "errorMessage": "Невірне посилання"
     }
   ],
 

@@ -16,7 +16,7 @@
       "label": "Назва компанії",
       "style": "text",
       "isRequired": true,
-      "errorMessage": "This name is not allowed."
+      "errorMessage": "Невірна назва компанії"
     },
     {
       "type": "Input.Text",
@@ -24,9 +24,10 @@
       "isMultiline": false,
       "label": "Email адміністратора",
       "style": "email",
+      "regex": "^([a-zA-Z0-9_-]+.)*[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(.[a-zA-Z0-9_-]+)*.[a-z]{2,6}$",
       "placeholder": "admin@mail.com",
       "isRequired": true,
-      "errorMessage": "This email is not allowed."
+      "errorMessage": "Невірний email"
     },
     {
       "type": "Input.Date",
@@ -35,7 +36,7 @@
       "placeholder": "дд/мм/рр",
       "label": "Дата початку першого Performance Review",
       "isRequired": true,
-      "errorMessage": "Something wrong with the date."
+      "errorMessage": "Невірна дата"
     },
     {
       "type": "Input.Date",
@@ -44,7 +45,7 @@
       "placeholder": "дд/мм/рр",
       "label": "Дата закінчення першого Performance Review",
       "isRequired": true,
-      "errorMessage": "Something wrong with the date."
+      "errorMessage": "Невірна дата"
     }
   ],
   "actions": [

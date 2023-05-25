@@ -40,7 +40,7 @@ async function handleAdminReplyMessages(verb, context, credentials) {
       break;
 
     case "downloadFileMessage".toLowerCase():
-      message = "Файл завантажуєтсья...";
+      message = "Файл завантажується...";
       break;
 
     case "fileDownloaded".toLowerCase():

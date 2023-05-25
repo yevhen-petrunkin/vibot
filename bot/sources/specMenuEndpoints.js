@@ -5,6 +5,9 @@ const specMenuEndpoints = [
   "answerToSend",
   "thankCardDef",
   "confirmRecord",
+  "perfReviewNote",
+  "createGoal",
+  "goalDone",
 ];
 
 module.exports = { specMenuEndpoints };

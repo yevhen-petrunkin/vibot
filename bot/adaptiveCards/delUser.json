@@ -10,9 +10,11 @@
       "type": "Input.Text",
       "id": "delEmail",
       "label": "Email",
+      "regex": "^([a-zA-Z0-9_-]+.)*[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(.[a-zA-Z0-9_-]+)*.[a-z]{2,6}$",
       "style": "email",
       "isMultiline": false,
-      "isRequired": true
+      "isRequired": true,
+      "errorMessage": "Невірний email"
     }
   ],
   "actions": [

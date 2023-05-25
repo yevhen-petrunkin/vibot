@@ -25,21 +25,53 @@ async function handleAdminCommands(verb, config) {
         break;
 
       case "updateUserMessage".toLowerCase():
-        const { updateEmail, startingDateUpdate, userRoleChange } =
-          context.activity.value.action.data;
+        const {
+          updateEmail,
+          startingDateUpdate,
+          userRoleChange,
+          updateEmailManager,
+        } = context.activity.value.action.data;
 
         let userData = {};
 
         if (!startingDateUpdate) {
-          userData = { userRole: userRoleChange };
+          userData = {
+            userRole: userRoleChange,
+            managerEmail: updateEmailManager,
+          };
         }
         if (!userRoleChange) {
-          userData = { startingDate: startingDateUpdate };
+          userData = {
+            startingDate: startingDateUpdate,
+            managerEmail: updateEmailManager,
+          };
         }
-        if (userRoleChange && startingDateUpdate) {
+        if (!updateEmailManager) {
           userData = {
             startingDate: startingDateUpdate,
             userRole: userRoleChange,
+          };
+        }
+        if (!startingDateUpdate && !updateEmailManager) {
+          userData = {
+            userRole: userRoleChange,
+          };
+        }
+        if (!userRoleChange && !updateEmailManager) {
+          userData = {
+            startingDate: startingDateUpdate,
+          };
+        }
+        if (!userRoleChange && !startingDateUpdate) {
+          userData = {
+            managerEmail: updateEmailManager,
+          };
+        }
+        if (userRoleChange && startingDateUpdate && updateEmailManager) {
+          userData = {
+            startingDate: startingDateUpdate,
+            userRole: userRoleChange,
+            managerEmail: updateEmailManager,
           };
         }
 
