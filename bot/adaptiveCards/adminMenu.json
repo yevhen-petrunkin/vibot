@@ -19,7 +19,7 @@
               "items": [
                 {
                   "type": "Image",
-                  "url": "https://adaptivecards.io/content/cats/1.png",
+                  "url": "https://i.ibb.co/pRNnXxf/32-32.png",
                   "altText": "$userName",
                   "size": "small",
                   "style": "person"
@@ -40,7 +40,7 @@
                 {
                   "type": "TextBlock",
                   "spacing": "none",
-                  "text":"У вас немає пошти",
+                  "text": "У вас немає пошти",
                   "dtext": "getUserEmailFromCredentials",
                   "isSubtle": true,
                   "wrap": true
@@ -81,12 +81,6 @@
       "type": "Action.Execute",
       "title": "Змінити дату Performance Review",
       "verb": "setPerfDates",
-      "fallback": "Action.Submit"
-    },
-    {
-      "type": "Action.Execute",
-      "title": "Надіслати повідомлення",
-      "verb": "sendMessage",
       "fallback": "Action.Submit"
     },
     {

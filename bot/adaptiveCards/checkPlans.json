@@ -137,12 +137,12 @@
     {
       "type": "Action.Execute",
       "title": "Готово",
-      "verb": "editPlanMessage",
+      "verb": "createGoal",
       "fallback": "Action.Submit"
     }
   ],
   "verticalContentAlignment": "center",
   "keyword": "checkPlans",
-  "dynamic": false,
+  "dynamic": true,
   "shouldCareerUpdate": false
 }

@@ -3,13 +3,8 @@
   "body": [
     {
       "type": "TextBlock",
-      "text": "Ти впевнено прямуєшь до своєї мети, не зупиняйся.",
+      "text": "Вітаю! Ти молодець, так тримати.",
       "wrap": true
-    },
-    {
-      "type": "TextBlock",
-      "text": "Успіхів!😉",
-      "weight": "bolder"
     },
     {
       "type": "TextBlock",
@@ -18,7 +13,7 @@
     }
   ],
 
-  "keyword": "createGoal3",
+  "keyword": "goalDone",
   "shouldCareerUpdate": false,
   "dynamic": false
 }

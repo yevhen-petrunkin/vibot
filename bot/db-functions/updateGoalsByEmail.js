@@ -24,9 +24,9 @@ async function updateGoalsByEmail(updateEmail, goal, { context, credentials }) {
     const errorCode = error.code;
     const errorMessage = error.message;
     console.log(errorCode, errorMessage);
-    console.log(
-      "updateGoalByEmail: Failed to send goal to firestore. Trying to create goal and send again..."
-    );
+    //console.log(
+    //   "updateGoalByEmail: Failed to send goal to firestore. Trying to create goal and send again..."
+    // );
     // try {
     //   await setDoc(userRef, {
     //   goals: [goal],

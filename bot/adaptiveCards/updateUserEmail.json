@@ -12,7 +12,9 @@
       "label": "Email",
       "style": "email",
       "isMultiline": false,
-      "isRequired": true
+      "regex": "/^([a-zA-Z0-9_-]+.)*[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(.[a-zA-Z0-9_-]+)*.[a-z]{2,6}$/;",
+      "isRequired": true,
+      "errorMessage": "Невірний email"
     }
   ],
   "actions": [

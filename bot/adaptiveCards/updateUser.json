@@ -3,7 +3,7 @@
   "body": [
     {
       "type": "TextBlock",
-      "text": "Вкажіть email користувача",
+      "text": "Вкажіть email користувача, дані якого необхідно змінити",
       "weight": "bolder"
     },
     {
@@ -12,7 +12,24 @@
       "label": "Email",
       "style": "email",
       "isMultiline": false,
-      "isRequired": true
+      "regex": "^([a-zA-Z0-9_-]+.)*[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(.[a-zA-Z0-9_-]+)*.[a-z]{2,6}$",
+      "isRequired": true,
+      "errorMessage": "Невірний email"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Заповніть тільки ті поля, які необхідно змінити",
+      "weight": "bolder"
+    },
+    {
+      "type": "Input.Text",
+      "id": "updateEmailManager",
+      "label": "Email менеджера",
+      "style": "email",
+      "isMultiline": false,
+      "regex": "^([a-zA-Z0-9_-]+.)*[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(.[a-zA-Z0-9_-]+)*.[a-z]{2,6}$",
+      "isRequired": false,
+      "errorMessage": "Невірний email"
     },
     {
       "type": "Input.Date",
@@ -21,7 +38,7 @@
       "placeholder": "дд/мм/рр",
       "label": "Початок роботи в компанії.",
       "isRequired": false,
-      "errorMessage": "Something wrong with the date."
+      "errorMessage": "Невірна дата"
     },
     {
       "type": "Input.ChoiceSet",

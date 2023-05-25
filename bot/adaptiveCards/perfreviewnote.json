@@ -11,7 +11,7 @@
     {
       "type": "Action.Execute",
       "title": "Ок",
-      "verb": "perfReviewNoteMessage",
+      "verb": "specMenu",
       "fallback": "Action.Submit"
     }
   ],
