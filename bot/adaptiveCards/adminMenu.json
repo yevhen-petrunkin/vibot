@@ -19,7 +19,7 @@
               "items": [
                 {
                   "type": "Image",
-                  "url": "<https://i.ibb.co/pRNnXxf/32-32.png",
+                  "url": "https://i.ibb.co/pRNnXxf/32-32.png",
                   "altText": "$userName",
                   "size": "small",
                   "style": "person"
