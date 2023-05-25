@@ -38,7 +38,7 @@ class TeamsBot extends TeamsActivityHandler {
     this.credentials = null;
     this.state = {};
     this.reminders = [];
-    this.reminderIndex = 0;
+    this.reminderIndex = 1;
 
     this.onMessage(async (context, next) => {
       console.log("On Message");
@@ -65,7 +65,6 @@ class TeamsBot extends TeamsActivityHandler {
       const config = {
         context,
         credentials: this.credentials,
-        state: this.state,
         state: this.state,
         reminders: this.reminders,
         reminderIndex: this.reminderIndex,
