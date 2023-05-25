@@ -21,7 +21,7 @@ async function checkSpecGoalDeadlines(context, credentials) {
           verb: "activeSpecRemainderGoalDL",
           triggerDate: nearestDate,
           data: urgentGoals,
-          complete: false,
+          complete: true,
         };
       }
     }

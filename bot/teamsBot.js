@@ -66,6 +66,9 @@ class TeamsBot extends TeamsActivityHandler {
         context,
         credentials: this.credentials,
         state: this.state,
+        state: this.state,
+        reminders: this.reminders,
+        reminderIndex: this.reminderIndex,
       };
 
       fetchAllCompanyData(this.credentials.companyName);
@@ -122,17 +125,6 @@ class TeamsBot extends TeamsActivityHandler {
       return { statusCode: 200 };
     }
 
-    if (verb.toLowerCase() === "nextReminder".toLowerCase()) {
-      this.reminderIndex += 1;
-      await handleNextReminder(this.reminderIndex, this.reminders, context);
-      return { statusCode: 200 };
-    }
-
-    if (context.activity.value.action.data) {
-      this.state = context.activity.value.action.data;
-      console.log("New State: ", this.state);
-    }
-
     const config = {
       context,
       credentials: this.credentials,
@@ -141,8 +133,19 @@ class TeamsBot extends TeamsActivityHandler {
       reminderIndex: this.reminderIndex,
     };
 
+    if (verb.toLowerCase() === "nextReminder".toLowerCase()) {
+      this.reminderIndex += 1;
+      await handleNextReminder(config);
+      return { statusCode: 200 };
+    }
+
+    if (context.activity.value.action.data) {
+      this.state = context.activity.value.action.data;
+    }
+
     if (checkIsReminder(verb)) {
       this.reminders = await handleReminders(verb, config);
+      console.log("Let's look and this.reminders: ", this.reminders);
       return { statusCode: 200 };
     }
 

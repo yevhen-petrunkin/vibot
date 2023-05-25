@@ -8,6 +8,7 @@ async function createUserCredentials() {
   const companyName = auth.currentUser.displayName;
   try {
     const userData = await fetchUserByEmail(userEmail, companyName);
+    console.log("createUserCredentials, userData", userData);
     if (userData) {
       const credentials = {
         companyName,
@@ -16,6 +17,7 @@ async function createUserCredentials() {
         stage: userData.stage,
         managerEmail: userData.managerEmail,
         userPerfDates: userData.userPerfDates,
+        userReminders: userData.reminders,
       };
       console.log("User Credentials created!");
       return credentials;

@@ -2,19 +2,19 @@ const { doc, setDoc } = require("firebase/firestore");
 const { db } = require("../firebase");
 
 async function createAdminAsUser(contextData, user) {
-  const teamsId = contextData.from.id;
-  const userName = contextData.from.name;
-  const { companyName, adminEmail } = contextData.value.action.data;
-
-  const companyUsersRef = doc(
-    db,
-    companyName,
-    "companyUsers",
-    "users",
-    adminEmail
-  );
-
   try {
+    const teamsId = contextData.from.id;
+    const userName = contextData.from.name;
+    const { companyName, adminEmail } = contextData.value.action.data;
+
+    const companyUsersRef = doc(
+      db,
+      companyName,
+      "companyUsers",
+      "users",
+      adminEmail
+    );
+
     const userData = {
       userId: user.uid,
       teamsId,

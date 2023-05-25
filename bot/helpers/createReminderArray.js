@@ -1,5 +1,6 @@
 const { adaptiveCards } = require("../adaptiveCards/cardIndex");
 const fetchRemindersbyEmail = require("../db-functions/fetchRemindersbyEmail");
+const handleDynamicAdaptiveCard = require("../handlers/handleDynamicAdaptiveCard");
 const showAdaptiveCardByData = require("../actions/showAdaptiveCardByData");
 const findAdaptiveCard = require("./findAdaptiveCard");
 const checkIsDatePassed = require("./checkIsDatePassed");
@@ -7,8 +8,7 @@ const checkIsDatePassed = require("./checkIsDatePassed");
 async function createReminderArray({ sourceArr, context, credentials }) {
   try {
     const { userEmail, companyName } = credentials;
-    const oldReminders = await fetchRemindersbyEmail(userEmail, companyName);
-    console.log("createReminderArray: oldReminders: ", oldReminders);
+    const oldReminders = credentials.userReminders;
 
     const unusedReminders = sourceArr.filter(
       ({ verb }) =>
@@ -16,7 +16,6 @@ async function createReminderArray({ sourceArr, context, credentials }) {
           (reminder) => verb.toLowerCase() === reminder.verb.toLowerCase()
         )
     );
-    console.log("createReminderArray: unusedReminders: ", unusedReminders);
 
     let remindersToAdd = [];
 
@@ -24,21 +23,15 @@ async function createReminderArray({ sourceArr, context, credentials }) {
       const reminderPromises = unusedReminders.map(async ({ checkup }) => {
         const reminder = await checkup(context, credentials);
         if (reminder) {
-          console.log("createReminderArray: reminderToAdd: ", reminder);
           return await reminder;
         }
       });
       remindersToAdd = await Promise.all(reminderPromises);
-      console.log("createReminderArray: remindersToAdd", remindersToAdd);
+
       remindersToAdd = remindersToAdd.filter((reminder) => reminder);
-      console.log(
-        "createReminderArray: filtered remindersToAdd",
-        remindersToAdd
-      );
     }
 
     const newReminders = [...oldReminders, ...remindersToAdd];
-    console.log("createReminderArray: newReminders: ", newReminders);
 
     const actualReminders = newReminders.filter(({ triggerDate }) =>
       checkIsDatePassed(triggerDate)
@@ -49,9 +42,14 @@ async function createReminderArray({ sourceArr, context, credentials }) {
     if (actualReminders && actualReminders.length) {
       const { verb } = actualReminders[0];
       console.log("createReminderArray: actualReminders[0] verb: ", verb);
-
       const adaptiveCardData = await findAdaptiveCard(verb, adaptiveCards);
-      await showAdaptiveCardByData(adaptiveCardData, context);
+
+      const newData = await handleDynamicAdaptiveCard(
+        adaptiveCardData,
+        actualReminders[0]
+      );
+
+      await showAdaptiveCardByData(newData, context);
     }
 
     return actualReminders;
