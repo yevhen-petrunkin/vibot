@@ -90,16 +90,6 @@
     },
     {
       "type": "TextBlock",
-      "text": "Ти закріплений за менеджером Тарас Шевченко",
-      "wrap": true
-    },
-    {
-      "type": "TextBlock",
-      "text": "Наступне Performance Review: 01.06.2023-15.06.2023",
-      "wrap": true
-    },
-    {
-      "type": "TextBlock",
       "text": "Що будемо робити?",
       "weight": "bolder",
       "wrap": true

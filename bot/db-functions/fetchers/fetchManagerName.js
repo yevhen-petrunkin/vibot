@@ -1,10 +1,10 @@
 const { doc, getDoc } = require("firebase/firestore");
 const { db } = require("../../firebase");
 const fetchAllUsers = require("./fetchAllUsers");
-const fetchUserByEmail = require("./fetchUserByEmail")
+const fetchUserEmailByEmail = require("./fetchUserEmailByEmail")
 
 async function fetchManagerName(credentials) {
-  let specManagerEmail = await fetchUserByEmail(credentials);
+  let specManagerEmail = await fetchUserEmailByEmail(credentials);
   let managerRef = doc(db, credentials.companyName, "companyUsers", "users", specManagerEmail);
   try {
     const res = await getDoc(managerRef);

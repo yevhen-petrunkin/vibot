@@ -7,20 +7,37 @@
       "weight": "bolder"
     },
     {
-      "type": "List",
-      "dynamicListText": "<b>LINK НАЗВА</b><div>LINK ФАЙЛ</div>"
+      "type": "DynamicList",
+      "fetchinfo": [
+        {
+          "fetcher": "fetchFilesName"
+        },
+        {
+          "fetcher": "fetchFilesUrl"
+        }
+      ],
+      "ditems":[
+        {
+          "type": "TextBlock",
+          "text": "Немає інформації про ім'я файлу",
+          "ltext": true,
+          "weight": "bolder",
+          "wrap": true
+        },
+        {
+          "type": "TextBlock",
+          "text": "Немає референсу до файлу",
+          "ltext": true,
+          "wrap": true
+        }
+      ]
     }
   ],
   "actions": [
     {
       "type": "Action.Execute",
       "title": "Ок",
-      "verb": "addFile",
-      "fallback": "Action.Submit"
-    },
-    {
-      "type": "Action.Execute",
-      "title": "Додати файл",
+      "verb": "managerMenu",
       "fallback": "Action.Submit"
     }
   ],
