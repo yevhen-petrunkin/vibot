@@ -12,7 +12,7 @@
       "isMultiSelect": true,
       "isRequired": true,
       "style": "expanded",
-      "errorMessage": "Необхідно обрати хча б один варіант",
+      "errorMessage": "Необхідно обрати хоча б один варіант",
       "choices": [
         {
           "title": "Всі спеціалісти",
