@@ -3,21 +3,22 @@ const { auth } = require("../firebase");
 const createKeyword = require("../helpers/createKeyword");
 const createAuthEmail = require("../helpers/emailCreators/createAuthEmail");
 const sendEmail = require("../actions/sendEmail");
+const handleAdminReplyMessages = require("../handlers/handleAdminReplyMessages");
 
-async function createUserAccount(contextData) {
-  const { userEmail, userRole } = contextData.value.action.data;
-  const userKeyword = await createKeyword(16);
-  let linkToManual = "";
-
-  if (userRole.toLowerCase() === "specialist".toLowerCase()) {
-    linkToManual = "./files/specialist.pdf";
-  }
-
-  if (userRole.toLowerCase() === "manager".toLowerCase()) {
-    linkToManual = "./files/manager.pdf";
-  }
-
+async function createUserAccount(context, credentials) {
   try {
+    const { userEmail, userRole } = context.activity.value.action.data;
+    const userKeyword = createKeyword(16);
+    let linkToManual = "";
+
+    if (userRole.toLowerCase() === "specialist".toLowerCase()) {
+      linkToManual = "./files/specialist.pdf";
+    }
+
+    if (userRole.toLowerCase() === "manager".toLowerCase()) {
+      linkToManual = "./files/manager.pdf";
+    }
+
     const { user } = await createUserWithEmailAndPassword(
       auth,
       userEmail,
@@ -38,7 +39,11 @@ async function createUserAccount(contextData) {
     );
     return user;
   } catch (error) {
-    console.log(error.message);
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode, errorMessage);
+    const newVerb = "sameAccountAlert";
+    await handleAdminReplyMessages(newVerb, context, credentials);
   }
 }
 

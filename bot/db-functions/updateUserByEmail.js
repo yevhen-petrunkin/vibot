@@ -29,6 +29,8 @@ async function updateUserByEmail(
     const errorMessage = error.message;
     console.log(errorCode, errorMessage);
     console.log("Failed to update user Data in firestore.");
+    const newVerb = "userNotUpdated";
+    await handleAdminReplyMessages(newVerb, context, credentials);
     return false;
   }
 }

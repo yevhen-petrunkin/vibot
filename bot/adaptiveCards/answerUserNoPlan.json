@@ -17,6 +17,14 @@
       "wrap": true
     }
   ],
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Наступне повідомлення",
+      "verb": "nextReminder",
+      "fallback": "Action.Submit"
+    }
+  ],
 
   "keyword": "answerUserNotPlan",
   "dynamic": true,

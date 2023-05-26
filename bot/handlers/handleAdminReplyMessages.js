@@ -16,6 +16,11 @@ async function handleAdminReplyMessages(verb, context, credentials) {
         "Ти успішно увійшов в акаунт. \n Для виклику робочого меню введіть команду “Hello”.";
       break;
 
+    case "noEntryMessage".toLowerCase():
+      message =
+        "Не вдалося увійти в акаунт. Спробуй пізніше. \n Для продовження введіть команду “Hello”.";
+      break;
+
     case "createUserMessage".toLowerCase():
       message = "Йде запис даних про користувача...";
       break;
@@ -55,6 +60,26 @@ async function handleAdminReplyMessages(verb, context, credentials) {
     case "userDeleted".toLowerCase():
       message =
         "Користувач був успішно видалений. \n Для продовження роботи введіть команду “Hello”.";
+      break;
+
+    case "noDeleteSelf".toLowerCase():
+      message =
+        "Ви не можете видалити самого себе. \n Спочатку передайте права адміністратора іншому співробітнику компанії. \n Для продовження роботи введіть команду “Hello”.";
+      break;
+
+    case "userNotDeleted".toLowerCase():
+      message =
+        "Користувач не був видалений з невідомої причини. Спробуй пізніше. \n Для продовження роботи введіть команду “Hello”.";
+      break;
+
+    case "userNotRegistered".toLowerCase():
+      message =
+        "Користувача не можна видалити, оскільки він ще не зареєструвався в системі. \n Для продовження роботи введіть команду “Hello”.";
+      break;
+
+    case "userNotUpdated".toLowerCase():
+      message =
+        "Дані про користувача не було оновлено. \n Можливо, інформація про нього невірна. Для продовження роботи введіть команду “Hello”.";
       break;
 
     case "noReminderMessage".toLowerCase():

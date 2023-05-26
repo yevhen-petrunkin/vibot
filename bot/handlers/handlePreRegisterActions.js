@@ -43,7 +43,7 @@ async function handlePreRegisterActions(verb, context, credentials) {
       return { isTriggered, credentials };
 
     case "submitSignUp".toLowerCase():
-      const signUpCredentials = await handleSignUp(contextData);
+      const signUpCredentials = await handleSignUp(context, credentials);
       if (signUpCredentials) {
         const submitSignUpVerb = "submitReady";
         await handleAdminReplyMessages(
@@ -57,7 +57,7 @@ async function handlePreRegisterActions(verb, context, credentials) {
       return { isTriggered, credentials };
 
     case "submitLogIn".toLowerCase():
-      const logInCredentials = await handleLogIn(contextData);
+      const logInCredentials = await handleLogIn(context, credentials);
       if (logInCredentials) {
         const submitLogInVerb = "submitReady";
         await handleAdminReplyMessages(
