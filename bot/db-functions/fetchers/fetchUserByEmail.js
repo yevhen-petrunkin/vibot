@@ -6,7 +6,6 @@ async function fetchUserByEmail(credentials) {
   try {
     const res = await getDoc(userRef);
     console.log("User fetched successfully.");
-    console.log("fetchUserByEmail, res.data(): ", res.data());
     return res.data();
   } catch (error) {
     const errorCode = error.code;

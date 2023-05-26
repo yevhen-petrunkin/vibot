@@ -8,6 +8,7 @@ const fsPromises = require("fs/promises");
 const path = require("path");
 const { promisify } = require("util");
 
+
 const scriptsFolder = "./db-functions/fetchers";
 //C:/Users/Icepriest/TeamsApps/vbot-main2/vibot-main/bot
 

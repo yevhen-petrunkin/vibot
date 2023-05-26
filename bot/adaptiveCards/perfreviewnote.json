@@ -2,9 +2,27 @@
   "type": "AdaptiveCard",
   "body": [
     {
-      "type": "TextBlock",
-      "text": "Ок! Пам'ятай, що найближче Performance Review буде з 10.04.2023 по 25.05.2023 😉",
-      "wrap": true
+      "type": "RichTextBlock",
+      "inlines":[
+        {
+          "type": "TextRun",
+          "text": "Ок! Пам'ятай, що найближче Performance Review буде з "
+        },
+        {
+          "type": "TextRun",
+          "text": "неназначеної дати",
+          "dtext": "fetchPerformanceReviewStartDate"
+        },
+        {
+          "type": "TextRun",
+          "text": " по "
+        },
+        {
+          "type": "TextRun",
+          "text": "неназначену дату",
+          "dtext": "fetchPerformanceReviewEndDate"
+        }
+      ]
     }
   ],
   "actions": [

@@ -75,7 +75,7 @@
         {
           "type": "TextRun",
           "text": "починаеться з невідомої дати",
-          "dtext": "fetchPerformanceReviewEndDate"
+          "dtext": "fetchPerformanceReviewStartDate"
         },
         {
           "type": "TextRun",
@@ -84,7 +84,7 @@
         {
           "type": "TextRun",
           "text": "продовжуеться невідомою датою",
-          "dtext": "fetchPerformanceReviewStartDate"
+          "dtext": "fetchPerformanceReviewEndDate"
         }
       ]
     },
