@@ -52,6 +52,29 @@
       ]
     },
     {
+      "type": "RichTextBlock",
+      "inlines": [
+        {
+          "type": "TextRun",
+          "text": "Наступне Performance Review: "
+        },
+        {
+          "type": "TextRun",
+          "text": "починаеться з невідомої дати",
+          "dtext": "fetchPerformanceReviewStartDate"
+        },
+        {
+          "type": "TextRun",
+          "text": "-"
+        },
+        {
+          "type": "TextRun",
+          "text": "продовжуеться невідомою датою",
+          "dtext": "fetchPerformanceReviewEndDate"
+        }
+      ]
+    },
+    {
       "type": "Container",
       "items": [
         {

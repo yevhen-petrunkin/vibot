@@ -7,7 +7,7 @@ async function fetchPerformanceReviewEndDate(credentials) {
     const res = await getDoc(infoRef);
     const perfEndDate = res.data().perfEndDate;
     console.log("Performance review dates fetched successfully.");
-    return perfEndDate;
+    return perfEndDate.replace(/-/g, ".");
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;
