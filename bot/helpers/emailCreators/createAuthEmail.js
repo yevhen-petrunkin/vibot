@@ -3,8 +3,18 @@ function createAuthEmail({ recipientEmail, authEmail, authKeyword, link }) {
     from: "<kovcheg_xxi_koval@ukr.net>",
     to: recipientEmail,
     subject: "Bot V7Pro by Viseven company",
-    text: "Hello, I am your V7Pro bot!",
-    html: `    <img src="cid:uniqueAdaptiveCard@nodemailer.com" /><br />
+    text: `Привіт!
+      V7Pro - це кар'єрний помічник від Viseven, який допомогає в професійному
+      розвитку. Для того, щоб почати роботу в боті необхідно:
+    1. Встановити бота за посиланням 2. Зареєструватись. Адміністратор вже створив тобі обліковий запис,
+      все що тобі потрібно, це вперше вказати електронну адресу та секретний
+      пароль у боті в Microsoft Teams. Email: ${authEmail}
+    Пароль: ${authKeyword} Не передавайте свої дані іншим особам!
+      3. Розпочати роботу. Рекомендуємо спочтаку ознайомитись з
+      інструкцією по використанню боту та подивитись промо-відео.    
+    Давай зробимо перший крок на шляху до кар'єрного зростання. Успіхів!`,
+
+    html: `<img src="cid:uniqueAdaptiveCard@nodemailer.com" /><br />
     <h1>Привіт!</h1>
     <p>
       V7Pro - це кар'єрний помічник від Viseven, який допомогає в професійному
