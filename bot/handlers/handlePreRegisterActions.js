@@ -19,7 +19,7 @@ async function handlePreRegisterActions(verb, context, credentials) {
       return { isTriggered, credentials };
 
     case "companyCreated".toLowerCase():
-      const postCompanyCreatedCredentials = await createNewCompany(contextData);
+      const postCompanyCreatedCredentials = await createNewCompany(context);
       if (postCompanyCreatedCredentials) {
         const companyReadyVerb = "companyReady";
         await handleAdminReplyMessages(

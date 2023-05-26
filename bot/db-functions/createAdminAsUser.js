@@ -36,11 +36,13 @@ async function createAdminAsUser(contextData, user) {
     };
     await setDoc(companyUsersRef, userData);
     console.log("Admin Registered As User");
+    return true;
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;
     console.log(errorCode, errorMessage);
     console.log("Failed to register Admin As User.");
+    return false;
   }
 }
 
