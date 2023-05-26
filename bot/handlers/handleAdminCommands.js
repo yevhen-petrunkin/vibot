@@ -25,57 +25,29 @@ async function handleAdminCommands(verb, config) {
         break;
 
       case "updateUserMessage".toLowerCase():
-        const {
-          updateEmail,
-          startingDateUpdate,
-          userRoleChange,
-          updateEmailManager,
-        } = context.activity.value.action.data;
+        const userData = context.activity.value.action.data;
 
-        let userData = {};
+        const normalizedData = {
+          startingDate: userData.startingDateUpdate,
+          userRole: userData.userRoleChange,
+          managerEmail: userData.updateEmailManager,
+        };
 
-        if (!startingDateUpdate) {
-          userData = {
-            userRole: userRoleChange,
-            managerEmail: updateEmailManager,
-          };
-        }
-        if (!userRoleChange) {
-          userData = {
-            startingDate: startingDateUpdate,
-            managerEmail: updateEmailManager,
-          };
-        }
-        if (!updateEmailManager) {
-          userData = {
-            startingDate: startingDateUpdate,
-            userRole: userRoleChange,
-          };
-        }
-        if (!startingDateUpdate && !updateEmailManager) {
-          userData = {
-            userRole: userRoleChange,
-          };
-        }
-        if (!userRoleChange && !updateEmailManager) {
-          userData = {
-            startingDate: startingDateUpdate,
-          };
-        }
-        if (!userRoleChange && !startingDateUpdate) {
-          userData = {
-            managerEmail: updateEmailManager,
-          };
-        }
-        if (userRoleChange && startingDateUpdate && updateEmailManager) {
-          userData = {
-            startingDate: startingDateUpdate,
-            userRole: userRoleChange,
-            managerEmail: updateEmailManager,
-          };
-        }
+        const filteredData = Object.entries(normalizedData).reduce(
+          (aggr, entry) => {
+            if (entry[1]) {
+              aggr[entry[0]] = entry[1];
+              return aggr;
+            } else {
+              return aggr;
+            }
+          },
+          {}
+        );
 
-        await updateUserByEmail(updateEmail, userData, config);
+        console.log("filteredData: ", filteredData);
+
+        await updateUserByEmail(userData.updateEmail, filteredData, config);
         break;
 
       case "downloadFileMessage".toLowerCase():

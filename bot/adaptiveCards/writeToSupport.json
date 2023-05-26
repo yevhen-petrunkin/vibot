@@ -1,0 +1,46 @@
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Щось працює не так?",
+      "weight": "bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Напиши в технічну допомогу про свою проблему:",
+      "weight": "default"
+    },
+    {
+      "type": "Input.Text",
+      "id": "userEmail",
+      "isMultiline": false,
+      "label": "Email",
+      "style": "email",
+      "placeholder": "user@mail.com",
+      "regex": "^([a-zA-Z0-9_-]+.)*[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(.[a-zA-Z0-9_-]+)*.[a-z]{2,6}$",
+      "isRequired": true,
+      "errorMessage": "Невірний email"
+    },
+    {
+      "type": "Input.Text",
+      "id": "userMessage",
+      "maxLength": 2000,
+      "isRequired": true,
+      "isMultiline": true,
+      "errorMessage": "Має містити текст"
+    }
+  ],
+
+  "actions": [
+    {
+      "type": "Action.Execute",
+      "title": "Надіслати",
+      "verb": "sendToSupport",
+      "fallback": "Action.Submit"
+    }
+  ],
+  "keyword": "writeToSupport",
+  "shouldCareerUpdate": true,
+  "dynamic": false
+}

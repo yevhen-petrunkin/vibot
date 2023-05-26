@@ -30,8 +30,8 @@ async function createAdminAsUser(contextData, user) {
       userPerfDates: {
         notifiedOnStart: false,
         notifiedOnEnd: false,
-        perfStartDate,
-        perfEndDate,
+        perfStartDate: "",
+        perfEndDate: "",
       },
     };
     await setDoc(companyUsersRef, userData);

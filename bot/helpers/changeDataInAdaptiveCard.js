@@ -34,7 +34,7 @@ function loadScripts(folderPath) {
 
   return scripts;
 }
-
+//adminanother@m.com
 //adminnew@mail.com blinadmin@mail.ru
 // Загрузка скриптов из папки
 //user1@m.com user1user
@@ -72,7 +72,9 @@ async function mainDynamicFunction(adaptiveCard, credentials) {
   await ReplaceDtexts(adaptiveCard, credentials);
   await ReplaceDvalues(adaptiveCard, credentials);
 }
-
+//correctadmin@c.com
+//correctm1@c.com
+//corrects1@c.com
 async function ReplaceLists(adaptiveCard, credentials) {
   console.log("ReplaceLists");
   var arraysOfListData = []; //тут збреігаються усі фетч масиви усіх листів картки
@@ -118,10 +120,8 @@ async function FetchListData(fetchinfo, credentials) {
   }
   return fetchArray;
 }
-//fetchArray[iterator] = require('../db-functions/fetchUsersEmailsByManagerEmail.js')(credentials.userEmail, credentials.companyName);
-//{fetchUsersByManagerEmail} = require('../db-functions/fetchUsersByManagerEmail.js'); fetchArray[iterator] = fetchUsersByManagerEmail(credentials.userEmail, credentials.companyName).map((user) => user.data().userEmail);
+
 //arrayOfListData має таку структуру: він тримає у кожному індексі окримі масиви з різними типами даних.
-//
 function CreateItemsFromDynamicItems(dlist, arrayOfListData, credentials) {
   //другий параметр має у собі масиви, які створються за даних фетчерів. Кожин фетчер створює окремий субмасив
   let ditemsLength = dlist.ditems.length; //скільки усього ітемів у листі
@@ -155,11 +155,7 @@ function CreateItemsFromDynamicItems(dlist, arrayOfListData, credentials) {
   }
   console.log("next");
 
-  for (
-    let iterator = 0, flattenedIterator = 0;
-    iterator < finalItemSize;
-    iterator++
-  ) {
+  for (let iterator = 0, flattenedIterator = 0; iterator < finalItemSize; iterator++) {
     if (itemsNewObject[iterator].ltext === true) {
       if (
         flattenedArray[flattenedIterator] !== undefined &&
@@ -186,28 +182,28 @@ function CreateItemsFromDynamicItems(dlist, arrayOfListData, credentials) {
 function getMaxSubarrayLength(array) {
   let maxLength = 0;
 
+  try{
   for (let i = 0; i < array.length; i++) {
     const subarrayLength = array[i].length;
     if (subarrayLength > maxLength) {
       maxLength = subarrayLength;
     }
   }
+  }
+  catch(error){
+    return 0;
+  }
 
   return maxLength;
 }
 
 async function ReplaceDtexts(obj, credentials) {
-  console.log("Start of dtexts");
   for (let property in obj) {
     if (property === "dtext") {
-      console.log("Start");
+
+      console.log(JSON.stringify(scripts, undefined, 2));
 
       let fetchedValue = await scripts[obj["dtext"]](credentials);
-
-      console.log("after ");
-      //console.log(obj['text']);
-
-      console.log(fetchedValue);
 
       try {
         if (

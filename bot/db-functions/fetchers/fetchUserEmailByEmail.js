@@ -1,13 +1,13 @@
 const { doc, getDoc } = require("firebase/firestore");
 const { db } = require("../../firebase");
 
-async function fetchUserByEmail(credentials) {
+async function fetchUserEmailByEmail(credentials) {
   const userRef = doc(db, credentials.companyName, "companyUsers", "users", credentials.userEmail);
   try {
     const res = await getDoc(userRef);
     console.log("User fetched successfully.");
-    console.log("fetchUserByEmail, res.data(): ", res.data());
-    return res.data();
+    console.log(JSON.stringify(res.data(), undefined, 2));
+    return res.data().userEmail;
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;
@@ -17,4 +17,4 @@ async function fetchUserByEmail(credentials) {
   }
 }
 
-module.exports = fetchUserByEmail;
+module.exports = fetchUserEmailByEmail;
