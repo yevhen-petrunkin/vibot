@@ -14,7 +14,7 @@
         {
           "title": "№1 ",
           "value": "Без назви",
-          "dvalue": "fetchGoalsbyEmail"
+          "dvalue": "fetchGoalsByEmail"
         }
       ]
     },
@@ -24,14 +24,14 @@
         {
           "title": "Дедлайн:",
           "value": "не вказан",
-          "dvalue": "fetchGoalsbyEmail"
+          "dvalue": "fetchGoalsByEmail"
         }
       ]
     },
     {
       "type": "TextBlock",
       "text": "Без опису",
-      "dtext": "fetchGoalsbyEmail",
+      "dtext": "fetchGoalsByEmail",
       "wrap": true
     },
     {
@@ -50,14 +50,14 @@
         {
           "title": "Дедлайн:",
           "value": "не вказан",
-          "dvalue": "fetchGoalsbyEmail"
+          "dvalue": "fetchGoalsByEmail"
         }
       ]
     },
     {
       "type": "TextBlock",
       "text": "Без опису",
-      "dtext": "fetchGoalsbyEmail",
+      "dtext": "fetchGoalsByEmail",
       "wrap": true
     },
     {
@@ -76,14 +76,14 @@
         {
           "title": "Дедлайн:",
           "value": "не вказан",
-          "dvalue": "fetchGoalsbyEmail"
+          "dvalue": "fetchGoalsByEmail"
         }
       ]
     },
     {
       "type": "TextBlock",
       "text": "Без опису",
-      "dtext": "fetchGoalsbyEmail",
+      "dtext": "fetchGoalsByEmail",
       "wrap": true
     },
     {
@@ -102,14 +102,14 @@
         {
           "title": "Дедлайн:",
           "value": "не вказан",
-          "dvalue": "fetchGoalsbyEmail"
+          "dvalue": "fetchGoalsByEmail"
         }
       ]
     },
     {
       "type": "TextBlock",
       "text": "Без опису",
-      "dtext": "fetchGoalsbyEmail",
+      "dtext": "fetchGoalsByEmail",
       "wrap": true
     },
     {
