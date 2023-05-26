@@ -70,7 +70,7 @@ async function mainDynamicFunction(adaptiveCard, credentials) {
   console.log("main");
   await ReplaceLists(adaptiveCard, credentials);
   await ReplaceDtexts(adaptiveCard, credentials);
-  await ReplaceDvalues(adaptiveCard, credentials)
+  await ReplaceDvalues(adaptiveCard, credentials);
 }
 //correctadmin@c.com
 //correctm1@c.com
