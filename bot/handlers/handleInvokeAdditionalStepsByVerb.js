@@ -9,8 +9,8 @@ const createMessageFromFromData = require("../helpers/specialistProactiveHelpers
 const createPlanReviewReminder = require("../helpers/managerProactiveHelpers/createPlanReviewReminder");
 
 async function handleInvokeAdditionalStepsByVerb(verb, config) {
-  const { context, credentials, state } = config;
-  const { companyName, userEmail, managerEmail, userRole } = credentials;
+  const { context, credentials } = config;
+  const { companyName, userEmail, managerEmail } = credentials;
   const contextData = context.activity;
   const userName = await contextData.from.name;
   let newVerb = verb;

@@ -1,4 +1,4 @@
-const { doc, setDoc, updateDoc, arrayRemove } = require("firebase/firestore");
+const { doc, updateDoc, arrayRemove } = require("firebase/firestore");
 const { db } = require("../firebase");
 const handleUserReplyMessages = require("../handlers/handleUserReplyMessages");
 
@@ -21,9 +21,7 @@ async function deleteGoalByEmail(updateEmail, goal, { context, credentials }) {
 
     return true;
   } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode, errorMessage);
+    console.log(error.message);
     return false;
   }
 }

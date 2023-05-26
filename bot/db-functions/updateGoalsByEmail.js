@@ -21,33 +21,7 @@ async function updateGoalsByEmail(updateEmail, goal, { context, credentials }) {
 
     return true;
   } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode, errorMessage);
-    //console.log(
-    //   "updateGoalByEmail: Failed to send goal to firestore. Trying to create goal and send again..."
-    // );
-    // try {
-    //   await setDoc(userRef, {
-    //   goals: [goal],
-    //   });
-    //   console.log(
-    //     "updateGoalsByEmail: Goals have been created and goal sent to firestore.",
-    //     goal
-    //   );
-    //   const newVerb = "goalSentMessage";
-    //   await handleUserReplyMessages(newVerb, context, credentials);
-
-    //   return true;
-    // } catch (error) {
-    //   const errorCode = error.code;
-    //   const errorMessage = error.message;
-    //   console.log(errorCode, errorMessage);
-    //   console.log(
-    //     "updateGoalsByEmail: Failed to create goals and send goal to firestore."
-    //   );
-    // }
-
+    console.log(error.message);
     return false;
   }
 }

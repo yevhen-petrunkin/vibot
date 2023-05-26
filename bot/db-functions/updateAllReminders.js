@@ -17,9 +17,7 @@ async function updateAllReminders(updateEmail, reminders, companyName) {
 
     return true;
   } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode, errorMessage);
+    console.log(error.message);
     console.log("Failed to update Reminders in firestore.");
     return false;
   }

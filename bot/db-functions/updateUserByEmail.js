@@ -19,15 +19,13 @@ async function updateUserByEmail(
     await updateDoc(userRef, {
       ...userData,
     });
-    console.log("User Data updated in firestore.", userData);
+    console.log("User Data updated in firestore.");
     const newVerb = "userUpdated";
     await handleAdminReplyMessages(newVerb, context, credentials);
 
     return true;
   } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode, errorMessage);
+    console.log(error.message);
     console.log("Failed to update user Data in firestore.");
     const newVerb = "userNotUpdated";
     await handleAdminReplyMessages(newVerb, context, credentials);

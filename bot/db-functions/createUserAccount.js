@@ -36,15 +36,13 @@ async function createUserAccount(context, credentials) {
       );
 
       console.log(
-        `User Account has been registered successfully. UserEmail ${userEmail} User keyword ${userKeyword}`
+        `User Account has been registered successfully. UserEmail ${userEmail}`
       );
       return user;
     }
     return null;
   } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode, errorMessage);
+    console.log(error.message);
     const newVerb = "sameAccountAlert";
     await handleAdminReplyMessages(newVerb, context, credentials);
     return null;

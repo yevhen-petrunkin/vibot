@@ -6,7 +6,6 @@ const handleAdminReplyMessages = require("./handleAdminReplyMessages");
 async function handleLogIn(context, credentials) {
   try {
     const { logInEmail } = context.activity.value.action.data;
-    console.log("handleLogIn:", context.activity.value.action.data);
 
     const user = await logInUser(context.activity, logInEmail);
 
@@ -18,9 +17,7 @@ async function handleLogIn(context, credentials) {
 
     return null;
   } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode, errorMessage);
+    console.log(error.message);
     const newVerb = "noEntryMessage";
 
     await handleAdminReplyMessages(newVerb, context, credentials);

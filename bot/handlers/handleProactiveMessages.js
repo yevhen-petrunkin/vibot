@@ -39,9 +39,7 @@ async function handleProactiveMessages(context, credentials) {
     return [];
   } catch (error) {
     console.log(error.message);
-    console.log(
-      "handleProactiveMessages: Failed to obtain reminder array. Return empty array."
-    );
+    console.log("Failed to obtain reminder array. Return empty array.");
     return [];
   }
 }

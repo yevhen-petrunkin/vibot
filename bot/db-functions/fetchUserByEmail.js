@@ -16,9 +16,7 @@ async function fetchUserByEmail(userEmail, companyName) {
 
     return null;
   } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode, errorMessage);
+    console.log(error.message);
     console.log("Failed to fetch user.");
     return null;
   }

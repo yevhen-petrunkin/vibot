@@ -20,8 +20,6 @@ function getNearestFirstDayOfMonthFromDate(date) {
   const month = (nearestDate.getMonth() + 1).toString().padStart(2, "0");
   const day = nearestDate.getDate().toString().padStart(2, "0");
 
-  console.log("getNearestFirstDayOfMonthFromDate: ", `${year}-${month}-${day}`);
-
   return `${year}-${month}-${day}`;
 }
 

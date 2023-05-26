@@ -1,5 +1,4 @@
 const { adaptiveCards } = require("../adaptiveCards/cardIndex");
-const fetchRemindersbyEmail = require("../db-functions/fetchRemindersbyEmail");
 const handleDynamicAdaptiveCard = require("../handlers/handleDynamicAdaptiveCard");
 const showAdaptiveCardByData = require("../actions/showAdaptiveCardByData");
 const findAdaptiveCard = require("./findAdaptiveCard");
@@ -7,7 +6,6 @@ const checkIsDatePassed = require("./checkIsDatePassed");
 
 async function createReminderArray({ sourceArr, context, credentials }) {
   try {
-    const { userEmail, companyName } = credentials;
     const oldReminders = credentials.userReminders;
 
     const unusedReminders = sourceArr.filter(

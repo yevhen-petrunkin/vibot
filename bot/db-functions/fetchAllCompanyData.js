@@ -31,7 +31,6 @@ async function fetchAllCompanyData(companyName) {
       },
     };
 
-    console.log("Collection: ", companyObj);
     console.log("All company data obtained.");
     return companyObj;
   } catch (error) {

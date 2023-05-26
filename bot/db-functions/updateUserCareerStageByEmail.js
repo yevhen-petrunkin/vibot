@@ -14,6 +14,3 @@ async function updateUserCareerStageByEmail(userEmail, stage, config) {
 }
 
 module.exports = updateUserCareerStageByEmail;
-
-// --- stage must be string (it's a keyword from adaptiveCard) !!!!!!!!!!!!!!
-// for example:  "hello";

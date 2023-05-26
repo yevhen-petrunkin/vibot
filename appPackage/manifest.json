@@ -38,10 +38,6 @@
               "description": "Почати/продовжити розмову"
             },
             {
-              "title": "dev",
-              "description": "Developer use only"
-            },
-            {
               "title": "help",
               "description": "Написати в технічну допомогу"
             }

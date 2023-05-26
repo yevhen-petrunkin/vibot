@@ -7,11 +7,6 @@ async function createPlanReviewReminder(context, credentials) {
 
     const nearestQuarterDate = getNearestQuarterDate();
 
-    console.log(
-      "createPlanReviewReminder: Nearest Quarter Date: ",
-      nearestQuarterDate
-    );
-
     return {
       userEmail,
       userName,

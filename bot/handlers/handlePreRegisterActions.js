@@ -51,7 +51,7 @@ async function handlePreRegisterActions(verb, context, credentials) {
           context,
           signUpCredentials
         );
-        console.log("handlePreRegisterActions:", contextData.value.action.data);
+
         return { isTriggered, credentials: signUpCredentials };
       }
       return { isTriggered, credentials };

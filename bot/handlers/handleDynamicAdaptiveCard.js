@@ -9,26 +9,14 @@ function handleDynamicAdaptiveCard(adaptiveCard, nextReminder) {
     );
 
     if (!transformer) {
-      console.log(
-        `handleDynamicAdaptiveCard: Did not find transformer for "${keyword}. Returning card as it is".`
-      );
       return adaptiveCard;
     }
-
-    console.log(
-      "handleDynamicAdaptiveCard: reminder, verb, operation",
-      nextReminder,
-      transformer.verb,
-      transformer.operation
-    );
 
     const newBody = transformer.operation(nextReminder);
 
     if (newBody) {
       adaptiveCard.body = newBody;
     }
-
-    console.log("handleDynamicAdaptiveCard: transformed card", adaptiveCard);
 
     return adaptiveCard;
   } catch (error) {

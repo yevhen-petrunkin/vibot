@@ -7,8 +7,7 @@ async function handleAdminReplyMessages(verb, context, credentials) {
       break;
 
     case "companyReady".toLowerCase():
-      message = `Компанія ${companyName} успішно створено. Для виклику робочого меню
-введіть команду “Hello”`;
+      message = `Компанію ${companyName} успішно створено. Для виклику робочого меню введіть команду “Hello”`;
       break;
 
     case "submitReady".toLowerCase():
