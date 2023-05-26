@@ -15,9 +15,11 @@ async function sendEmail(emailCreator, config) {
   try {
     let info = await transporter.sendMail(email);
     console.log("Email sent: %s", info.messageId);
+    return true;
   } catch (error) {
     console.log(error.message);
     console.log("Failed to send email.");
+    return false;
   }
 }
 

@@ -277,6 +277,14 @@
       "problemMatcher": [],
       "label": "npm: dev:teamsfx - bot",
       "detail": "env-cmd --silent -f .env.teamsfx.local npm run dev"
+    },
+    {
+      "type": "npm",
+      "script": "dev:teamsfx",
+      "path": "bot",
+      "problemMatcher": [],
+      "label": "npm: dev:teamsfx - bot",
+      "detail": "env-cmd --silent -f .env.teamsfx.local npm run dev"
     }
   ]
 }

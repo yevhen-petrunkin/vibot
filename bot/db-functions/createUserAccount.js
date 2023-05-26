@@ -8,7 +8,7 @@ const handleAdminReplyMessages = require("../handlers/handleAdminReplyMessages")
 async function createUserAccount(context, credentials) {
   try {
     const { userEmail, userRole } = context.activity.value.action.data;
-    const userKeyword = createKeyword(16);
+    const userKeyword = await createKeyword(16);
     let linkToManual = "";
 
     if (userRole.toLowerCase() === "specialist".toLowerCase()) {
@@ -19,12 +19,6 @@ async function createUserAccount(context, credentials) {
       linkToManual = "./files/manager.pdf";
     }
 
-    const { user } = await createUserWithEmailAndPassword(
-      auth,
-      userEmail,
-      userKeyword
-    );
-
     const authConfig = {
       recipientEmail: userEmail,
       authEmail: userEmail,
@@ -32,18 +26,28 @@ async function createUserAccount(context, credentials) {
       link: linkToManual,
     };
 
-    await sendEmail(createAuthEmail, authConfig);
+    const wasEmailSent = await sendEmail(createAuthEmail, authConfig);
 
-    console.log(
-      `User Account has been registered successfully. UserEmail ${userEmail} User keyword ${userKeyword}`
-    );
-    return user;
+    if (wasEmailSent) {
+      const { user } = await createUserWithEmailAndPassword(
+        auth,
+        userEmail,
+        userKeyword
+      );
+
+      console.log(
+        `User Account has been registered successfully. UserEmail ${userEmail} User keyword ${userKeyword}`
+      );
+      return user;
+    }
+    return null;
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;
     console.log(errorCode, errorMessage);
     const newVerb = "sameAccountAlert";
     await handleAdminReplyMessages(newVerb, context, credentials);
+    return null;
   }
 }
 
