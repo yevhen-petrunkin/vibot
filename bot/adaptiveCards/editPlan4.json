@@ -22,6 +22,7 @@
       "label": "Назва",
       "placeholder": "Назва цілі",
       "value": "",
+      "dvalue": "fetchGoal4NameByEmail",
       "style": "text",
       "isMultiline": false,
       "isRequired": true,
@@ -33,6 +34,7 @@
       "isMultiline": false,
       "placeholder": "дд-мм-рррр",
       "value": "",
+      "dvalue": "fetchGoal4DeadlineByEmail",
       "isRequired": true,
       "label": "Дедлайн",
       "errorMessage": "Щось не так"
@@ -43,6 +45,7 @@
       "label": "Опис",
       "placeholder": "Опис цілі",
       "value": "",
+      "dvalue": "fetchGoal4DescriptionByEmail",
       "style": "text",
       "isMultiline": true,
       "errorMessage": "Щось не так"

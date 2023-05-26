@@ -13,8 +13,8 @@
       "facts": [
         {
           "title": "№1 ",
-          "value": "Без назви",
-          "dvalue": "fetchGoalsByEmail"
+          "value": "Ціль без назви",
+          "dvalue": "fetchGoal1NameByEmail"
         }
       ]
     },
@@ -23,15 +23,15 @@
       "facts": [
         {
           "title": "Дедлайн:",
-          "value": "не вказан",
-          "dvalue": "fetchGoalsByEmail"
+          "value": "Не вказан",
+          "dvalue": "fetchGoal1DeadlineByEmail"
         }
       ]
     },
     {
       "type": "TextBlock",
       "text": "Без опису",
-      "dtext": "fetchGoalsByEmail",
+      "dtext": "fetchGoal1DescriptionByEmail",
       "wrap": true
     },
     {
@@ -40,7 +40,8 @@
       "facts": [
         {
           "title": "№2 ",
-          "value": "Без назви"
+          "value": "Ціль без назви",
+          "dvalue": "fetchGoal2NameByEmail"
         }
       ]
     },
@@ -49,15 +50,15 @@
       "facts": [
         {
           "title": "Дедлайн:",
-          "value": "не вказан",
-          "dvalue": "fetchGoalsByEmail"
+          "value": "Не вказан",
+          "dvalue": "fetchGoal2DeadlineByEmail"
         }
       ]
     },
     {
       "type": "TextBlock",
       "text": "Без опису",
-      "dtext": "fetchGoalsByEmail",
+      "dtext": "fetchGoal2DescriptionByEmail",
       "wrap": true
     },
     {
@@ -66,7 +67,8 @@
       "facts": [
         {
           "title": "№3 ",
-          "value": "Без назви"
+          "value": "Ціль без назви",
+          "dvalue": "fetchGoal3NameByEmail"
         }
       ]
     },
@@ -75,15 +77,15 @@
       "facts": [
         {
           "title": "Дедлайн:",
-          "value": "не вказан",
-          "dvalue": "fetchGoalsByEmail"
+          "value": "Не вказан",
+          "dvalue": "fetchGoal3DeadlineByEmail"
         }
       ]
     },
     {
       "type": "TextBlock",
       "text": "Без опису",
-      "dtext": "fetchGoalsByEmail",
+      "dtext": "fetchGoal3DescriptionByEmail",
       "wrap": true
     },
     {
@@ -92,7 +94,8 @@
       "facts": [
         {
           "title": "№4 ",
-          "value": "Без назви"
+          "value": "Ціль без назви",
+          "dvalue": "fetchGoal4NameByEmail"
         }
       ]
     },
@@ -101,15 +104,15 @@
       "facts": [
         {
           "title": "Дедлайн:",
-          "value": "не вказан",
-          "dvalue": "fetchGoalsByEmail"
+          "value": "Не вказан",
+          "dvalue": "fetchGoal4DeadlineByEmail"
         }
       ]
     },
     {
       "type": "TextBlock",
       "text": "Без опису",
-      "dtext": "fetchGoalsByEmail",
+      "dtext": "fetchGoal4DescriptionByEmail",
       "wrap": true
     },
     {
