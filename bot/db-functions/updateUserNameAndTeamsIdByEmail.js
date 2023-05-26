@@ -17,14 +17,9 @@ async function updateUserNameAndTeamsIdByEmail(
     });
     console.log("UserName and teamsId updated in firestore.");
   } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode, errorMessage);
+    console.log(error.message);
     console.log("Failed to update User Name and teamsId in firestore.");
   }
 }
 
 module.exports = updateUserNameAndTeamsIdByEmail;
-
-// --- contextData is data obntained from context activity !!!!!!!!!!!!!!
-// const contextData = context.activity;

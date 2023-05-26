@@ -16,9 +16,7 @@ async function createNewUser(context, credentials) {
       await handleAdminReplyMessages(newVerb, context, credentials);
     }
   } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode, errorMessage);
+    console.log(error.message);
   }
 }
 module.exports = createNewUser;

@@ -2,7 +2,12 @@ const { collection, getDocs } = require("firebase/firestore");
 const { db } = require("../../firebase");
 
 async function fetchAllManagerFiles(credentials) {
-  const filesRef = collection(db, credentials.companyName, "companyFiles", "managerFiles");
+  const filesRef = collection(
+    db,
+    credentials.companyName,
+    "companyFiles",
+    "managerFiles"
+  );
   try {
     const files = await getDocs(filesRef);
 
@@ -17,7 +22,6 @@ async function fetchAllManagerFiles(credentials) {
       newArr.push(file.data());
     });
     console.log("All files obtained.");
-    console.log("Files");
     console.log(JSON.stringify(newArr, undefined, 2));
     return newArr;
   } catch (error) {

@@ -6,9 +6,11 @@ async function updateUserCompanyName(companyName, user) {
       displayName: companyName,
     });
     console.log("User Company Name updated");
+    return true;
   } catch (error) {
     console.log(error.message);
     console.log("Failed to update User Company Name");
+    return false;
   }
 }
 

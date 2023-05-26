@@ -17,7 +17,7 @@ const updateUserCareerStageByEmail = require("../db-functions/updateUserCareerSt
 async function handleInvokeByVerb(verb, config) {
   const { context, credentials } = config;
   const contextData = context.activity;
-  const { userEmail, companyName } = credentials;
+  const { userEmail } = credentials;
 
   let command = await changeCommand(verb, config);
 
@@ -51,7 +51,7 @@ async function handleInvokeByVerb(verb, config) {
       );
     } else {
       const noConnectionWithDatabaseMsg =
-        "Cannot reach the necessary data right now. Try again later.";
+        "Не можу дістати необхідні дані. Спробуйте пізніше.";
       await handleUserReplyMessages(
         noConnectionWithDatabaseMsg,
         context,

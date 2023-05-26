@@ -6,8 +6,6 @@ function getTomorrowDate() {
   const month = String(tomorrowDate.getMonth() + 1).padStart(2, "0");
   const day = String(tomorrowDate.getDate()).padStart(2, "0");
 
-  console.log("getTomorrowDate: ", `${year}-${month}-${day}`);
-
   return `${year}-${month}-${day}`;
 }
 

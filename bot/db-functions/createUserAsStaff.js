@@ -34,9 +34,7 @@ async function createUserAsStaff(contextData, user, companyName) {
     await setDoc(userRef, userData);
     console.log("User registered as company staff.");
   } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode, errorMessage);
+    console.log(error.message);
     console.log("Failed to register User as Company staff.");
   }
 }

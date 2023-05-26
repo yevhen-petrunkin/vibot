@@ -10,8 +10,6 @@ function getOneMonthLaterDate(date) {
   const month = String(oneMonthLaterDate.getMonth() + 1).padStart(2, "0");
   const day = String(oneMonthLaterDate.getDate()).padStart(2, "0");
 
-  console.log("getOneMonthLaterDate: ", `${year}-${month}-${day}`);
-
   return `${year}-${month}-${day}`;
 }
 

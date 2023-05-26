@@ -19,20 +19,15 @@ async function updateRemindersByEmail(
     await updateDoc(userRef, {
       reminders: arrayUnion(reminder),
     });
-    console.log(
-      "updateRemindersByEmail: Reminder has been sent to firestore.",
-      reminder
-    );
+    console.log("Reminder has been sent to firestore.", reminder);
     const newVerb = "reminderSentMessage";
     await handleAdminReplyMessages(newVerb, context, credentials);
 
     return true;
   } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode, errorMessage);
+    console.log(error.message);
     console.log(
-      "updateRemindersByEmail: Failed to send reminder to firestore. Trying to create reminders and send again..."
+      "Failed to send reminder to firestore. Trying to create reminders and send again..."
     );
     return false;
   }

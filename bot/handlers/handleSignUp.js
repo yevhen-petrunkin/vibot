@@ -26,9 +26,7 @@ async function handleSignUp(context, credentials) {
 
     return null;
   } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode, errorMessage);
+    console.log(error.message);
     const newVerb = "noEntryMessage";
 
     await handleAdminReplyMessages(newVerb, context, credentials);

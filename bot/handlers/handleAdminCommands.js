@@ -7,7 +7,7 @@ const deleteUser = require("../db-functions/deleteUser");
 const handleCredentials = require("./handleCredentials");
 
 async function handleAdminCommands(verb, config) {
-  const { context, credentials, state } = config;
+  const { context, credentials } = config;
   const { companyName, userEmail } = credentials;
 
   const isUserAuth = await handleCredentials(context.activity, credentials);
@@ -20,7 +20,6 @@ async function handleAdminCommands(verb, config) {
 
       case "confirmUpdatePerfReview".toLowerCase():
         const dateData = context.activity.value.action.data;
-        console.log("Perf Dates :", dateData);
         await updatePerformanceReviewDates(dateData, companyName);
         break;
 
@@ -44,8 +43,6 @@ async function handleAdminCommands(verb, config) {
           },
           {}
         );
-
-        console.log("filteredData: ", filteredData);
 
         await updateUserByEmail(userData.updateEmail, filteredData, config);
         break;

@@ -19,9 +19,3 @@ async function updatePerformanceReviewDates(dateData, companyName) {
 }
 
 module.exports = updatePerformanceReviewDates;
-
-// ---------- dateData must be an object that looks like this: !!!!!!!!!!!!!!
-// {
-//         perfStartDate: "",
-//         perfEndDate: "",
-// };

@@ -10,7 +10,6 @@ async function handleNextReminder(config) {
     const { context, credentials, reminders, reminderIndex } = config;
     const { userEmail, userReminders, companyName } = credentials;
     let nextReminder = "";
-    console.log("Reminder index: ", reminderIndex);
 
     const unusedUserReminders = await userReminders.filter(
       ({ triggerDate }) => !checkIsDatePassed(triggerDate)
@@ -35,13 +34,12 @@ async function handleNextReminder(config) {
       return;
     }
     const newReminder = reminders[reminderIndex];
-    console.log("nextReminder: reminderIndex", reminderIndex);
 
     await showNextReminder(newReminder, context);
     return;
   } catch (error) {
     console.log(error.message);
-    console.log("handleNextReminder: Failed to determine next reminder.");
+    console.log(" Failed to determine next reminder.");
     return;
   }
 }

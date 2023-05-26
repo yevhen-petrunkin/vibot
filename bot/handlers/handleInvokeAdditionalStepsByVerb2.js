@@ -1,4 +1,3 @@
-// const updateUserByEmail = require("../db-functions/updateUserByEmail");
 const fetchUserByEmail = require("../db-functions/fetchUserByEmail");
 const updateGoalsByEmail = require("../db-functions/updateGoalsByEmail");
 const deleteGoalByEmail = require("../db-functions/deleteGoalByEmail");
@@ -13,7 +12,6 @@ async function handleInvokeAdditionalStepsByVerb2(verb, config) {
   if (isUserAuth) {
     switch (verb.toLowerCase()) {
       case "createGoal".toLowerCase():
-        //  console.log(credentials.stage);
         const goal = {
           id: context.activity.value.action.data.goalId,
           name: context.activity.value.action.data.goalName,
@@ -21,8 +19,7 @@ async function handleInvokeAdditionalStepsByVerb2(verb, config) {
           description: context.activity.value.action.data.description,
         };
         const userData = await fetchUserByEmail(userEmail, companyName);
-        console.log("user:", userData);
-        //console.log("id:", goal.id);
+
         if (userData) {
           const findGoal = userData.goals.find(
             (goalId) => goalId.id === goal.id
@@ -33,20 +30,19 @@ async function handleInvokeAdditionalStepsByVerb2(verb, config) {
           console.log("goal:", goal);
           await updateGoalsByEmail(userEmail, goal, config);
         }
-        // console.log("findGoal:", findGoal);
+
         break;
 
       case "goalDone".toLowerCase():
-        //  console.log(credentials.stage);
         const goalId = context.activity.value.action.data.goalId;
         const userDataId = await fetchUserByEmail(userEmail, companyName);
         console.log("user:", userDataId);
-        //console.log("id:", goal.id);
+
         if (userDataId) {
           const findGoalById = userDataId.goals.find(
             (goal) => goal.id === goalId
           );
-          // console.log("findGoal:", findGoal);
+
           await deleteGoalByEmail(userEmail, findGoalById, config);
         }
         break;

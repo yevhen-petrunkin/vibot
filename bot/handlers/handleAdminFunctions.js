@@ -19,7 +19,7 @@ async function handleAdminFunctions(verb, config) {
       credentials
     );
     if (!isReplyMessage) {
-      await context.sendActivity("Sorry. Did not find the necessary answer.");
+      await context.sendActivity("Вибачте. Не знайшов потрібної відповіді.");
       return;
     }
     await handleAdminCommands(verb, config);
@@ -37,7 +37,7 @@ async function handleAdminFunctions(verb, config) {
       );
     } else {
       const noConnectionWithDatabaseMsg =
-        "Cannot reach the necessary data right now. Try again later.";
+        "Не можу дістати необхідні дані. Спробуйте пізніше.";
       await handleAdminReplyMessages(
         noConnectionWithDatabaseMsg,
         context,

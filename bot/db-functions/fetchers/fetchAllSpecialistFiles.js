@@ -22,7 +22,6 @@ async function fetchAllSpecialistFiles(credentials) {
     files.forEach((file) => {
       newArr.push(file.data());
     });
-    console.log("Files");
     console.log(JSON.stringify(newArr, undefined, 2));
     console.log("All files obtained.");
     return newArr;

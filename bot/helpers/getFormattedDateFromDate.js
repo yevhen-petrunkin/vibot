@@ -4,8 +4,6 @@ function getFormattedDateFromDate(date) {
   const month = parts[1];
   const year = parts[0];
 
-  console.log("getFormattedDateFromDate: ", `${day}.${month}.${year}`);
-
   return `${day}.${month}.${year}`;
 }
 

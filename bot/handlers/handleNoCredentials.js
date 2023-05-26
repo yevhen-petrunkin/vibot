@@ -18,7 +18,7 @@ async function handleNoCredentials(context) {
     };
     return newCredentials;
   } else {
-    console.log("handleNoCredentials: No user logged");
+    console.log("No user logged");
     await showAdaptiveCardByData(rawSuggestAuthCard, context);
     return null;
   }

@@ -41,9 +41,7 @@ async function deleteUser(targetEmail, context, credentials) {
       return false;
     }
   } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode, errorMessage);
+    console.log(error.message);
     console.log("Failed to delete target user. Something went wrong.");
     newVerb = "userNotDeleted";
     await handleAdminReplyMessages(newVerb, context, credentials);

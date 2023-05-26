@@ -7,11 +7,6 @@ async function createSpecGoalDeadlineReminder(context, credentials) {
 
     const currentDate = getCurrentDateFormatted();
 
-    console.log(
-      "createSpecGoalDeadlineReminder: Nearest Quarter Date: ",
-      currentDate
-    );
-
     return {
       userEmail,
       userName,

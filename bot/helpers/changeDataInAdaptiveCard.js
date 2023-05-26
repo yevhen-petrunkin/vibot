@@ -1,16 +1,6 @@
-//const { mainDynamicFunction } = require("./dynamic.js");
-const { link } = require("fs");
-const { doc, getDoc, deleteDoc, collection } = require("firebase/firestore");
-const { db } = require("../firebase.js");
-const { credential } = require("firebase-admin");
 const fs = require("fs");
-const fsPromises = require("fs/promises");
 const path = require("path");
-const { promisify } = require("util");
-
-
 const scriptsFolder = "./db-functions/fetchers";
-//C:/Users/Icepriest/TeamsApps/vbot-main2/vibot-main/bot
 
 // Функция, которая принимает путь к папке и возвращает массив ключей-значений скриптов
 function loadScripts(folderPath) {
@@ -35,10 +25,7 @@ function loadScripts(folderPath) {
 
   return scripts;
 }
-//adminanother@m.com
-//adminnew@mail.com blinadmin@mail.ru
-// Загрузка скриптов из папки
-//user1@m.com user1user
+
 const scripts = loadScripts(scriptsFolder);
 
 Object.keys(scripts).forEach((key) => {
@@ -46,10 +33,7 @@ Object.keys(scripts).forEach((key) => {
 });
 
 async function changeDataInAdaptiveCard(adaptiveCard, config) {
-  const { context, credentials } = config;
-  const contextData = context.activity;
-  const userName = context.activity.from.name;
-  const userEmail = credentials.userEmail;
+  const { credentials } = config;
 
   console.log("StartingChanges");
 
@@ -62,9 +46,6 @@ async function changeDataInAdaptiveCard(adaptiveCard, config) {
   console.log("All Great at this point");
 
   return adaptiveCard;
-
-  //user3@gmail.com
-  //tetstmanager1@mail.com
 }
 
 async function mainDynamicFunction(adaptiveCard, credentials) {
@@ -73,9 +54,7 @@ async function mainDynamicFunction(adaptiveCard, credentials) {
   await ReplaceDtexts(adaptiveCard, credentials);
   await ReplaceDvalues(adaptiveCard, credentials);
 }
-//correctadmin@c.com
-//correctm1@c.com
-//corrects1@c.com
+
 async function ReplaceLists(adaptiveCard, credentials) {
   console.log("ReplaceLists");
   var arraysOfListData = []; //тут збреігаються усі фетч масиви усіх листів картки
@@ -100,8 +79,6 @@ async function ReplaceLists(adaptiveCard, credentials) {
       credentials
     );
   }
-
-  //console.log(JSON.stringify(adaptiveCard, undefined, 2));
 }
 
 async function FetchListData(fetchinfo, credentials) {
@@ -156,7 +133,11 @@ function CreateItemsFromDynamicItems(dlist, arrayOfListData, credentials) {
   }
   console.log("next");
 
-  for (let iterator = 0, flattenedIterator = 0; iterator < finalItemSize; iterator++) {
+  for (
+    let iterator = 0, flattenedIterator = 0;
+    iterator < finalItemSize;
+    iterator++
+  ) {
     if (itemsNewObject[iterator].ltext === true) {
       if (
         flattenedArray[flattenedIterator] !== undefined &&
@@ -183,15 +164,14 @@ function CreateItemsFromDynamicItems(dlist, arrayOfListData, credentials) {
 function getMaxSubarrayLength(array) {
   let maxLength = 0;
 
-  try{
-  for (let i = 0; i < array.length; i++) {
-    const subarrayLength = array[i].length;
-    if (subarrayLength > maxLength) {
-      maxLength = subarrayLength;
+  try {
+    for (let i = 0; i < array.length; i++) {
+      const subarrayLength = array[i].length;
+      if (subarrayLength > maxLength) {
+        maxLength = subarrayLength;
+      }
     }
-  }
-  }
-  catch(error){
+  } catch (error) {
     return 0;
   }
 
@@ -201,7 +181,6 @@ function getMaxSubarrayLength(array) {
 async function ReplaceDtexts(obj, credentials) {
   for (let property in obj) {
     if (property === "dtext") {
-
       console.log(JSON.stringify(scripts, undefined, 2));
 
       let fetchedValue = await scripts[obj["dtext"]](credentials);
@@ -234,7 +213,6 @@ async function ReplaceDtexts(obj, credentials) {
 async function ReplaceDvalues(obj, credentials) {
   for (let property in obj) {
     if (property === "dvalue") {
-
       let fetchedValue = await scripts[obj["dvalue"]](credentials);
 
       try {

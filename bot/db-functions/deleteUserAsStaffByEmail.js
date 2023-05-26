@@ -8,9 +8,7 @@ async function deleteUserAsStaffByEmail(userEmail, companyName) {
     console.log("User has been successfully deleted from company members.");
     return true;
   } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode, errorMessage);
+    console.log(error.message);
     console.log("Failed to delete user from company members.");
     return false;
   }

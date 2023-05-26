@@ -9,8 +9,6 @@ function getNearestDateByGoals(goals) {
 
   const nearestDate = goals[0].deadline;
 
-  console.log("getNearestDateByGoals: ", nearestDate);
-
   return nearestDate;
 }
 
