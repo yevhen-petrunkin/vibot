@@ -1,10 +1,13 @@
-function createAuthEmail({ recipientEmail, authEmail, authKeyword, link }) {
-  return {
-    from: "<kovcheg_xxi_koval@ukr.net>",
-    to: recipientEmail,
-    subject: "Bot V7Pro by Viseven company",
-    text: "Hello, I am your V7Pro bot!",
-    html: `    <img src="cid:uniqueAdaptiveCard@nodemailer.com" /><br />
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img src="cid:uniqueAdaptiveCard@nodemailer.com" /><br />
     <h1>Привіт!</h1>
     <p>
       V7Pro - це кар'єрний помічник від Viseven, який допомогає в професійному
@@ -26,18 +29,6 @@ function createAuthEmail({ recipientEmail, authEmail, authKeyword, link }) {
       <b>3. Розпочати роботу. </b>Рекомендуємо спочтаку ознайомитись з
       інструкцією по використанню боту та подивитись промо-відео.
     </p>
-    <p>Давай зробимо перший крок на шляху до кар'єрного зростання. Успіхів!</p>`,
-    attachments: [
-      {
-        filename: "image.jpg",
-        path: "./images/image.png",
-        cid: "uniqueAdaptiveCard@nodemailer.com",
-      },
-      {
-        path: link,
-      },
-    ],
-  };
-}
-
-module.exports = createAuthEmail;
+    <p>Давай зробимо перший крок на шляху до кар'єрного зростання. Успіхів!</p>
+  </body>
+</html>

@@ -7,7 +7,7 @@ async function createNewUser(context, credentials) {
   const { companyName } = credentials;
 
   try {
-    const user = await createUserAccount(context.activity);
+    const user = await createUserAccount(context, credentials);
     if (user) {
       await updateUserCompanyName(companyName, user);
       await createUserAsStaff(context.activity, user, companyName);

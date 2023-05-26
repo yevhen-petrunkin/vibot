@@ -1,5 +1,6 @@
 const updateUserByEmail = require("../db-functions/updateUserByEmail");
 const updateRemindersByEmail = require("../db-functions/updateRemindersByEmail");
+const fetchUserStartingDateByEmail = require("../db-functions/fetchUserStartingDateByEmail");
 const handleCredentials = require("./handleCredentials");
 const checkSixMothsLaterDate = require("../helpers/specialistProactiveHelpers/checkSixMothsLaterDate");
 const createPlanJoyReminder = require("../helpers/specialistProactiveHelpers/createPlanJoyReminder");
@@ -35,6 +36,7 @@ async function handleInvokeAdditionalStepsByVerb(verb, config) {
       case "helpPlan".toLowerCase():
         reminder = await checkSixMothsLaterDate(context, credentials);
         await updateRemindersByEmail(userEmail, reminder, config);
+        const date = await fetchUserStartingDateByEmail(userEmail, companyName);
         additionalReminder = {
           userEmail,
           userName,
