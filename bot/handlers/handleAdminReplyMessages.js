@@ -21,6 +21,11 @@ async function handleAdminReplyMessages(verb, context, credentials) {
         "Не вдалося увійти в акаунт. Спробуй пізніше. \n Для продовження введіть команду “Hello”.";
       break;
 
+    case "sameAccountAlert".toLowerCase():
+      message =
+        "Не вдалося створити акаунт з невідомої причини. \n Можливо, акаунт з таким email вже є в базі даних. Спробуй інший. \n Для продовження введіть команду “Hello”.";
+      break;
+
     case "createUserMessage".toLowerCase():
       message = "Йде запис даних про користувача...";
       break;

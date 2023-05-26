@@ -5,14 +5,14 @@ const createCompanyFiles = require("./createCompanyFiles");
 const updateUserCompanyName = require("./updateUserCompanyName");
 const createAdminCredentials = require("../helpers/createAdminCredentials");
 
-async function createNewCompany(contextData) {
-  const { companyName } = contextData.value.action.data;
+async function createNewCompany(context) {
+  const { companyName } = context.activity.value.action.data;
   try {
-    const user = await createAdminAccount(contextData);
+    const user = await createAdminAccount(context);
     if (user) {
       await updateUserCompanyName(companyName, user);
-      await createCompanyInfo(contextData);
-      await createAdminAsUser(contextData, user);
+      await createCompanyInfo(context.activity);
+      await createAdminAsUser(context.activity, user);
       await createCompanyFiles(companyName);
 
       console.log("All operations completed successfully.");

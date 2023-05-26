@@ -1,6 +1,6 @@
 const { adaptiveCards } = require("../adaptiveCards/cardIndex");
 const findAdaptiveCard = require("../helpers/findAdaptiveCard");
-const updateDataInAdminCards = require("../helpers/updateDataInAdminCards");
+const changeDataInAdaptiveCard = require("../helpers/changeDataInAdaptiveCard");
 const showAdaptiveCardByData = require("../actions/showAdaptiveCardByData");
 const handleAdminCommands = require("../handlers/handleAdminCommands");
 const handleAdminReplyMessages = require("../handlers/handleAdminReplyMessages");
@@ -31,7 +31,10 @@ async function handleAdminFunctions(verb, config) {
   if (adaptiveCardData.dynamic) {
     const user = await handleCredentials(contextData, credentials);
     if (user) {
-      adaptiveCardData = await updateDataInAdminCards(adaptiveCardData, config);
+      adaptiveCardData = await changeDataInAdaptiveCard(
+        adaptiveCardData,
+        config
+      );
     } else {
       const noConnectionWithDatabaseMsg =
         "Cannot reach the necessary data right now. Try again later.";

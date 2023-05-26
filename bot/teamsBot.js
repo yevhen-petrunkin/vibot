@@ -32,6 +32,7 @@ const findAdaptiveCard = require("./helpers/findAdaptiveCard");
 const { normalizeMessageText } = require("./helpers/normalize");
 const checkIsReminder = require("./helpers/checkIsReminder");
 const defineNextVerb = require("./helpers/defineNextVerb");
+const changeDataInAdaptiveCard = require("./helpers/changeDataInAdaptiveCard");
 
 class TeamsBot extends TeamsActivityHandler {
   constructor() {
@@ -84,7 +85,11 @@ class TeamsBot extends TeamsActivityHandler {
 
       if (this.credentials.userRole === "admin") {
         console.log("Admin is still logged on message with credentials");
-        await showAdaptiveCardByData(rawAdminMenuCard, context);
+        const adaptiveCardData = await changeDataInAdaptiveCard(
+          rawAdminMenuCard,
+          config
+        );
+        await showAdaptiveCardByData(adaptiveCardData, context);
       }
 
       if (
