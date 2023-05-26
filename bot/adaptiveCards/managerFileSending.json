@@ -38,12 +38,12 @@
     {
       "type": "Action.OpenUrl",
       "title": "Посилання на файл 1",
-      "url": "https://adaptivecards.io"
+      "url": ""
     },
     {
       "type": "Action.OpenUrl",
       "title": "Посилання на файл 2",
-      "url": "https://adaptivecards.io"
+      "url": ""
     },
     {
       "type": "Action.Execute",
