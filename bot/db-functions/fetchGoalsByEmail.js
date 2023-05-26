@@ -5,7 +5,13 @@ async function fetchGoalsbyEmail(userEmail, companyName) {
     const userData = await fetchUserByEmail(userEmail, companyName);
     console.log("Goals have been fetched successfully: ", userData.goals);
 
-    return userData.goals;
+    if (userData) {
+      const userGoals = userData.goals;
+      return userGoals.sort((a, b) => a.id.localeCompare(b.id));
+    }
+
+    console.log("Failed to fetch goals. Return empty array");
+    return [];
   } catch (error) {
     console.log(error.message);
     console.log("Failed to fetch goals. Return empty array");
