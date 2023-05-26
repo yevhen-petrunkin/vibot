@@ -34,7 +34,7 @@ function loadScripts(folderPath) {
 
   return scripts;
 }
-
+//adminanother@m.com
 //adminnew@mail.com blinadmin@mail.ru
 // Загрузка скриптов из папки
 //user1@m.com user1user
@@ -155,11 +155,7 @@ function CreateItemsFromDynamicItems(dlist, arrayOfListData, credentials) {
   }
   console.log("next");
 
-  for (
-    let iterator = 0, flattenedIterator = 0;
-    iterator < finalItemSize;
-    iterator++
-  ) {
+  for (let iterator = 0, flattenedIterator = 0; iterator < finalItemSize; iterator++) {
     if (itemsNewObject[iterator].ltext === true) {
       if (
         flattenedArray[flattenedIterator] !== undefined &&
@@ -186,11 +182,16 @@ function CreateItemsFromDynamicItems(dlist, arrayOfListData, credentials) {
 function getMaxSubarrayLength(array) {
   let maxLength = 0;
 
+  try{
   for (let i = 0; i < array.length; i++) {
     const subarrayLength = array[i].length;
     if (subarrayLength > maxLength) {
       maxLength = subarrayLength;
     }
+  }
+  }
+  catch(error){
+    return 0;
   }
 
   return maxLength;
@@ -199,6 +200,8 @@ function getMaxSubarrayLength(array) {
 async function ReplaceDtexts(obj, credentials) {
   for (let property in obj) {
     if (property === "dtext") {
+
+      console.log(JSON.stringify(scripts, undefined, 2));
 
       let fetchedValue = await scripts[obj["dtext"]](credentials);
 

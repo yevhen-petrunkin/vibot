@@ -13,7 +13,8 @@
       "facts": [
         {
           "title": "№1 ",
-          "value": "Назва цілі "
+          "value": "Без назви",
+          "dvalue": "fetchGoalsbyEmail"
         }
       ]
     },
@@ -22,13 +23,15 @@
       "facts": [
         {
           "title": "Дедлайн:",
-          "value": ""
+          "value": "не вказан",
+          "dvalue": "fetchGoalsbyEmail"
         }
       ]
     },
     {
       "type": "TextBlock",
-      "text": "Опис",
+      "text": "Без опису",
+      "dtext": "fetchGoalsbyEmail",
       "wrap": true
     },
     {
@@ -37,7 +40,7 @@
       "facts": [
         {
           "title": "№2 ",
-          "value": "Назва цілі "
+          "value": "Без назви"
         }
       ]
     },
@@ -46,13 +49,15 @@
       "facts": [
         {
           "title": "Дедлайн:",
-          "value": ""
+          "value": "не вказан",
+          "dvalue": "fetchGoalsbyEmail"
         }
       ]
     },
     {
       "type": "TextBlock",
-      "text": "Опис",
+      "text": "Без опису",
+      "dtext": "fetchGoalsbyEmail",
       "wrap": true
     },
     {
@@ -61,7 +66,7 @@
       "facts": [
         {
           "title": "№3 ",
-          "value": "Назва цілі "
+          "value": "Без назви"
         }
       ]
     },
@@ -70,13 +75,15 @@
       "facts": [
         {
           "title": "Дедлайн:",
-          "value": ""
+          "value": "не вказан",
+          "dvalue": "fetchGoalsbyEmail"
         }
       ]
     },
     {
       "type": "TextBlock",
-      "text": "Опис",
+      "text": "Без опису",
+      "dtext": "fetchGoalsbyEmail",
       "wrap": true
     },
     {
@@ -85,7 +92,7 @@
       "facts": [
         {
           "title": "№4 ",
-          "value": "Назва цілі "
+          "value": "Без назви"
         }
       ]
     },
@@ -94,13 +101,15 @@
       "facts": [
         {
           "title": "Дедлайн:",
-          "value": ""
+          "value": "не вказан",
+          "dvalue": "fetchGoalsbyEmail"
         }
       ]
     },
     {
       "type": "TextBlock",
-      "text": "Опис",
+      "text": "Без опису",
+      "dtext": "fetchGoalsbyEmail",
       "wrap": true
     },
     {
