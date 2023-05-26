@@ -9,7 +9,7 @@ async function fetchPerformanceReviewStartDate(credentials) {
     console.log(JSON.stringify(res, undefined, 2));
     console.log(JSON.stringify(perfStartDate, undefined, 2));
     console.log("Performance review dates fetched successfully.");
-    return perfStartDate;
+    return perfStartDate.replace(/-/g, ".");
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;
