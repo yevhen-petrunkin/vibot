@@ -36,16 +36,6 @@
   ],
   "actions": [
     {
-      "type": "Action.OpenUrl",
-      "title": "Посилання на файл 1",
-      "url": ""
-    },
-    {
-      "type": "Action.OpenUrl",
-      "title": "Посилання на файл 2",
-      "url": ""
-    },
-    {
       "type": "Action.Execute",
       "title": "Давай почнемо",
       "verb": "managerMenu",

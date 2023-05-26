@@ -14,12 +14,13 @@ async function handleLogIn(context, credentials) {
       return await createUserCredentials();
     }
     console.log("User has not been logged in!");
+    const newVerb = "noEntryMessage";
+    await handleAdminReplyMessages(newVerb, context, credentials);
 
     return null;
   } catch (error) {
     console.log(error.message);
     const newVerb = "noEntryMessage";
-
     await handleAdminReplyMessages(newVerb, context, credentials);
     return null;
   }
