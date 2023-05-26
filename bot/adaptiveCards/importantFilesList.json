@@ -16,7 +16,7 @@
           "fetcher": "fetchFilesUrl"
         }
       ],
-      "ditems":[
+      "ditems": [
         {
           "type": "TextBlock",
           "text": "Немає інформації про ім'я файлу",
@@ -37,7 +37,7 @@
     {
       "type": "Action.Execute",
       "title": "Ок",
-      "verb": "managerMenu",
+      "verb": "seenFiles",
       "fallback": "Action.Submit"
     }
   ],

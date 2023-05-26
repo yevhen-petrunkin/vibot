@@ -2,7 +2,6 @@ const specMenuEndpoints = [
   "thankWaitNote",
   "perfReviewNote",
   "perfReviewNoteMessage",
-  "importantFilesList",
   "answerToSend",
   "thankCardDef",
   "confirmRecord",

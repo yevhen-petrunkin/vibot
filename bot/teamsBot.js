@@ -198,7 +198,7 @@ class TeamsBot extends TeamsActivityHandler {
         "User (manager/specialist) is still logged on invoke with credentials"
       );
 
-      this.credentials.stage = defineNextVerb(verb);
+      this.credentials.stage = defineNextVerb(verb, this.credentials);
 
       console.log("New Stage:", this.credentials.stage);
       await handleInvokeByVerb(verb, config);

@@ -1,7 +1,3 @@
-const managerMenuEndpoints = [
-  "importantFilesList",
-  "noPlanList",
-  "helloMessage",
-];
+const managerMenuEndpoints = ["noPlanList", "helloMessage"];
 
 module.exports = { managerMenuEndpoints };
