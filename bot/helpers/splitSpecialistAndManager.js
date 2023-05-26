@@ -15,6 +15,8 @@ async function splitSpecialistAndManager(credentials) {
     return "hello";
   }
 
+  console.log("userData.startingDate: ", userData.startingDate);
+
   return splitPlanPathByDate(userData.startingDate);
 }
 

@@ -5,7 +5,12 @@ async function fetchUsersEmailWithoutPlan(credentials) {
   if (!users.length) {
     return [];
   }
-  const usersWithoutPlan = users.filter(({ hasCareerPlan }) => !hasCareerPlan);
+  const usersWithoutPlan = users.filter(
+    ({ hasCareerPlan, userRole }) =>
+      !hasCareerPlan &&
+      userRole.toLowerCase() !== "manager" &&
+      userRole.toLowerCase() !== "admin"
+  );
   if (!usersWithoutPlan.length) {
     console.log("There are no users without a plan.");
     return [];

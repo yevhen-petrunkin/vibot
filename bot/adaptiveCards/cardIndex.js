@@ -5,6 +5,7 @@ const rawAdminMenuCard = require("./adminMenu.json");
 const rawCreateCompanyCard = require("./createCompany.json");
 const rawSignUpCard = require("./signUp.json");
 const rawLogInCard = require("./logIn.json");
+const rawSupportCard = require("./writeToSupport.json");
 
 const fs = require("fs");
 const path = require("path");
@@ -18,6 +19,7 @@ module.exports = {
   adaptiveCards,
   rawNavigateCard,
   rawSuggestAuthCard,
+  rawSupportCard,
   rawAdminMenuCard,
   rawCreateCompanyCard,
   rawSignUpCard,

@@ -3,28 +3,36 @@ const updateUserPassword = require("../db-functions/updateUserPassword");
 const updateUserNameAndTeamsIdByEmail = require("../db-functions/updateUserNameAndTeamsIdByEmail");
 const logInUser = require("../db-functions/logInUser");
 const createUserCredentials = require("../helpers/createUserCredentials");
+const handleAdminReplyMessages = require("./handleAdminReplyMessages");
 
-async function handleSignUp(contextData) {
-  const newPassword = contextData.from.id;
+async function handleSignUp(context, credentials) {
   try {
-    const user = await signUpUser(contextData);
+    const newPassword = context.activity.from.id;
+
+    const user = await signUpUser(context.activity);
+
     if (user) {
       await updateUserPassword(newPassword, user);
       await updateUserNameAndTeamsIdByEmail(
         user.email,
-        contextData,
+        context.activity,
         user.displayName
       );
-      await logInUser(contextData, user.email);
+      await logInUser(context.activity, user.email);
       console.log("User has been admitted.");
       return await createUserCredentials();
     }
     console.log("User has not been signed up!");
+
     return null;
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;
     console.log(errorCode, errorMessage);
+    const newVerb = "noEntryMessage";
+
+    await handleAdminReplyMessages(newVerb, context, credentials);
+    return null;
   }
 }
 module.exports = handleSignUp;

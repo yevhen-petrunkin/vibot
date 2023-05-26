@@ -10,8 +10,8 @@ async function fetchUsersByManagerEmail(credentials) {
 
   let areSuchUsers = false;
 
-  for(let i = 0; i < users.length; i++){
-    if(users[i]['managerEmail'] === credentials.userEmail){
+  for (let i = 0; i < users.length; i++) {
+    if (users[i]["managerEmail"] === credentials.userEmail) {
       areSuchUsers = true;
       break;
     }
@@ -25,8 +25,13 @@ async function fetchUsersByManagerEmail(credentials) {
     console.log("There are no users found with this manager.");
     return [];
   }
-  console.log("Some users have been found with this manager."); 
-  return await users.filter(({ managerEmail }) => credentials.userEmail === managerEmail); 
+  console.log("Some users have been found with this manager.");
+  return await users.filter(
+    ({ managerEmail, userRole }) =>
+      credentials.userEmail === managerEmail &&
+      userRole.toLowerCase() !== "manager" &&
+      userRole.toLowerCase() !== "admin"
+  );
 }
 
 module.exports = fetchUsersByManagerEmail;
